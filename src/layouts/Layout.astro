@@ -1,17 +1,25 @@
 ---
+import { ClientRouter } from "astro:transitions";
+
 import "../styles/global.css";
+import Header from "./Header.astro";
 ---
 
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+    <title>Arctic Roots</title>
+
+    <ClientRouter />
   </head>
-  <body>
-    <slot />
+  <body class="flex flex-col min-h-screen">
+    <Header />
+    <main class="flex-1 bg-white">
+      <slot />
+    </main>
   </body>
 </html>
 

@@ -1,0 +1,26 @@
+---
+import { getImage } from "astro:assets";
+interface Props {
+  backgroundImage: ImageMetadata;
+}
+
+const { backgroundImage } = Astro.props;
+
+const optimzedImage = await getImage({
+  src: backgroundImage,
+  widths: [400, 800, 1200, 1600, 2000],
+  formats: ["avif", "webp", "jpeg"],
+  quality: 80,
+});
+---
+
+<section
+  class="w-full h-[60vh] md:h-[80vh] lg:h-[90vh]
+  flex flex-col items-center justify-center text-center px-4 md:px-8 lg:px-16"
+  style={`background-image: url(${optimzedImage.src}); background-size: cover; background-position: center;`}
+>
+  <!-- contenido dinámico -->
+  <main>
+    <slot />
+  </main>
+</section>
