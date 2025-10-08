@@ -4,11 +4,17 @@ import { Image } from "astro:assets";
 
 import svgLogo from "@assets/svg/logo.svg";
 
+import { useTranslations, useTranslatedPath } from "@i18n/utils";
+import type { UILang } from "@i18n/ui";
+
 interface Props {
   type?: "default" | "transparent";
+  lang: UILang;
 }
 
-const { type = "default" } = Astro.props;
+const { type = "default", lang }: Props = Astro.props;
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
 ---
 
 <header
@@ -32,10 +38,17 @@ const { type = "default" } = Astro.props;
     flex items-center justify-center lg:justify-start"
     >
       <a
-        href="/"
+        href={translatePath("/")}
+        data-i18n-path="/"
         class="flex items-center gap-2 lg:gap-4 text-primary-1 font-bold text-xl lg:text-2xl xl:text-3xl"
       >
-        <Image class=`h-8 md:h-12 w-auto` src={svgLogo} alt="logo" />
+        <Image
+          class=`h-8 md:h-12 w-auto`
+          src={svgLogo}
+          alt={t("header.logoAlt")}
+          data-i18n-key="header.logoAlt"
+          data-i18n-attr="alt"
+        />
       </a>
     </div>
 
@@ -45,7 +58,9 @@ const { type = "default" } = Astro.props;
       flex flex-col items-center justify-center shadow lg:shadow-none p-6 py-8 lg:p-0 lg:py-0
       transition-[top] duration-300 ease-in-out lg:transition-none
       lg:static lg:flex-1 lg:flex lg:items-center lg:gap-4 lg:pt-1 bg-white lg:bg-transparent"
-      aria-label="Main navigation"
+      aria-label={t("header.ariaLabel")}
+      data-i18n-key="header.ariaLabel"
+      data-i18n-attr="aria-label"
     >
       <ul
         class=`h-full container flex flex-col lg:flex-row items-center justify-end gap-8 lg:gap-14
@@ -54,22 +69,58 @@ const { type = "default" } = Astro.props;
         font-normal text-base lg:text-lg xl:text-xl`
       >
         <li>
-          <a href={"/#productos"}>Inicio</a>
+          <a
+            href={translatePath("/#productos")}
+            data-i18n-key="header.nav.home"
+            data-i18n-path="/#productos"
+          >
+            {t("header.nav.home")}
+          </a>
         </li>
         <li>
-          <a href={"/#productos"}>Vive el eclipse</a>
+          <a
+            href={translatePath("/#productos")}
+            data-i18n-key="header.nav.eclipse"
+            data-i18n-path="/#productos"
+          >
+            {t("header.nav.eclipse")}
+          </a>
         </li>
         <li>
-          <a href={"/#nosotros"}>Quienes somos</a>
+          <a
+            href={translatePath("/#nosotros")}
+            data-i18n-key="header.nav.about"
+            data-i18n-path="/#nosotros"
+          >
+            {t("header.nav.about")}
+          </a>
         </li>
         <li>
-          <a href={"/#contacto"}>Tipos de viaje</a>
+          <a
+            href={translatePath("/#contacto")}
+            data-i18n-key="header.nav.travelTypes"
+            data-i18n-path="/#contacto"
+          >
+            {t("header.nav.travelTypes")}
+          </a>
         </li>
         <li>
-          <a href={"/#contacto"}>Soy agente</a>
+          <a
+            href={translatePath("/#contacto")}
+            data-i18n-key="header.nav.agents"
+            data-i18n-path="/#contacto"
+          >
+            {t("header.nav.agents")}
+          </a>
         </li>
         <li>
-          <a href={"/#contacto"}>Contacto</a>
+          <a
+            href={translatePath("/#contacto")}
+            data-i18n-key="header.nav.contact"
+            data-i18n-path="/#contacto"
+          >
+            {t("header.nav.contact")}
+          </a>
         </li>
       </ul>
     </nav>
