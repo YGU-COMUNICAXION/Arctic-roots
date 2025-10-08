@@ -1,11 +1,19 @@
 ---
 import { ClientRouter } from "astro:transitions";
 
-import "../styles/global.css";
 import Header from "./Header.astro";
+import "../styles/global.css";
+
+import type { UILang } from "@i18n/ui";
+
+interface Props {
+  lang: UILang;
+}
+
+const { lang }: Props = Astro.props;
 ---
 
-<html lang="es">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -16,7 +24,7 @@ import Header from "./Header.astro";
     <ClientRouter />
   </head>
   <body class="flex flex-col min-h-screen">
-    <Header />
+    <Header lang={lang} />
     <main class="flex-1 bg-white">
       <slot />
     </main>
