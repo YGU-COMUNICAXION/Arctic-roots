@@ -50,3 +50,11 @@
   --color-neutral-300: #e7f7f7;
   --color-neutral-600: #686868;
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

@@ -27,13 +27,20 @@ const en = {
         backgroundAlt: "Lava erupting across an Icelandic volcanic landscape",
       },
       discovery: {
-        title: "It's a place where children and adults alike feel inside a living museum",
-        description: "And it becomes even more fascinating if you are:",
+        title:
+          "It's a place where children and adults alike feel inside a living museum and it becomes even more fascinating if you are:",
+        description: "",
         items: [
           { label: "Photographers", icon: "photographers" },
           { label: "Nature lovers", icon: "natureLovers" },
-          { label: "Travelers seeking sustainable tourism", icon: "sustainableTravelers" },
-          { label: "People eager to see the northern lights", icon: "auroraChasers" },
+          {
+            label: "Travelers seeking sustainable tourism",
+            icon: "sustainableTravelers",
+          },
+          {
+            label: "People eager to see the northern lights",
+            icon: "auroraChasers",
+          },
           { label: "Solo travelers", icon: "soloTravelers" },
           { label: "Content creators", icon: "contentCreators" },
           { label: "Honeymooners", icon: "honeymooners" },
