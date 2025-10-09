@@ -1,0 +1,166 @@
+---
+import { getImage, Image } from "astro:assets";
+
+import VolcanoImage from "@assets/img/home/volcan.jpg";
+import CanyonIllustration from "@assets/svg/home/canyon.svg";
+import MountainIllustration from "@assets/svg/home/mountain.svg";
+import CoastIllustration from "@assets/svg/home/coast.svg";
+
+type IconKey =
+  | "photographers"
+  | "natureLovers"
+  | "sustainableTravelers"
+  | "auroraChasers"
+  | "soloTravelers"
+  | "contentCreators"
+  | "honeymooners";
+
+interface SectionContent {
+  hero: {
+    title: string;
+    paragraphs: string[];
+    backgroundAlt: string;
+  };
+  discovery: {
+    title: string;
+    description?: string;
+    items: { label: string; icon: IconKey }[];
+    galleryAlt: string[];
+  };
+}
+
+const { content }: { content: SectionContent } = Astro.props;
+
+const heroImage = await getImage({
+  src: VolcanoImage,
+  widths: [768, 1024, 1280, 1536, 1920],
+  formats: ["webp", "jpeg"],
+  quality: 90,
+});
+
+const iconMap: Record<IconKey, { viewBox: string; markup: string }> = {
+  photographers: {
+    viewBox: "0 0 24 24",
+    markup: `<rect x="3" y="7" width="18" height="12" rx="2" stroke="currentColor" stroke-width="1.5" fill="none" />
+<rect x="9" y="5" width="6" height="2" rx="0.75" fill="currentColor" />
+<circle cx="12" cy="13" r="3.5" stroke="currentColor" stroke-width="1.5" fill="none" />`,
+  },
+  natureLovers: {
+    viewBox: "0 0 24 24",
+    markup: `<path d="M12 3C8 6 5.5 9.5 5.5 13C5.5 16.0376 7.96243 18.5 11 18.5C13.7322 18.5 16 16.2322 16 13.5C16 11.4 14.5 9 12 6.5" stroke="currentColor" stroke-width="1.5" fill="none" />
+<path d="M11 18.5C11 14.5 13 10.5 18.5 7" stroke="currentColor" stroke-width="1.5" fill="none" />`,
+  },
+  sustainableTravelers: {
+    viewBox: "0 0 24 24",
+    markup: `<circle cx="12" cy="12" r="7.5" stroke="currentColor" stroke-width="1.5" fill="none" />
+<path d="M4.5 12H19.5" stroke="currentColor" stroke-width="1.5" />
+<path d="M12 4.5C14 7 14.75 9 15 12C14.75 15 14 17 12 19.5C10 17 9.25 15 9 12C9.25 9 10 7 12 4.5Z" stroke="currentColor" stroke-width="1.5" fill="none" />`,
+  },
+  auroraChasers: {
+    viewBox: "0 0 24 24",
+    markup: `<path d="M4 16C5.5 14.5 7.5 14 9 15C10.5 16 12 16 13.5 15C15 14 17 14.5 18.5 16" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" />
+<path d="M6 10.5C7.5 9 9.5 8.5 11 9.5C12.5 10.5 14 10.5 15.5 9.5C17 8.5 19 9 20.5 10.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" />
+<path d="M10 6C11.2 5 12.8 5 14 6C15.2 7 16.8 7 18 6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" />
+<path d="M4 19.5H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />`,
+  },
+  soloTravelers: {
+    viewBox: "0 0 24 24",
+    markup: `<path d="M12 2.5A2.5 2.5 0 1 1 9.5 5 2.5 2.5 0 0 1 12 2.5Z" stroke="currentColor" stroke-width="1.5" fill="none" />
+<rect x="7.5" y="8" width="9" height="11" rx="2.5" stroke="currentColor" stroke-width="1.5" fill="none" />
+<path d="M10 13H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />`,
+  },
+  contentCreators: {
+    viewBox: "0 0 24 24",
+    markup: `<rect x="3.5" y="6.5" width="13" height="11" rx="2" stroke="currentColor" stroke-width="1.5" fill="none" />
+<path d="M16.5 10L20.5 8V16L16.5 14" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" fill="none" />
+<path d="M7.75 11L11 13L7.75 15V11Z" fill="currentColor" />`,
+  },
+  honeymooners: {
+    viewBox: "0 0 24 24",
+    markup: `<path d="M12 19.5L10.5 18C7.5 15 5.5 13 5.5 10.5C5.5 8.5 7 7 8.75 7C9.9 7 11 7.6 12 8.8C13 7.6 14.1 7 15.25 7C17 7 18.5 8.5 18.5 10.5C18.5 13 16.5 15 13.5 18L12 19.5Z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />`,
+  },
+} as const;
+
+const heroSources = heroImage.sources ?? [];
+const gallerySources = [CanyonIllustration, MountainIllustration, CoastIllustration];
+const heroParagraphs = content.hero?.paragraphs ?? [];
+const discoveryItems = content.discovery?.items ?? [];
+const galleryAlts = content.discovery?.galleryAlt ?? [];
+---
+
+<section class="flex flex-col gap-12 lg:gap-16">
+  <div class="relative isolate overflow-hidden rounded-3xl bg-neutral-900 text-white">
+    <div class="absolute inset-0">
+      <picture>
+        {heroSources.map((source) => (
+          <source srcset={source.srcset} type={source.type} />
+        ))}
+        <img
+          src={heroImage.src}
+          alt={content.hero.backgroundAlt}
+          width={heroImage.width}
+          height={heroImage.height}
+          class="h-full w-full object-cover"
+          loading="lazy"
+          decoding="async"
+        />
+      </picture>
+      <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70"></div>
+    </div>
+    <div class="relative z-10 flex flex-col gap-6 p-6 sm:p-10 md:p-16 lg:max-w-3xl">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight">
+        {content.hero?.title ?? ""}
+      </h2>
+      <div class="flex flex-col gap-4 text-base sm:text-lg leading-relaxed text-neutral-100">
+        {heroParagraphs.map((paragraph) => (
+          <p>{paragraph}</p>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <div class="grid gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1fr)] lg:items-center">
+    <div class="flex flex-col gap-6">
+      <h3 class="text-2xl sm:text-3xl font-semibold text-primary-forest">
+        {content.discovery?.title ?? ""}
+      </h3>
+      {content.discovery.description && (
+        <p class="text-base sm:text-lg text-neutral-600">
+          {content.discovery.description}
+        </p>
+      )}
+      <ul class="grid gap-4">
+        {discoveryItems.map((item) => (
+          <li class="flex items-start gap-4">
+            <span class="mt-1 flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary-forest/10 text-primary-forest">
+              <svg
+                viewBox={iconMap[item.icon].viewBox}
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                aria-hidden="true"
+                focusable="false"
+                set:html={iconMap[item.icon].markup}
+              />
+            </span>
+            <span class="text-base sm:text-lg font-medium text-primary-forest">
+              {item.label}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-6">
+      {gallerySources.map((image, index) => (
+        <div class="overflow-hidden rounded-2xl border border-primary-forest/10 bg-white shadow-sm">
+          <Image
+            src={image}
+            alt={galleryAlts[index] ?? ""}
+            class="h-full w-full object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
