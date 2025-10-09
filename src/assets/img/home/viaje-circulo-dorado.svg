@@ -1,0 +1,18 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="mist" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1f3b3a" />
+      <stop offset="100%" stop-color="#5b8886" />
+    </linearGradient>
+    <linearGradient id="falls" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#edf7f6" />
+      <stop offset="100%" stop-color="#b9d9d7" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#mist)" />
+  <path d="M0 260 Q120 210 230 250 T460 240 Q560 220 640 260 T800 280 V600 H0 Z" fill="#0f2322" opacity="0.45" />
+  <rect x="360" y="140" width="110" height="260" rx="28" fill="url(#falls)" />
+  <rect x="500" y="160" width="90" height="240" rx="24" fill="url(#falls)" opacity="0.85" />
+  <path d="M0 420 Q180 360 360 420 T720 420 Q760 430 800 460 V600 H0 Z" fill="#f2ede3" opacity="0.7" />
+  <circle cx="180" cy="160" r="70" fill="#f1e0a1" opacity="0.85" />
+</svg>

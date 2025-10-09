@@ -1,3 +1,9 @@
+import viajeEclipse from "@assets/img/home/viaje-eclipse.svg";
+import viajeCirculoDorado from "@assets/img/home/viaje-circulo-dorado.svg";
+import viajeAutoguiado from "@assets/img/home/viaje-autoguiado.svg";
+import viajePrivado from "@assets/img/home/viaje-privado.svg";
+import parallaxBackground from "@assets/img/home/paralax-background.svg";
+
 const es = {
   header: {
     logoAlt: "Logotipo de Arctic Roots",
@@ -61,28 +67,28 @@ const es = {
           title: "Eclipse en el Ártico",
           subtitle: "Viaje grupal",
           href: "/eclipse",
-          imageSrc: "https://placehold.co/600x400?text=Eclipse",
+          imageSrc: viajeEclipse,
           imageAlt: "Personas contemplando un eclipse en un paisaje nevado",
         },
         {
           title: "Círculo Dorado",
           subtitle: "Excursión icónica",
           href: "/viajes/circulo-dorado",
-          imageSrc: "https://placehold.co/600x400?text=C%C3%ADrculo+Dorado",
+          imageSrc: viajeCirculoDorado,
           imageAlt: "Cascada islandesa en un día despejado",
         },
         {
           title: "Autoguiado",
           subtitle: "Ruta a tu ritmo",
           href: "/viajes/autoguiado",
-          imageSrc: "https://placehold.co/600x400?text=Autoguiado",
+          imageSrc: viajeAutoguiado,
           imageAlt: "Carretera islandesa rodeada de montañas",
         },
         {
           title: "Viaje privado",
           subtitle: "Experiencia exclusiva",
           href: "/viajes/privado",
-          imageSrc: "https://placehold.co/600x400?text=Privado",
+          imageSrc: viajePrivado,
           imageAlt: "Pareja admirando una cascada en Islandia",
         },
       ],
@@ -97,22 +103,22 @@ const es = {
           {
             title: "Sesión de consultoría",
             duration: {
-              label: "Duración",
-              value: "45 minutos",
+              label: "Tiempo",
+              value: "1 hora",
             },
             investment: {
-              label: "Inversión",
-              value: "Desde $75 USD",
+              label: "Costo",
+              value: "$150 USD",
             },
           },
           {
             title: "Itinerario personalizado",
             duration: {
-              label: "Entrega",
+              label: "Tiempo",
               value: "En 5 días hábiles",
             },
             investment: {
-              label: "Inversión",
+              label: "Costo",
               value: "Se cotiza a medida",
             },
           },
@@ -121,9 +127,10 @@ const es = {
         whatsappHref: "https://wa.me/",
         whatsappAriaLabel:
           "Abrir una conversación de WhatsApp con Arctic Roots",
-        backgroundImage: "https://placehold.co/1600x900?text=Islandia",
+        backgroundImage: parallaxBackground,
         backgroundLabel: "Asesoría Arctic Roots",
         highlightIconLabel: "Icono decorativo del servicio de consultoría",
+        overlayIconLabel: "Ilustración decorativa del servicio de asesoría",
       },
     },
   },

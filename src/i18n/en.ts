@@ -1,3 +1,9 @@
+import arcticEclipse from "@assets/img/home/viaje-eclipse.svg";
+import goldenCircle from "@assets/img/home/viaje-circulo-dorado.svg";
+import selfGuided from "@assets/img/home/viaje-autoguiado.svg";
+import privateJourney from "@assets/img/home/viaje-privado.svg";
+import parallaxBackground from "@assets/img/home/paralax-background.svg";
+
 const en = {
   header: {
     logoAlt: "Arctic Roots logo",
@@ -59,30 +65,30 @@ const en = {
       cards: [
         {
           title: "Arctic eclipse",
-          subtitle: "Small-group journey",
+          subtitle: "Group journey",
           href: "/eclipse",
-          imageSrc: "https://placehold.co/600x400?text=Eclipse",
-          imageAlt: "People watching an eclipse over a snowy landscape",
+          imageSrc: arcticEclipse,
+          imageAlt: "Travelers watching an eclipse in a snowy landscape",
         },
         {
           title: "Golden Circle",
           subtitle: "Signature excursion",
           href: "/trips/golden-circle",
-          imageSrc: "https://placehold.co/600x400?text=Golden+Circle",
+          imageSrc: goldenCircle,
           imageAlt: "Icelandic waterfall on a clear day",
         },
         {
           title: "Self-guided",
           subtitle: "Roadtrip at your pace",
           href: "/trips/self-guided",
-          imageSrc: "https://placehold.co/600x400?text=Self+guided",
+          imageSrc: selfGuided,
           imageAlt: "Road crossing Icelandic mountains",
         },
         {
           title: "Private journey",
           subtitle: "Tailor-made experience",
           href: "/trips/private",
-          imageSrc: "https://placehold.co/600x400?text=Private",
+          imageSrc: privateJourney,
           imageAlt: "Couple admiring an Icelandic waterfall",
         },
       ],
@@ -97,32 +103,33 @@ const en = {
           {
             title: "Consulting session",
             duration: {
-              label: "Duration",
-              value: "45 minutes",
+              label: "Time",
+              value: "1 hour",
             },
             investment: {
-              label: "Investment",
-              value: "From $75 USD",
+              label: "Cost",
+              value: "$150 USD",
             },
           },
           {
             title: "Custom itinerary",
             duration: {
-              label: "Turnaround",
+              label: "Time",
               value: "Within 5 business days",
             },
             investment: {
-              label: "Investment",
-              value: "Quoted for you",
+              label: "Cost",
+              value: "Quoted to fit your plans",
             },
           },
         ],
-        whatsappCta: "Schedule on WhatsApp",
+        whatsappCta: "Book via WhatsApp",
         whatsappHref: "https://wa.me/",
         whatsappAriaLabel: "Open a WhatsApp conversation with Arctic Roots",
-        backgroundImage: "https://placehold.co/1600x900?text=Iceland",
+        backgroundImage: parallaxBackground,
         backgroundLabel: "Arctic Roots advisory",
         highlightIconLabel: "Decorative consulting icon",
+        overlayIconLabel: "Decorative consulting illustration",
       },
     },
   },
