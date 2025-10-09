@@ -1,0 +1,85 @@
+---
+import type { AstroComponent } from "astro";
+
+import AlliancesIcon from "@assets/svg/icons/alianzas.svg";
+import ConciergeIcon from "@assets/svg/icons/consierge.svg";
+import BudgetsIcon from "@assets/svg/icons/costos.svg";
+import DiscountsIcon from "@assets/svg/icons/descuentos.svg";
+import HotelsIcon from "@assets/svg/icons/hoteles.svg";
+import LanguagesIcon from "@assets/svg/icons/idiomas.svg";
+
+type IconKey =
+  | "bespokePlanning"
+  | "hotelUpgrades"
+  | "conciergeSupport"
+  | "multilingualServices"
+  | "exclusiveDiscounts"
+  | "strategicAlliances";
+
+interface FeatureItem {
+  title: string;
+  description: string;
+  icon: IconKey;
+  iconLabel: string;
+}
+
+interface Props {
+  title: string;
+  subtitle: string;
+  items: FeatureItem[];
+}
+
+const iconMap: Record<IconKey, { Icon: AstroComponent }> = {
+  bespokePlanning: { Icon: BudgetsIcon },
+  hotelUpgrades: { Icon: HotelsIcon },
+  conciergeSupport: { Icon: ConciergeIcon },
+  multilingualServices: { Icon: LanguagesIcon },
+  exclusiveDiscounts: { Icon: DiscountsIcon },
+  strategicAlliances: { Icon: AlliancesIcon },
+};
+
+const { title, subtitle, items } = Astro.props as Props;
+---
+
+<section class="bg-primary-sky/5 py-16 sm:py-20 lg:py-24">
+  <div class="container mx-auto px-4 md:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-semibold text-primary-forest">
+        {title}
+      </h2>
+      <p class="mt-4 text-base md:text-lg text-neutral-600">
+        {subtitle}
+      </p>
+    </div>
+
+    <div class="mt-12 flex gap-6 sm:gap-8 flex-wrap justify-center">
+      {
+        items.map((item) => {
+          const { Icon } = iconMap[item.icon];
+          return (
+            <article
+              class="flex flex-col items-center text-center gap-4 rounded-2xl 
+            p-6"
+            >
+              <span
+                class="flex h-16 w-16 items-center justify-center
+                bg-[#F2F2F2] rounded-full bg-primary-sky/15"
+                aria-hidden="true"
+              >
+                <Icon class="h-10 w-10 text-primary-forest" />
+              </span>
+              <span class="sr-only">{item.iconLabel}</span>
+              <p
+                class="text-base md:text-lg font-light text-primary-forest
+              w-24 md:w-36
+              max-w-96"
+              >
+                {item.title}
+              </p>
+            </article>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>

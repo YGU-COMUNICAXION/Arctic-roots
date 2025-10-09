@@ -117,6 +117,94 @@ const es = {
       },
     },
   },
+  about: {
+    hero: {
+      title: "Tu puerta hacia una experiencia de lujo en el Ártico",
+      subtitle: `
+        En Arctic Roots diseñamos travesías que reflejan tu visión sobre un viaje <b>memorable y transformador.</b>
+        <br/><br/>
+        Cuidamos cada detalle para que tu experiencia sea profunda, sofisticada y que no se pueda describir con palabras, sino con suspiros.
+        <br/><br/>
+        Así que, haremos todo para que, al despedirte de Islandia, no solo hayas disfrutado del lujo, sino de lo esencial: el silencio de un glaciar, el rugir de un volcán o la danza de una aurora boreal.
+        `,
+    },
+    features: {
+      title: "En Arctic Roots no lo hacemos diferente, lo hacemos inigualable",
+      subtitle:
+        "Sabemos que los viajes son una inversión en cultura, historia y recuerdos. Así que, en cada viaje diseñado a la medida, no solo queremos hacerlo excelente y diferente; planeamos todo con el entusiasmo y cuidado como si lo hiciéramos para nuestra persona más especial.",
+      items: [
+        {
+          title: "Experiencias de lujo diseñadas a medida",
+          description:
+            "Itinerarios exclusivos que reflejan tus intereses y ritmo de viaje para que vivas Islandia sin prisas.",
+          icon: "bespokePlanning",
+          iconLabel: "Planificación personalizada",
+        },
+        {
+          title: "Upgrades con hoteles boutique",
+          description:
+            "Acceso preferente a estancias selectas y servicios premium que realzan cada momento.",
+          icon: "hotelUpgrades",
+          iconLabel: "Icono de hoteles de lujo",
+        },
+        {
+          title: "Concierge 24/7",
+          description:
+            "Acompañamiento continuo antes, durante y después de tu viaje con un equipo listo para resolver cualquier detalle.",
+          icon: "conciergeSupport",
+          iconLabel: "Acompañamiento personalizado",
+        },
+        {
+          title: "Servicios en diferentes idiomas",
+          description:
+            "Guías y anfitriones bilingües para que te comuniques con facilidad en cada experiencia.",
+          icon: "multilingualServices",
+          iconLabel: "Idiomas disponibles",
+        },
+        {
+          title: "Descuentos exclusivos",
+          description:
+            "Beneficios especiales con actividades y experiencias seleccionadas para viajeros Arctic Roots.",
+          icon: "exclusiveDiscounts",
+          iconLabel: "Descuentos especiales",
+        },
+        {
+          title: "Alianzas con expertos locales",
+          description:
+            "Colaboramos con los mejores operadores islandeses para garantizar calidad y seguridad en cada travesía.",
+          icon: "strategicAlliances",
+          iconLabel: "Alianzas locales",
+        },
+      ],
+    },
+    testimonials: {
+      title: "Reseñas de nuestros viajeros felices",
+      subtitle:
+        "Agrégale a tu viaje a Islandia un toque de movimiento y aventura con la selección de actividades que tenemos disponibles.",
+      ctaLabel: "Testimonio",
+      backgroundAlt: "Cascada islandesa rodeada de montañas",
+      items: [
+        {
+          name: "Andrea M.",
+          location: "Ciudad de México",
+          quote:
+            "Muy buenas recomendaciones locales y super hoteles. La renta del coche también estuvo perfecta y no hubo ninguna complicación durante nuestra estancia. Nos recomendaron también el lava show que estuvo increíble.",
+        },
+        {
+          name: "Samuel C.",
+          location: "Santiago de Chile",
+          quote:
+            "La agencia nos consiguió todas las actividades que queríamos: helicóptero, cueva de hielo y sky lagoon. Todo estuvo muy bien organizado. Brindan un servicio muy recomendable. ",
+        },
+        {
+          name: "Elisabeth R.",
+          location: "Buenos Aires",
+          quote:
+            "Experiencia de 10. Lograron organizarnos un itinerario con todas las actividades top de Islandia sin ninguna preocupación. Muy recomendables. ",
+        },
+      ],
+    },
+  },
 } as const;
 
 export default es;

@@ -64,7 +64,7 @@ const translatePath = useTranslatedPath(lang);
     >
       <ul
         class=`h-full container flex flex-col lg:flex-row items-center justify-end gap-8 lg:gap-14
-        [&>li>a]:text-primary-1 lg:[&>li]:text-center
+        [&>li>a]:text-primary-1 lg:[&>li]:text-center text-primary-forest
         [&>li>a]:relative [&>li>a]:uppercase [&>li]:inline-block
         font-normal text-base lg:text-lg xl:text-xl`
       >
@@ -88,9 +88,9 @@ const translatePath = useTranslatedPath(lang);
         </li>
         <li>
           <a
-            href={translatePath("/#nosotros")}
+            href={translatePath("/about")}
             data-i18n-key="header.nav.about"
-            data-i18n-path="/#nosotros"
+            data-i18n-path={"/about"}
           >
             {t("header.nav.about")}
           </a>
