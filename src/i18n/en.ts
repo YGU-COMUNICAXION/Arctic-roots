@@ -53,6 +53,89 @@ const en = {
       },
     },
   },
+  about: {
+    hero: {
+      title: "Your gateway to a luxury Arctic experience",
+      subtitle:
+        "At Arctic Roots we design journeys that reflect your vision for a memorable and transformative trip.",
+    },
+    features: {
+      title: "At Arctic Roots we don't just do it differently, we make it unrivaled",
+      subtitle:
+        "We know travel is an investment in culture, history, and memories. We craft it with excellence, care, and dedication as if we were planning it for our dearest person.",
+      items: [
+        {
+          title: "Tailor-made luxury journeys",
+          description:
+            "Exclusive itineraries that mirror your interests and travel pace so you can savor Iceland unhurriedly.",
+          icon: "bespokePlanning",
+          iconLabel: "Tailor-made planning",
+        },
+        {
+          title: "Hotel upgrades & boutique stays",
+          description:
+            "Preferred access to curated accommodations and premium amenities that elevate every moment.",
+          icon: "hotelUpgrades",
+          iconLabel: "Luxury hotel icon",
+        },
+        {
+          title: "24/7 concierge team",
+          description:
+            "Continuous support before, during, and after your journey with a team ready to care for every detail.",
+          icon: "conciergeSupport",
+          iconLabel: "Dedicated concierge",
+        },
+        {
+          title: "Services in multiple languages",
+          description:
+            "Bilingual guides and hosts so you can communicate with ease throughout every experience.",
+          icon: "multilingualServices",
+          iconLabel: "Language services",
+        },
+        {
+          title: "Exclusive discounts",
+          description:
+            "Special perks on selected activities and experiences available only for Arctic Roots travelers.",
+          icon: "exclusiveDiscounts",
+          iconLabel: "Exclusive discounts",
+        },
+        {
+          title: "Alliances with local experts",
+          description:
+            "We collaborate with top Icelandic operators to guarantee quality and safety on every journey.",
+          icon: "strategicAlliances",
+          iconLabel: "Local alliances",
+        },
+      ],
+    },
+    testimonials: {
+      title: "Happy traveler reviews",
+      subtitle:
+        "Add a spark of movement and adventure to your trip to Iceland with the curated selection of activities we offer.",
+      ctaLabel: "Testimonial",
+      backgroundAlt: "Icelandic waterfall surrounded by cliffs",
+      items: [
+        {
+          name: "Andrea M.",
+          location: "Mexico City",
+          quote:
+            "Wonderful local partners and outstanding hotels. The culinary network was flawless and every segment of the itinerary flowed perfectly.",
+        },
+        {
+          name: "Samuel C.",
+          location: "Santiago, Chile",
+          quote:
+            "The agency arranged every transfer for us, even a helicopter ride over glaciers and lagoons. Everything was impeccably organized.",
+        },
+        {
+          name: "Elisabeth R.",
+          location: "Buenos Aires",
+          quote:
+            "A 10 out of 10 experience. The planning was incredible and each activity surprised us with the hosts' dedication.",
+        },
+      ],
+    },
+  },
 } as const;
 
 export default en;
