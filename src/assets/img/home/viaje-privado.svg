@@ -1,0 +1,20 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sunset" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#13302f" />
+      <stop offset="100%" stop-color="#4a7a78" />
+    </linearGradient>
+    <linearGradient id="ground" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#bfe0dd" />
+      <stop offset="100%" stop-color="#f6f2e5" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#sunset)" />
+  <path d="M0 430 Q180 360 360 430 T720 430 Q780 440 800 470 V600 H0 Z" fill="url(#ground)" />
+  <path d="M120 360 Q180 300 240 360 T360 360 Q420 300 480 360 L520 400 Q400 420 280 420 Q200 400 120 360 Z" fill="#e3d1c1" opacity="0.5" />
+  <g opacity="0.85">
+    <path d="M420 240 Q450 200 500 210 Q540 220 560 260 Q600 220 650 220 Q710 220 740 260 Q720 310 660 320 Q600 330 560 300 Q520 340 460 330 Q420 320 420 240 Z" fill="#fdf7ed" />
+    <circle cx="280" cy="210" r="60" fill="#f0d5ab" />
+  </g>
+  <path d="M180 480 C240 430 320 420 400 430 C480 440 560 470 620 520 L640 560 H160 Z" fill="#2e5654" opacity="0.7" />
+</svg>

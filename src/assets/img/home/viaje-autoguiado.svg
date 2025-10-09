@@ -1,0 +1,17 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="road" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#294f4d" />
+      <stop offset="100%" stop-color="#6da29f" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="#13302f" />
+  <g opacity="0.85">
+    <path d="M0 340 Q120 300 240 340 T480 320 Q600 300 720 340 L800 360 V600 H0 Z" fill="#1f3d3b" />
+    <path d="M0 410 Q150 360 320 400 T640 390 Q720 400 800 430 V600 H0 Z" fill="#264a48" opacity="0.9" />
+  </g>
+  <path d="M370 140 Q400 240 400 600 H360 Q360 300 320 210 Q340 160 370 140 Z" fill="#f6f1de" opacity="0.9" />
+  <path d="M430 160 Q440 200 440 600 H400 Q400 300 390 210 Q405 170 430 160 Z" fill="#f6f1de" opacity="0.75" />
+  <path d="M280 600 C320 420 360 360 400 360 C440 360 480 420 520 600 Z" fill="url(#road)" />
+  <circle cx="620" cy="140" r="60" fill="#f2c572" opacity="0.9" />
+</svg>

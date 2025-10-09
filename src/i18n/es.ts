@@ -52,6 +52,70 @@ const es = {
         ],
       },
     },
+    travel: {
+      title: "Elige tu tipo de viaje por Islandia",
+      cards: [
+        {
+          title: "Eclipse en el Ártico",
+          subtitle: "Viaje grupal",
+          href: "/eclipse",
+          imageAlt: "Personas contemplando un eclipse en un paisaje nevado",
+        },
+        {
+          title: "Círculo Dorado",
+          subtitle: "Excursión icónica",
+          href: "/viajes/circulo-dorado",
+          imageAlt: "Cascada islandesa en un día despejado",
+        },
+        {
+          title: "Autoguiado",
+          subtitle: "Ruta a tu ritmo",
+          href: "/viajes/autoguiado",
+          imageAlt: "Carretera islandesa rodeada de montañas",
+        },
+        {
+          title: "Viaje privado",
+          subtitle: "Experiencia exclusiva",
+          href: "/viajes/privado",
+          imageAlt: "Pareja admirando una cascada en Islandia",
+        },
+      ],
+      parallax: {
+        title:
+          "¿Buscas ir a <b>Islandia y Groenlandia</b><br/> con los mejores consejos?",
+        description: [
+          "Habla con quienes conocen Islandia como la palma de su mano.",
+          "Planear un viaje a Islandia es emocionante… pero ¿Cómo saber si estás eligiendo bien? ",
+          "En Arctic Roots, resolvemos tus dudas en una videollamada. Te brindamos la información que necesitas para tomar las mejores decisiones",
+        ],
+        highlights: [
+          {
+            title: "Sesión de consultoría",
+            duration: {
+              value: "1 hora",
+            },
+            investment: {
+              value: "$150 USD",
+            },
+          },
+          {
+            title: "Itinerario personalizado",
+            duration: {
+              value: "1 hora",
+            },
+            investment: {
+              value: "$250 USD",
+            },
+          },
+        ],
+        whatsappCta: "Agenda por WhatsApp",
+        whatsappHref: "https://wa.me/",
+        whatsappAriaLabel:
+          "Abrir una conversación de WhatsApp con Arctic Roots",
+        highlightIconLabel: "Icono decorativo del servicio de consultoría",
+        overlayIconLabel: "Ilustración decorativa del servicio de asesoría",
+      },
+    },
   },
 } as const;
 

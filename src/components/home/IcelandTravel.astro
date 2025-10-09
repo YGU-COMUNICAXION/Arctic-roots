@@ -1,0 +1,211 @@
+---
+import { Image, getImage } from "astro:assets";
+import ConsultingGlyph from "@components/icons/ConsultingGlyph.astro";
+import viajeEclipse from "@assets/img/home/viajeEclipse.jpg";
+import viajeCirculoDorado from "@assets/img/home/viajeOtoño.jpg";
+import viajeAutoguiado from "@assets/img/home/viajeAutoguiado.jpg";
+import viajePrivado from "@assets/img/home/viajePrivado.jpg";
+import bgParallax from "@assets/img/home/bgParallax.png";
+import iconConsultoria from "@assets/svg/icons/Consultoria.svg";
+import iconItinerario from "@assets/svg/icons/Itinerario.svg";
+
+const parallaxBackground = await getImage({
+  src: bgParallax,
+  widths: [800, 1200, 1600, 2000],
+  formats: ["webp", "jpeg"],
+  quality: 80,
+  fit: "cover",
+});
+
+interface TravelCard {
+  title: string;
+  subtitle: string;
+  href: string;
+  imageSrc: string;
+  imageAlt: string;
+}
+
+interface HighlightDetail {
+  label: string;
+  value: string;
+}
+
+interface ParallaxHighlight {
+  title: string;
+  duration: HighlightDetail;
+  investment: HighlightDetail;
+}
+
+interface ParallaxContent {
+  title: string;
+  description: string[];
+  highlights: ParallaxHighlight[];
+  whatsappCta: string;
+  whatsappHref: string;
+  whatsappAriaLabel: string;
+  backgroundImage: string;
+  backgroundLabel: string;
+  highlightIconLabel: string;
+  overlayIconLabel: string;
+  overlayIconSrc?: string;
+}
+
+interface SectionContent {
+  title: string;
+  description?: string;
+  cards: TravelCard[];
+  parallax: ParallaxContent;
+}
+
+const { content } = Astro.props;
+const { cards, parallax } = content;
+
+const cardsImages = [
+  viajeEclipse,
+  viajeCirculoDorado,
+  viajeAutoguiado,
+  viajePrivado,
+];
+
+const icons = [iconConsultoria, iconItinerario];
+---
+
+<section class="py-16">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto text-center mb-12">
+      <h2
+        class="text-xl lg:text-2xl xl:text-3xl leading-[1.02] font-black
+        text-primary-forest tracking-tight"
+      >
+        {content.title}
+      </h2>
+    </div>
+
+    <div class="grid gap-6 sm:gap-8 md:grid-cols-2 xl:grid-cols-4">
+      {
+        cards.map((card: TravelCard) => (
+          <a
+            href={card.href}
+            class="group flex flex-col overflow-visible
+             transition-transform duration-300
+             hover:-translate-y-1 focus-visible:-translate-y-1
+             focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-forest/50"
+          >
+            <div class="h-48 md:h-64 lg:h-80 xl:h-96 overflow-hidden">
+              <Image
+                src={cardsImages[cards.indexOf(card)]}
+                alt={card.imageAlt}
+                loading="lazy"
+                class="w-full h-full object-cover rounded-3xl transition-transform duration-300 "
+              />
+            </div>
+            <div class="flex-1 flex flex-col p-6 text-center">
+              <h3 class="text-lg md:text-xl font-bold text-accent-clay mb-0 group-hover:underline">
+                {card.title}
+              </h3>
+              <p class="text-sm md:text-lg text-accent-clay leading-relaxed">
+                {card.subtitle}
+              </p>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<section class="py-16">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="relative overflow-hidden rounded-[40px]">
+      <div
+        class="absolute inset-0 bg-cover bg-bottom-left"
+        style={`background-image: url('${parallaxBackground.src}');`}
+        role="presentation"
+        aria-hidden="true"
+      >
+      </div>
+      <div class="absolute inset-0 bg-primary-forest/85"></div>
+
+      <div
+        class="relative grid gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]
+        items-center px-8 sm:px-12 lg:px-16 py-14 lg:py-20 text-neutral-100"
+      >
+        <div class="space-y-6">
+          <h3
+            class="text-xl md:text-2xl lg:text-3xl
+            font-light leading-[1.05] tracking-tight drop-shadow-sm [&>b]:font-black"
+            set:html={parallax.title}
+          />
+          <div class="space-y-4 text-base sm:text-lg text-neutral-100/90">
+            {
+              parallax.description.map((paragraph: string) => (
+                <p set:html={paragraph} />
+              ))
+            }
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="relative z-[1] space-y-8 flex flex-col items-center">
+            <div class="grid gap-6 sm:grid-cols-2">
+              {
+                parallax.highlights.map((highlight: ParallaxHighlight) => (
+                  <div class="text-center flex flex-col items-center">
+                    <Image
+                      src={icons[parallax.highlights.indexOf(highlight)]}
+                      alt=""
+                      loading="lazy"
+                      class="w-12 h-12 mb-4 object-contain"
+                      aria-hidden="true"
+                    />
+                    <h4 class="text-lg md:text-xl font-semibold mb-1">
+                      {highlight.title}
+                    </h4>
+                    <p class="text-sm md:text-base">
+                      <span>{highlight.duration.value}</span> |
+                      <span> {highlight.investment.value}</span>
+                    </p>
+                  </div>
+                ))
+              }
+            </div>
+
+            <a
+              href={parallax.whatsappHref}
+              class="inline-flex items-center justify-center mx-auto
+              px-7 py-3 rounded-full bg-primary-mist text-primary-forest
+              font-normal uppercase tracking-wide shadow-lg shadow-black/20
+              transition-transform hover:-translate-y-0.5 focus-visible:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-100/70"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={parallax.whatsappAriaLabel}
+            >
+              {parallax.whatsappCta}
+            </a>
+          </div>
+
+          <div
+            class="pointer-events-none absolute -right-20 top-1/2 hidden -translate-y-1/2 lg:block"
+          >
+            {
+              parallax.overlayIconSrc ? (
+                <img
+                  src={parallax.overlayIconSrc}
+                  alt=""
+                  loading="lazy"
+                  class="w-[320px] h-[360px] object-contain opacity-80"
+                  aria-hidden="true"
+                />
+              ) : (
+                <ConsultingGlyph
+                  class="w-[320px] h-[360px] text-primary-mist/25"
+                  title={parallax.overlayIconLabel}
+                />
+              )
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
