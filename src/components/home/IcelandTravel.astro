@@ -31,6 +31,7 @@ interface ParallaxContent {
   backgroundLabel: string;
   highlightIconLabel: string;
   overlayIconLabel: string;
+  overlayIconSrc?: string;
 }
 
 interface SectionContent {
@@ -45,13 +46,17 @@ const { cards, parallax } = content;
 ---
 <section class="py-16 bg-neutral-50">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="max-w-3xl mx-auto text-center mb-12">
-      <h2 class="text-[clamp(2rem,4vw,2.75rem)] font-semibold text-primary-forest mb-4">
+    <div class="max-w-4xl mx-auto text-center lg:text-left mb-12">
+      <h2
+        class="text-[clamp(2.125rem,4.5vw,3.25rem)] leading-[1.02] font-semibold text-primary-forest tracking-tight"
+      >
         {content.title}
       </h2>
       {content.description && (
-        <p class="text-base sm:text-lg text-neutral-600" set:html={content.description}>
-        </p>
+        <p
+          class="mt-4 text-base sm:text-lg text-neutral-600 lg:max-w-3xl lg:text-xl"
+          set:html={content.description}
+        ></p>
       )}
     </div>
 
@@ -101,7 +106,7 @@ const { cards, parallax } = content;
             {parallax.backgroundLabel}
           </span>
           <h3
-            class="text-[clamp(2rem,4vw,3rem)] font-semibold leading-tight tracking-tight drop-shadow-sm"
+            class="text-[clamp(2.25rem,5vw,3.5rem)] font-semibold leading-[1.05] tracking-tight drop-shadow-sm"
             innerHTML={parallax.title}
           ></h3>
           <div class="space-y-4 text-base sm:text-lg text-neutral-100/90">
@@ -157,10 +162,20 @@ const { cards, parallax } = content;
           </div>
 
           <div class="pointer-events-none absolute -right-20 top-1/2 hidden -translate-y-1/2 lg:block">
-            <ConsultingGlyph
-              class="w-[320px] h-[360px] text-primary-mist/25"
-              title={parallax.overlayIconLabel}
-            />
+            {parallax.overlayIconSrc ? (
+              <img
+                src={parallax.overlayIconSrc}
+                alt=""
+                loading="lazy"
+                class="w-[320px] h-[360px] object-contain opacity-80"
+                aria-hidden="true"
+              />
+            ) : (
+              <ConsultingGlyph
+                class="w-[320px] h-[360px] text-primary-mist/25"
+                title={parallax.overlayIconLabel}
+              />
+            )}
           </div>
         </div>
       </div>
