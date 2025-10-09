@@ -2,6 +2,7 @@
 import HeroBanner from "@components/HeroBanner.astro";
 import Layout from "../layouts/Layout.astro";
 import ArcticHighlights from "@components/home/ArcticHighlights.astro";
+import IcelandTravel from "@components/home/IcelandTravel.astro";
 
 import HeroImg from "@assets/img/home/hero.jpg";
 import { getLangFromUrl, useTranslations } from "@i18n/utils";
@@ -10,6 +11,7 @@ import { ui } from "@i18n/ui";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const homeContent = ui[lang].home.highlights;
+const travelContent = ui[lang].home.travel;
 ---
 
 <Layout lang={lang}>
@@ -29,4 +31,5 @@ const homeContent = ui[lang].home.highlights;
   </HeroBanner>
 
   <ArcticHighlights content={homeContent} />
+  <IcelandTravel content={travelContent} />
 </Layout>

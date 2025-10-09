@@ -1,0 +1,154 @@
+---
+import ConsultingGlyph from "@components/icons/ConsultingGlyph.astro";
+
+interface TravelCard {
+  title: string;
+  subtitle: string;
+  href: string;
+  imageSrc: string;
+  imageAlt: string;
+}
+
+interface HighlightDetail {
+  label: string;
+  value: string;
+}
+
+interface ParallaxHighlight {
+  title: string;
+  duration: HighlightDetail;
+  investment: HighlightDetail;
+}
+
+interface ParallaxContent {
+  title: string;
+  description: string[];
+  highlights: ParallaxHighlight[];
+  whatsappCta: string;
+  whatsappHref: string;
+  whatsappAriaLabel: string;
+  backgroundImage: string;
+  backgroundLabel: string;
+  highlightIconLabel: string;
+}
+
+interface SectionContent {
+  title: string;
+  description?: string;
+  cards: TravelCard[];
+  parallax: ParallaxContent;
+}
+
+const { content }: { content: SectionContent } = Astro.props;
+const { cards, parallax } = content;
+---
+<section class="py-16 bg-neutral-50">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-semibold text-primary-forest mb-4">
+        {content.title}
+      </h2>
+      {content.description && (
+        <p class="text-base sm:text-lg text-neutral-600" set:html={content.description}>
+        </p>
+      )}
+    </div>
+
+    <div class="grid gap-6 sm:gap-8 md:grid-cols-2 xl:grid-cols-4">
+      {cards.map((card) => (
+        <a
+          href={card.href}
+          class="group flex flex-col bg-neutral-100 rounded-3xl overflow-hidden shadow-[0_14px_45px_-20px_rgba(19,52,50,0.35)] transition-transform duration-300 hover:-translate-y-1 focus-visible:-translate-y-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-forest/50"
+        >
+          <div class="h-48 overflow-hidden bg-neutral-300">
+            <img
+              src={card.imageSrc}
+              alt={card.imageAlt}
+              loading="lazy"
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+            />
+          </div>
+          <div class="flex-1 flex flex-col p-6">
+            <h3 class="text-xl font-semibold text-primary-forest mb-2">
+              {card.title}
+            </h3>
+            <p class="text-sm text-neutral-600 leading-relaxed">
+              {card.subtitle}
+            </p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="py-16">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="relative overflow-hidden rounded-[40px]">
+      <div
+        class="absolute inset-0 bg-cover bg-center"
+        style={`background-image: url('${parallax.backgroundImage}');`}
+        role="presentation"
+        aria-hidden="true"
+      ></div>
+      <div class="absolute inset-0 bg-primary-forest/85"></div>
+      <div class="absolute inset-0 bg-gradient-to-tr from-primary-forest/40 via-primary-forest/30 to-transparent"></div>
+
+      <div class="relative grid gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] items-center px-8 sm:px-12 lg:px-16 py-14 text-neutral-100">
+        <div class="space-y-6">
+          <span class="inline-flex text-xs font-semibold uppercase tracking-[0.3em] text-primary-mist/80">
+            {parallax.backgroundLabel}
+          </span>
+          <h3 class="text-3xl md:text-4xl font-semibold leading-tight" innerHTML={parallax.title}></h3>
+          <div class="space-y-4 text-base sm:text-lg text-neutral-100/90">
+            {parallax.description.map((paragraph) => (
+              <p set:html={paragraph}></p>
+            ))}
+          </div>
+        </div>
+
+        <div class="space-y-8">
+          <div class="grid gap-6 lg:grid-cols-2">
+            {parallax.highlights.map((highlight) => (
+              <div class="flex flex-col gap-4 p-6 rounded-3xl bg-white/10 backdrop-blur-sm">
+                <div class="flex items-start gap-4">
+                  <div class="flex-shrink-0 w-14 h-14 rounded-2xl bg-primary-forest/20 flex items-center justify-center">
+                    <ConsultingGlyph class="w-10 h-10 text-primary-mist" aria-hidden="true" />
+                    <span class="sr-only">{parallax.highlightIconLabel}</span>
+                  </div>
+                  <h4 class="text-lg font-semibold text-neutral-100 leading-tight">
+                    {highlight.title}
+                  </h4>
+                </div>
+                <dl class="grid gap-3 text-sm text-neutral-100/85">
+                  <div class="flex flex-col">
+                    <dt class="font-semibold uppercase tracking-wide text-xs text-primary-mist">
+                      {highlight.duration.label}
+                    </dt>
+                    <dd class="text-neutral-100 text-base">{highlight.duration.value}</dd>
+                  </div>
+                  <div class="flex flex-col">
+                    <dt class="font-semibold uppercase tracking-wide text-xs text-primary-mist">
+                      {highlight.investment.label}
+                    </dt>
+                    <dd class="text-neutral-100 text-base">{highlight.investment.value}</dd>
+                  </div>
+                </dl>
+              </div>
+            ))}
+          </div>
+
+          <a
+            href={parallax.whatsappHref}
+            class="inline-flex items-center justify-center px-6 py-3 rounded-full bg-primary-mist text-primary-forest font-semibold shadow-lg shadow-primary-mist/30 transition-transform hover:-translate-y-0.5 focus-visible:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-100/70"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={parallax.whatsappAriaLabel}
+          >
+            {parallax.whatsappCta}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
