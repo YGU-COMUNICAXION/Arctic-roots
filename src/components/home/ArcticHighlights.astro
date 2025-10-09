@@ -201,7 +201,6 @@ const galleryAlts = content.discovery?.galleryAlt ?? [];
                 rounded-2xl overflow-hidden
                 ring-1 ring-primary-forest/15
                 shadow-xl shadow-black/10
-                bg-neutral-100
                 transition-transform duration-300
                 hover:-translate-y-1 hover:scale-[1.015]
                 `}
@@ -215,8 +214,6 @@ const galleryAlts = content.discovery?.galleryAlt ?? [];
                 widths={[480, 768, 1024, 1280]}
                 sizes="(min-width:1024px) 24rem, 58vw"
               />
-              {/* degradado sutil inferior para dar profundidad */}
-              <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
             </div>
           ))
         }
