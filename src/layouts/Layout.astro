@@ -2,6 +2,7 @@
 import { ClientRouter } from "astro:transitions";
 
 import Header from "./Header.astro";
+import Footer from "@components/Footer.astro";
 import "../styles/global.css";
 
 import type { UILang } from "@i18n/ui";
@@ -28,6 +29,7 @@ const { lang }: Props = Astro.props;
     <main class="flex-1 bg-white">
       <slot />
     </main>
+    <Footer lang={lang} />
   </body>
 </html>
 

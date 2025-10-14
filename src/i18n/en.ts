@@ -11,6 +11,9 @@ const en = {
       contact: "Contact",
     },
   },
+  footer: {
+    copyright: "ARCTIC ROOTS",
+  },
   hero: {
     title: "Explore Iceland and Greenland your way",
     subtitle:

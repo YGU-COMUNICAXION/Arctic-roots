@@ -145,7 +145,6 @@ const translatePath = useTranslatedPath(lang);
     const barsIcon = document.querySelector("#menu-icon");
     const closeIcon = document.querySelector("#close-icon");
     const navigatorMenu = document.querySelector("#navigator-menu");
-    const navigatorLinks = document.querySelector("#navigator-menu ul");
     const header = document.querySelector("#header");
 
     if (navigatorMenu === null || barsIcon === null || closeIcon === null) {
@@ -164,14 +163,28 @@ const translatePath = useTranslatedPath(lang);
       navigatorMenu.classList.toggle("top-16");
     });
 
-    // const path = window.location.pathname;
-    // const links = navigatorLinks?.querySelectorAll("a");
+    const toggleHeaderBackground = () => {
+      if (!(header instanceof HTMLElement)) {
+        return;
+      }
 
-    // links?.forEach((link) => {
-    //   if (link.pathname === path) {
-    //     console.log(link.pathname);
-    //     link.classList.add("active");
-    //   }
-    // });
+      const shouldShowSolidBackground = window.scrollY > 16;
+
+      header.classList.toggle("bg-white", shouldShowSolidBackground);
+      header.classList.toggle("shadow-md", shouldShowSolidBackground);
+      header.classList.toggle("bg-transparent", !shouldShowSolidBackground);
+    };
+
+    toggleHeaderBackground();
+
+    window.addEventListener("scroll", toggleHeaderBackground, { passive: true });
+
+    document.addEventListener(
+      "astro:before-swap",
+      () => {
+        window.removeEventListener("scroll", toggleHeaderBackground);
+      },
+      { once: true },
+    );
   });
 </script>

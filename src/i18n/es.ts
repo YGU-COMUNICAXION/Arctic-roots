@@ -11,6 +11,9 @@ const es = {
       contact: "Contacto",
     },
   },
+  footer: {
+    copyright: "ARCTIC ROOTS",
+  },
   hero: {
     title: "Explora Islandia y Groenlandia a tu manera",
     subtitle:

@@ -1,0 +1,54 @@
+---
+import { Image } from "astro:assets";
+
+import whiteLogo from "@assets/svg/logo_alt_white.svg";
+import { useTranslations, useTranslatedPath } from "@i18n/utils";
+import type { UILang } from "@i18n/ui";
+
+interface Props {
+  lang: UILang;
+}
+
+const { lang }: Props = Astro.props;
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-primary-forest text-neutral-100">
+  <div
+    class="container mx-auto flex flex-col items-center justify-between gap-6 px-6 py-8 text-center md:flex-row md:text-left"
+  >
+    <div class="flex items-center gap-6">
+      <a
+        href={translatePath("/")}
+        data-i18n-path="/"
+        class="flex items-center"
+        aria-label={t("header.logoAlt")}
+        data-i18n-key="header.logoAlt"
+        data-i18n-attr="aria-label"
+      >
+        <Image
+          src={whiteLogo}
+          alt={t("header.logoAlt")}
+          data-i18n-key="header.logoAlt"
+          data-i18n-attr="alt"
+          class="h-12 w-auto"
+        />
+      </a>
+      <span class="hidden h-8 w-px bg-white md:block"></span>
+      <a
+        href={translatePath("/#contacto")}
+        class="text-neutral-100 uppercase transition-colors hover:text-accent-clay"
+        data-i18n-key="header.nav.contact"
+        data-i18n-path="/#contacto"
+      >
+        {t("header.nav.contact")}
+      </a>
+    </div>
+
+    <p class="text-sm uppercase tracking-[0.35em] md:tracking-[0.5em]">
+      © {currentYear} {t("footer.copyright")}
+    </p>
+  </div>
+</footer>
