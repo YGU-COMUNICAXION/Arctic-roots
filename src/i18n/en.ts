@@ -198,6 +198,34 @@ const en = {
       ],
     },
   },
+  agents: {
+    backgroundAlt: "Icelandic waterfall surrounded by basalt cliffs",
+    hero: {
+      titleLineOne: "Do your clients dream of Iceland or Greenland?",
+      titleLineTwo: "Together, we make it happen.",
+      descriptionHtml: `
+        <p>
+          If your clients are asking for Iceland, they are probably imagining auroras dancing over glaciers,
+          geothermal baths, and landscapes that feel otherworldly.
+        </p>
+        <p>
+          If you do not have local expertise, at Arctic Roots we become your eyes, your feet, and your on-the-ground
+          connection in Iceland.
+        </p>
+        <p>
+          <strong>We become your local operator</strong>, handling complex logistics and securing exclusive agreements so
+          you can deliver a flawless experience. Plus, as a travel agency, you can earn commissions through IATA.
+        </p>
+        <p>
+          <strong>You sell. We handle the rest.</strong>
+        </p>
+      `,
+    },
+    whatsappHeadline: "Message us on WhatsApp to chat!",
+    whatsappCta: "WhatsApp",
+    whatsappHref: "https://wa.me/",
+    whatsappAriaLabel: "Open a WhatsApp conversation with Arctic Roots",
+  },
 } as const;
 
 export default en;

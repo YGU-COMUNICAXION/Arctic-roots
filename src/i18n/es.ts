@@ -205,6 +205,34 @@ const es = {
       ],
     },
   },
+  agents: {
+    backgroundAlt: "Cascada islandesa en un paisaje rocoso",
+    hero: {
+      titleLineOne: "¿Tus clientes sueñan con Islandia o Groenlandia?",
+      titleLineTwo: "Juntos, lo hacemos realidad.",
+      descriptionHtml: `
+        <p>
+          Si tus clientes te piden Islandia, seguramente buscan auroras bailando sobre glaciares,
+          aguas termales y paisajes que parecen sacados de Marte.
+        </p>
+        <p>
+          Si no cuentas con el expertise local, ¡En Arctic Roots, somos tus ojos, tus pies y tu conexión en Islandia!
+        </p>
+        <p>
+          <strong>Nos convertimos en tu operador local</strong>, manejamos la logística complicada y te brindamos acuerdos
+          exclusivos para que les ofrezcas una experiencia impecable. Además, por ser agencia de viajes, todo lo puedes
+          comisionar mediante IATA.
+        </p>
+        <p>
+          <strong>Tú vendes, nosotros hacemos el resto.</strong>
+        </p>
+      `,
+    },
+    whatsappHeadline: "¡Envíanos un WhatsApp para charlar!",
+    whatsappCta: "WhatsApp",
+    whatsappHref: "https://wa.me/",
+    whatsappAriaLabel: "Abrir una conversación de WhatsApp con Arctic Roots",
+  },
 } as const;
 
 export default es;
