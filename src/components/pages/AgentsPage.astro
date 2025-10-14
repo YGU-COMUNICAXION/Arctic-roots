@@ -11,7 +11,7 @@ const lang = getLangFromUrl(Astro.url);
 const agentContent = ui[lang].agents;
 ---
 
-<Layout lang={lang} headerType="transparent">
+<Layout lang={lang} headerVariant="dark">
   <HeroBanner
     backgroundImage={HeroBackground}
     align="left"
@@ -21,7 +21,9 @@ const agentContent = ui[lang].agents;
       <div class="mx-auto flex w-full flex-col gap-8 lg:gap-20">
         <div class="grid lg:gap-24 text-white lg:grid-cols-2 lg:items-center">
           <div class="flex flex-col justify-center gap-6">
-            <h1 class="text-start text-2xl font-bold leading-tight md:text-3xl lg:text-4xl">
+            <h1
+              class="text-start text-2xl font-bold leading-tight md:text-3xl lg:text-4xl"
+            >
               <span class="block">{agentContent.hero.titleLineOne}</span>
               <span class="block">{agentContent.hero.titleLineTwo}</span>
             </h1>
