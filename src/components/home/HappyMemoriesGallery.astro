@@ -21,7 +21,6 @@ import Memory16 from "@assets/img/home/recuerdos/16.png";
 
 interface MemoriesContent {
   title: string;
-  description: string;
   images: { alt: string }[];
 }
 
@@ -74,74 +73,78 @@ if (remainingImages.length > 0) {
 }
 
 const columnOffsets = [
+  "lg:translate-y-14",
+  "lg:-translate-y-10",
   "lg:translate-y-16",
-  "lg:-translate-y-16",
-  "lg:translate-y-16",
-  "lg:-translate-y-16",
-  "lg:translate-y-16",
+  "lg:-translate-y-12",
+  "lg:translate-y-10",
 ];
+
+const imageWidths = [320, 480, 640, 768, 960];
+const imageSizes = "(min-width:1280px) 14vw, (min-width:768px) 28vw, 45vw";
 ---
 
-<section class="w-full py-16 sm:py-20 lg:py-24">
-  <div class="container mx-auto px-4">
-    <div class="flex flex-col gap-10 lg:gap-14">
-      <div class="flex flex-col gap-4 max-w-3xl text-primary-forest">
-        <h2 class="text-3xl sm:text-4xl font-light">{content.title}</h2>
-        <p class="text-base sm:text-lg lg:text-xl font-light leading-relaxed">
-          {content.description}
-        </p>
+<section class="w-full overflow-hidden py-16 sm:py-20 lg:py-24">
+  <div class="mx-auto w-full px-4 sm:px-6 lg:px-10 xl:px-16">
+    <div class="flex flex-col gap-4 text-primary-forest lg:hidden">
+      <h2 class="text-3xl sm:text-4xl font-bold text-primary-1">
+        {content.title}
+      </h2>
+    </div>
+
+    <div class="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6 lg:hidden">
+      {
+        images.map((image) => (
+          <div class="relative aspect-[3/4] overflow-hidden rounded-[28px] shadow-lg shadow-black/10 ring-1 ring-primary-forest/10">
+            <Image
+              src={image.source}
+              alt={image.alt}
+              class="h-full w-full object-cover"
+              style="width: 100%; height: 100%;"
+              loading="lazy"
+              decoding="async"
+              widths={imageWidths}
+              sizes={imageSizes}
+            />
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="hidden lg:flex w-full justify-center gap-6 xl:gap-10">
+      <div class="flex w-56 flex-none items-start pt-12 xl:w-64">
+        <h2 class="text-3xl xl:text-4xl font-bold leading-tight text-primary-1">
+          {content.title}
+        </h2>
       </div>
 
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 lg:hidden">
-        {
-          images.map((image) => (
-            <div class="aspect-[3/4]">
-              <div class="h-full overflow-hidden rounded-3xl shadow-lg shadow-black/10 ring-1 ring-primary-forest/10">
-                <Image
-                  src={image.source}
-                  alt={image.alt}
-                  class="h-full w-full object-cover"
-                  loading="lazy"
-                  decoding="async"
-                  widths={[320, 480, 640, 768, 960]}
-                  sizes="(min-width:1280px) 14vw, (min-width:768px) 28vw, 45vw"
-                />
-              </div>
-            </div>
-          ))
-        }
-      </div>
-
-      <div class="hidden lg:flex justify-center gap-6 xl:gap-8">
-        {
-          columns.map((column, index) => (
-            <div
-              class:list={[
-                "flex flex-col gap-6 xl:gap-8 w-48 xl:w-56",
-                columnOffsets[index],
-              ]}
-            >
-              {
-                column.map((image) => (
-                  <div class="aspect-[3/4]">
-                    <div class="h-full overflow-hidden rounded-3xl shadow-lg shadow-black/10 ring-1 ring-primary-forest/10">
-                      <Image
-                        src={image.source}
-                        alt={image.alt}
-                        class="h-full w-full object-cover"
-                        loading="lazy"
-                        decoding="async"
-                        widths={[320, 480, 640, 768, 960]}
-                        sizes="(min-width:1280px) 14vw, (min-width:768px) 28vw, 45vw"
-                      />
-                    </div>
-                  </div>
-                ))
-              }
-            </div>
-          ))
-        }
-      </div>
+      {
+        columns.map((column, index) => (
+          <div
+            class:list={[
+              "flex w-48 flex-col gap-6 xl:w-56 xl:gap-8",
+              columnOffsets[index % columnOffsets.length],
+            ]}
+          >
+            {
+              column.map((image) => (
+                <div class="relative aspect-[3/4] overflow-hidden rounded-[28px] shadow-lg shadow-black/15 ring-1 ring-primary-forest/10">
+                  <Image
+                    src={image.source}
+                    alt={image.alt}
+                    class="h-full w-full object-cover"
+                    style="width: 100%; height: 100%;"
+                    loading="lazy"
+                    decoding="async"
+                    widths={imageWidths}
+                    sizes="(min-width:1600px) 12vw, (min-width:1280px) 14vw, 28vw"
+                  />
+                </div>
+              ))
+            }
+          </div>
+        ))
+      }
     </div>
   </div>
 </section>

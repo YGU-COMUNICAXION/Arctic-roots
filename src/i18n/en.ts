@@ -53,17 +53,38 @@ const en = {
       },
     },
     islandsNation: {
-      title: "Island Nations in motion",
-      paragraphs: [
-        "Add a spark of movement and adventure to your journey with activities that connect the best of Iceland and Greenland.",
-        "Our team designs experiences that let you uncover these island nations—from volcanic energy to the silence of the glaciers.",
+      title: "Iceland in motion",
+      description:
+        "Add a dose of adventure to your Iceland trip with curated activities designed to keep the excitement going.",
+      columns: [
+        [
+          "Whale watching tour",
+          "Blue Lagoon",
+          "Sky Lagoon",
+          "Helicopter to an active volcano",
+          "Snorkeling in the Silfra fissure",
+          "Snowmobile ride",
+        ],
+        [
+          "Snow skiing",
+          "Glacier hike",
+          "Ice cave visit",
+          "Kayak on Jökulsárlón lagoon",
+          "Northern lights watching",
+        ],
+        [
+          "Reykjavík city tour",
+          "Perlan",
+          "Lava Show",
+          "National Museum",
+          "Viking Museum",
+          "4x4 adventure",
+        ],
       ],
       backgroundAlt: "Glowing lava flowing across an Icelandic volcanic field",
     },
     memories: {
       title: "Memories from our happy travelers",
-      description:
-        "Moments captured by travelers who trusted Arctic Roots to craft a tailor-made Arctic adventure.",
       images: [
         { alt: "Couple hugging in front of a snow-covered Icelandic glacier" },
         { alt: "Green northern lights glowing above snowy mountains" },

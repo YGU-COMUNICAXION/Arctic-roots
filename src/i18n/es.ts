@@ -53,17 +53,38 @@ const es = {
       },
     },
     islandsNation: {
-      title: "Islas Nación en acción",
-      paragraphs: [
-        "Agrégale a tu viaje un toque de movimiento y aventura con actividades que conectan lo mejor de Islandia y Groenlandia.",
-        "Nuestro equipo crea experiencias para que descubras estas islas nación desde la energía volcánica hasta el silencio de los glaciares.",
+      title: "Islandia en acción",
+      description:
+        "Agrégale a tu viaje a Islandia un toque de movimiento y aventura con la selección de actividades que tenemos disponibles.",
+      columns: [
+        [
+          "Tour avistamiento ballenas",
+          "Blue Lagoon",
+          "Sky Lagoon",
+          "Helicóptero a volcán activo",
+          "Buceo o esnórquel en Silfra",
+          "Motonieve",
+        ],
+        [
+          "Esquí en nieve",
+          "Hike en glaciar",
+          "Visita a cueva de hielo",
+          "Balsa o kayak en la laguna de Jökulsárlón",
+          "Avistamiento de auroras",
+        ],
+        [
+          "Tour a Reykjavik",
+          "Perlan",
+          "Lava Show",
+          "Museo Nacional",
+          "Museo Vikingo",
+          "Aventura 4x4",
+        ],
       ],
       backgroundAlt: "Lava encendida recorriendo un campo volcánico en Islandia",
     },
     memories: {
       title: "Recuerdos de nuestros viajeros felices",
-      description:
-        "Momentos capturados por quienes confiaron en Arctic Roots para vivir una aventura ártica hecha a su medida.",
       images: [
         { alt: "Pareja abrazada frente a un glaciar islandés cubierto de nieve" },
         { alt: "Aurora boreal verde iluminando montañas nevadas" },
