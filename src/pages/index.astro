@@ -2,7 +2,10 @@
 import HeroBanner from "@components/HeroBanner.astro";
 import Layout from "../layouts/Layout.astro";
 import ArcticHighlights from "@components/home/ArcticHighlights.astro";
+import HappyMemoriesGallery from "@components/home/HappyMemoriesGallery.astro";
+import ContactCTA from "@components/home/ContactCTA.astro";
 import IcelandTravel from "@components/home/IcelandTravel.astro";
+import IslandsNationBanner from "@components/home/IslandsNationBanner.astro";
 
 import HeroImg from "@assets/img/home/hero.jpg";
 import { getLangFromUrl, useTranslations } from "@i18n/utils";
@@ -11,6 +14,9 @@ import { ui } from "@i18n/ui";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const homeContent = ui[lang].home.highlights;
+const islandsNationContent = ui[lang].home.islandsNation;
+const memoriesContent = ui[lang].home.memories;
+const contactCtaContent = ui[lang].home.contactCta;
 const travelContent = ui[lang].home.travel;
 ---
 
@@ -31,5 +37,8 @@ const travelContent = ui[lang].home.travel;
   </HeroBanner>
 
   <ArcticHighlights content={homeContent} />
+  <IslandsNationBanner content={islandsNationContent} />
+  <HappyMemoriesGallery content={memoriesContent} />
+  <ContactCTA content={contactCtaContent} />
   <IcelandTravel content={travelContent} />
 </Layout>

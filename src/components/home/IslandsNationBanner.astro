@@ -1,0 +1,63 @@
+---
+import { Image } from "astro:assets";
+
+import VolcanoBackground from "@assets/img/home/bgVolcano.png";
+
+interface BannerContent {
+  title: string;
+  description: string;
+  backgroundAlt: string;
+  columns: string[][];
+}
+
+const { content } = Astro.props as { content: BannerContent };
+const columns = content.columns ?? [];
+---
+
+<section class="relative w-full overflow-hidden text-white">
+  <div class="absolute inset-0">
+    <Image
+      src={VolcanoBackground}
+      alt={content.backgroundAlt}
+      class="h-full w-full object-cover"
+      loading="lazy"
+      decoding="async"
+      sizes="100vw"
+      widths={[640, 960, 1280, 1600]}
+    />
+    <div
+      class="absolute inset-0 bg-primary-forest/75 mix-blend-multiply"
+      aria-hidden="true"
+    ></div>
+  </div>
+
+  <div class="relative mx-auto w-full max-w-6xl px-4 py-20 sm:py-24 lg:py-32 lg:px-8">
+    <div class="flex flex-col items-center gap-6 text-center">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight">
+        {content.title}
+      </h2>
+      <p class="max-w-3xl text-base sm:text-lg lg:text-xl font-light leading-relaxed">
+        {content.description}
+      </p>
+
+      {columns.length > 0 && (
+        <div class="mt-4 grid w-full gap-6 text-left text-sm font-light sm:text-base lg:mt-8 lg:grid-cols-3 lg:gap-10 lg:text-lg lg:leading-relaxed">
+          {
+            columns.map((items) => (
+              <ul class="flex flex-col gap-3 lg:px-6">
+                {
+                  items.map((item) => (
+                    <li class="relative pl-6">
+                      <span class="absolute left-0 top-1/2 h-2 w-2 -translate-y-1/2 rounded-full bg-white"></span>
+                      {item}
+                    </li>
+                  ))
+                }
+              </ul>
+            ))
+          }
+        </div>
+      )}
+    </div>
+  </div>
+</section>
