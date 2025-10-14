@@ -1,0 +1,62 @@
+---
+import brandIconUrl from "@assets/svg/home/paralaxIcon.svg";
+
+interface ContactCTAContent {
+  title: string;
+  description?: string;
+  buttonLabel: string;
+  buttonHref: string;
+  buttonAriaLabel: string;
+}
+
+const { content } = Astro.props as { content: ContactCTAContent };
+---
+
+<section class="relative w-full overflow-hidden bg-white py-20 sm:py-24">
+  <div class="pointer-events-none absolute inset-0 flex items-center justify-center">
+    <img
+      src={brandIconUrl}
+      alt=""
+      aria-hidden="true"
+      loading="lazy"
+      decoding="async"
+      class="h-auto w-[420px] opacity-10 sm:w-[520px] lg:w-[640px]"
+    />
+  </div>
+
+  <div class="relative mx-auto flex w-full max-w-3xl flex-col items-center gap-6 px-4 text-center sm:gap-8">
+    <h2 class="text-[26px] font-normal leading-snug text-primary-forest sm:text-[30px] lg:text-[32px]">
+      {content.title}
+    </h2>
+
+    {content.description && (
+      <p class="max-w-xl text-base font-light text-primary-forest/80 sm:text-lg">
+        {content.description}
+      </p>
+    )}
+
+    <a
+      href={content.buttonHref}
+      class="inline-flex items-center gap-3 rounded-full border border-primary-1/30 bg-primary-1/10 px-8 py-3 text-base font-medium text-primary-1 transition-colors duration-200 hover:bg-primary-1 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-1 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+      target="_blank"
+      rel="noreferrer noopener"
+      aria-label={content.buttonAriaLabel}
+    >
+      <span class="inline-flex h-5 w-5 items-center justify-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          class="h-5 w-5"
+          aria-hidden="true"
+        >
+          <path
+            fill="currentColor"
+            d="M12 2a10 10 0 0 0-8.66 15.07L2 22l4.72-1.27A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.1-1.12l-.29-.17-2.8.75.75-2.73-.18-.28A8 8 0 1 1 12 20Zm4.53-5.47c-.25-.12-1.47-.72-1.7-.8-.23-.08-.4-.12-.57.12-.17.25-.65.8-.8.97-.15.17-.3.18-.55.06-.25-.12-1.06-.39-2.02-1.24-.75-.67-1.26-1.5-1.4-1.75-.15-.25-.02-.38.1-.5.1-.1.25-.26.37-.4.12-.15.17-.25.25-.42.08-.17.04-.32-.02-.45-.06-.12-.57-1.37-.78-1.87-.2-.48-.4-.42-.57-.43h-.48c-.17 0-.45.06-.69.32-.23.25-.9.88-.9 2.15s.92 2.49 1.05 2.66c.12.17 1.82 2.79 4.42 3.91.62.27 1.11.43 1.49.55.63.2 1.2.17 1.65.1.5-.08 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.17-.48-.29Z"
+          />
+        </svg>
+      </span>
+      <span>{content.buttonLabel}</span>
+    </a>
+  </div>
+</section>
