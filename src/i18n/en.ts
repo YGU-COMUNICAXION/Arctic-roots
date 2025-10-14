@@ -118,6 +118,101 @@ const en = {
       },
     },
   },
+
+  travelTypes: {
+    hero: {
+      title:
+        "Iceland and Greenland aren’t destinations—you live them the way you’ve been dreaming",
+      description:
+        "Our experiences let you enjoy anything from an exclusive journey tailored to your wishes to a self-guided adventure shaped around your preferences.",
+      ctaLabel: "Choose the idea that fits you",
+      ctaAriaLabel: "Scroll to the group departures calendar",
+      disclaimer:
+        "Doesn’t include meals, flights (they can be quoted from your departure city), or activities not mentioned.",
+    },
+    cardsSection: {
+      cards: [
+        {
+          type: "group",
+          title: "Group journey",
+          subtitle: "Capacity: 10 travellers, scheduled departures only.",
+          note: "Note. This tour can’t be personalised because the group itinerary is pre-set.",
+          detailsHtml: `
+            <p class="text-sm md:text-base font-light text-white/85">Includes:</p>
+            <ul class="mt-3 list-disc space-y-2 pl-5 marker:text-primary-mist">
+              <li>Airport – hotel | hotel – airport transfers</li>
+              <li>Hotels (some with breakfast included, restrictions apply)</li>
+              <li>Booked tours (restrictions apply, subject to availability and weather)</li>
+            </ul>
+          `,
+        },
+        {
+          type: "private",
+          title: "Private journey",
+          subtitle: "Designed exclusively for you, tailored to your budget, route, and dates.",
+          badge: "Personalised",
+          detailsHtml: `
+            <p class="text-sm md:text-base font-light text-white/85">Includes:</p>
+            <ul class="mt-3 list-disc space-y-2 pl-5 marker:text-primary-mist">
+              <li>Airport – hotel | hotel – airport transfers</li>
+              <li>Hotels (some with breakfast included, restrictions apply)</li>
+              <li>Booked tours (restrictions apply, subject to availability and weather)</li>
+            </ul>
+          `,
+        },
+        {
+          type: "selfGuided",
+          title: "Self-guided",
+          subtitle: "We design an itinerary according to your needs, time, and budget.",
+          badge: "Personalised",
+          detailsHtml: `
+            <p class="leading-relaxed">We provide every tool you need to discover Iceland on your own with all the conveniences you require.</p>
+          `,
+        },
+      ],
+      contactCta: {
+        label: "CONTACT US",
+        href: "/en/#contact",
+      },
+    },
+    groupCta: {
+      title: "Ready to join the next group journey?",
+      ctaLabel: "Go to the calendar",
+      ariaLabel: "Jump to the group travel calendar",
+    },
+    calendar: {
+      anchorId: "travel-calendar",
+      prompt: "Join the next group departure",
+      heading: "Autumn in Iceland | Group journey",
+      date: "10–19 & 20–26 October 2026",
+      description:
+        "Get ready to cross the land of fire and ice through Iceland’s most spectacular landscapes. Glaciers, volcanoes, hot springs, northern lights, whales, and charming towns await.",
+      includesTitle: "Includes",
+      includes: [
+        "9 days with driver (van & fuel included)",
+        "Guided city tour in Reykjavík",
+        "Admission to Perlan and Lava Show",
+        "3 northern lights hunting excursions",
+        "Whale watching experience",
+        "Glacier hike",
+        "Blue Lagoon admission",
+      ],
+      routeTitle: "Route",
+      timeline: [
+        { dates: "Oct 12–13 & 20–22", place: "Reykjavík" },
+        { dates: "Oct 13–15 & 22–24", place: "Akureyri" },
+        { dates: "Oct 15–18 & 24–27", place: "Húsavík" },
+        { dates: "Oct 18–21 & 27–29", place: "Mývatn" },
+        { dates: "Oct 21–23 & 29–31", place: "Egilsstaðir" },
+        { dates: "Oct 23–25 & 31–Nov 2", place: "Höfn" },
+        { dates: "Oct 25–27 & Nov 2–4", place: "Vík" },
+        { dates: "Oct 27–29 & Nov 4–6", place: "Reykjavík" },
+      ],
+      placesTitle: "Location",
+      priceLabel: "Price per person (double occupancy):",
+      price: "$3,600 USD",
+    },
+  },
   about: {
     hero: {
       title: "Your gateway to a luxury Arctic experience",

@@ -1,19 +1,27 @@
 ---
 import { getImage } from "astro:assets";
+
 interface Props {
   backgroundImage: ImageMetadata;
   align?: "center" | "left";
   contentWidth?: "full" | "half";
+  showOverlay?: boolean;
+  overlayClass?: string;
 }
 
 const {
   backgroundImage,
   align = "center",
   contentWidth = align === "left" ? "half" : "full",
+  showOverlay = true,
+  overlayClass = "bg-neutral-950/55",
 } = Astro.props as Props;
 
 const sectionAlignmentClasses =
   align === "left" ? "items-start text-left" : "items-center text-center";
+
+const contentWidthClasses =
+  contentWidth === "half" ? "max-w-2xl" : "max-w-4xl";
 
 const optimzedImage = await getImage({
   src: backgroundImage,
@@ -24,11 +32,13 @@ const optimzedImage = await getImage({
 ---
 
 <section
-  class={`w-full h-[80vh] md:h-[80vh] lg:h-[90vh] flex flex-col justify-center px-4 md:px-8 lg:px-16 ${sectionAlignmentClasses}`}
+  class={`relative w-full h-[80vh] md:h-[80vh] lg:h-[90vh] flex flex-col justify-center px-4 md:px-8 lg:px-16 overflow-hidden ${sectionAlignmentClasses}`}
   style={`background-image: url(${optimzedImage.src}); background-size: cover; background-position: center;`}
 >
-  <!-- contenido dinámico -->
-  <main class={`flex flex-col gap-6`}>
+  {showOverlay && (
+    <div class={`absolute inset-0 ${overlayClass}`} aria-hidden="true"></div>
+  )}
+  <main class={`relative z-10 flex flex-col gap-6 ${contentWidthClasses}`}>
     <slot />
   </main>
 </section>

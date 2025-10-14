@@ -1,0 +1,158 @@
+---
+import HeroBanner from "@components/HeroBanner.astro";
+import { getImage } from "astro:assets";
+
+import type { UILang } from "@i18n/ui";
+import { ui } from "@i18n/ui";
+
+import HeroBackground from "@assets/img/travels/hero.jpg";
+import GroupCardImage from "@assets/img/travels/viajeGrupal.png";
+import PrivateCardImage from "@assets/img/travels/viajePrivado.png";
+import SelfGuidedCardImage from "@assets/img/travels/viajeAutoguiado.png";
+import CalendarBackground from "@assets/img/travels/bgOtonio.jpg";
+import TravelCalendarSection from "./TravelCalendarSection.astro";
+
+interface Props {
+  lang: UILang;
+}
+
+const { lang } = Astro.props as Props;
+const content = ui[lang].travelTypes;
+
+const groupCardBackground = await getImage({
+  src: GroupCardImage,
+  widths: [600, 900],
+  formats: ["avif", "webp", "jpeg"],
+  quality: 85,
+});
+
+const privateCardBackground = await getImage({
+  src: PrivateCardImage,
+  widths: [600, 900],
+  formats: ["avif", "webp", "jpeg"],
+  quality: 85,
+});
+
+const selfGuidedCardBackground = await getImage({
+  src: SelfGuidedCardImage,
+  widths: [600, 900],
+  formats: ["avif", "webp", "jpeg"],
+  quality: 85,
+});
+
+const calendarBackground = await getImage({
+  src: CalendarBackground,
+  widths: [1280, 1920],
+  formats: ["avif", "webp", "jpeg"],
+  quality: 85,
+});
+
+const cardBackgrounds = {
+  group: groupCardBackground,
+  private: privateCardBackground,
+  selfGuided: selfGuidedCardBackground,
+} as const;
+---
+
+<HeroBanner backgroundImage={HeroBackground}>
+  <div class="flex flex-col items-center gap-6 text-white">
+    <h1 class="text-2xl md:text-4xl lg:text-5xl font-semibold leading-tight text-center">
+      {content.hero.title}
+    </h1>
+    <p class="max-w-3xl text-base md:text-lg lg:text-xl text-center font-light text-white/90">
+      {content.hero.description}
+    </p>
+    <div class="flex flex-col items-center gap-4">
+      <a
+        href={`#${content.calendar.anchorId}`}
+        class="group flex flex-col items-center gap-3 text-base md:text-lg font-medium text-white transition-colors hover:text-primary-mist focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black/40"
+        aria-label={content.hero.ctaAriaLabel}
+      >
+        <span>{content.hero.ctaLabel}</span>
+        <svg
+          class="w-10 transition-transform duration-200 group-hover:translate-y-1"
+          width="69"
+          height="69"
+          viewBox="0 0 69 69"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <path
+            d="M51.75 25.875L34.5 43.125L17.25 25.875"
+            stroke="#DEDCD1"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </a>
+      <p class="max-w-sm text-center text-xs md:text-sm font-light text-white/70">
+        {content.hero.disclaimer}
+      </p>
+    </div>
+  </div>
+</HeroBanner>
+
+<section class="py-16 md:py-24 bg-white">
+  <div class="max-w-6xl mx-auto px-4 md:px-8 lg:px-12">
+    <div class="grid gap-10 md:grid-cols-3">
+      {content.cardsSection.cards.map((card: any) => (
+        <article
+          class="relative overflow-hidden rounded-[18px] text-white shadow-2xl shadow-black/40 border border-white/15 flex flex-col min-h-[24rem] md:min-h-[26rem]"
+          style={`background-image: url(${cardBackgrounds[card.type].src}); background-size: cover; background-position: center;`}
+        >
+          <div class="absolute inset-0 bg-gradient-to-b from-black/55 via-black/60 to-black/80" aria-hidden="true" />
+
+          <div class="relative z-10 flex flex-1 flex-col p-6 md:p-8">
+            <div class="flex items-start justify-between gap-4">
+              <div class="space-y-3">
+                <h3 class="text-2xl font-semibold leading-tight">{card.title}</h3>
+                <p class="text-sm md:text-base font-light text-white/85">{card.subtitle}</p>
+              </div>
+
+              {card.badge && (
+                <span class="inline-flex items-center rounded-full bg-[#DEDCD1]/95 px-2.5 py-0.5 text-[0.65rem] font-light text-primary-forest/90 backdrop-blur-sm">
+                  {card.badge}
+                </span>
+              )}
+            </div>
+
+            <div class="mt-6 flex-1">
+              <div class="text-sm md:text-base font-light text-white/85 space-y-4" set:html={card.detailsHtml} />
+            </div>
+
+            {card.note && (
+              <p class="mt-auto pt-6 text-xs md:text-sm font-light text-white/70">{card.note}</p>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <div class="mt-14 flex justify-center">
+      <a
+        href={content.cardsSection.contactCta.href}
+        class="inline-flex items-center justify-center gap-3 rounded-full bg-primary-mist px-7 py-3 font-normal uppercase tracking-wide text-primary-forest shadow-lg shadow-black/20 transition-transform hover:-translate-y-0.5 focus-visible:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-100/70"
+      >
+        {content.cardsSection.contactCta.label}
+      </a>
+    </div>
+  </div>
+</section>
+
+<TravelCalendarSection
+  id={content.calendar.anchorId}
+  backgroundImage={calendarBackground}
+  prompt={content.calendar.prompt}
+  heading={content.calendar.heading}
+  dateLabel={content.calendar.date}
+  description={content.calendar.description}
+  includesTitle={content.calendar.includesTitle}
+  includes={content.calendar.includes}
+  routeTitle={content.calendar.routeTitle}
+  timeline={content.calendar.timeline}
+  placesTitle={content.calendar.placesTitle}
+  priceLabel={content.calendar.priceLabel}
+  price={content.calendar.price}
+/>

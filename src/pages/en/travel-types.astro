@@ -1,0 +1,12 @@
+---
+import Layout from "@layouts/Layout.astro";
+import TravelTypesPage from "@components/travel-types/TravelTypesPage.astro";
+
+import { getLangFromUrl } from "@i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+---
+
+<Layout lang={lang}>
+  <TravelTypesPage lang={lang} />
+</Layout>
