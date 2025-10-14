@@ -63,9 +63,12 @@ const translatePath = useTranslatedPath(lang);
       data-i18n-attr="aria-label"
     >
       <ul
-        class=`h-full container flex flex-col lg:flex-row items-center justify-end gap-8 lg:gap-14
+        class=`h-full container
+        flex flex-col lg:flex-row items-center justify-end gap-8 lg:gap-14
         [&>li>a]:text-primary-1 lg:[&>li]:text-center text-primary-forest
         [&>li>a]:relative [&>li>a]:uppercase [&>li]:inline-block
+        [&>li>a]:hover:underline [&>li>a]:transition-colors [&>li>a]:duration-300
+        [&>li>a]:ease-in-out
         font-normal text-base lg:text-lg xl:text-xl`
       >
         <li>
@@ -97,27 +100,27 @@ const translatePath = useTranslatedPath(lang);
         </li>
         <li>
           <a
-            href={translatePath("/#contacto")}
+            href={translatePath("/travels")}
             data-i18n-key="header.nav.travelTypes"
-            data-i18n-path="/#contacto"
+            data-i18n-path="/travels"
           >
             {t("header.nav.travelTypes")}
           </a>
         </li>
         <li>
           <a
-            href={translatePath("/#contacto")}
+            href={translatePath("/agents")}
             data-i18n-key="header.nav.agents"
-            data-i18n-path="/#contacto"
+            data-i18n-path="/agents"
           >
             {t("header.nav.agents")}
           </a>
         </li>
         <li>
           <a
-            href={translatePath("/#contacto")}
+            href={translatePath("/contact")}
             data-i18n-key="header.nav.contact"
-            data-i18n-path="/#contacto"
+            data-i18n-path="/contacto"
           >
             {t("header.nav.contact")}
           </a>
@@ -177,14 +180,16 @@ const translatePath = useTranslatedPath(lang);
 
     toggleHeaderBackground();
 
-    window.addEventListener("scroll", toggleHeaderBackground, { passive: true });
+    window.addEventListener("scroll", toggleHeaderBackground, {
+      passive: true,
+    });
 
     document.addEventListener(
       "astro:before-swap",
       () => {
         window.removeEventListener("scroll", toggleHeaderBackground);
       },
-      { once: true },
+      { once: true }
     );
   });
 </script>

@@ -219,7 +219,7 @@ const es = {
           aguas termales y paisajes que parecen sacados de Marte.
         </p>
         <p>
-          Si no cuentas con el expertise local, ¡En Arctic Roots, somos tus ojos, tus pies y tu conexión en Islandia!
+          Si no cuentas con el expertise local,¡En <strong>Arctic Roots</strong>, somos tus ojos, tus pies y tu conexión en Islandia!
         </p>
         <p>
           <strong>Nos convertimos en tu operador local</strong>, manejamos la logística complicada y te brindamos acuerdos

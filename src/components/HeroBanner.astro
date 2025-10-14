@@ -4,12 +4,14 @@ interface Props {
   backgroundImage: ImageMetadata;
   align?: "center" | "left";
   contentWidth?: "full" | "half";
+  activeBgOverlay?: boolean;
 }
 
 const {
   backgroundImage,
   align = "center",
   contentWidth = align === "left" ? "half" : "full",
+  activeBgOverlay = false,
 } = Astro.props as Props;
 
 const sectionAlignmentClasses =
@@ -24,9 +26,11 @@ const optimzedImage = await getImage({
 ---
 
 <section
-  class={`w-full h-[80vh] md:h-[80vh] lg:h-[90vh] flex flex-col justify-center px-4 md:px-8 lg:px-16 ${sectionAlignmentClasses}`}
+  class={`w-full h-[85vh] md:h-[80vh] lg:h-[90vh] relative isolate
+  flex flex-col justify-center px-4 md:px-8 lg:px-16 ${sectionAlignmentClasses}`}
   style={`background-image: url(${optimzedImage.src}); background-size: cover; background-position: center;`}
 >
+  {activeBgOverlay && <div class="absolute inset-0 bg-black/50 -z-10" />}
   <!-- contenido dinámico -->
   <main class={`flex flex-col gap-6`}>
     <slot />

@@ -39,7 +39,7 @@ const currentYear = new Date().getFullYear();
       <span class="hidden h-8 w-px bg-white md:block"></span>
       <a
         href={translatePath("/#contacto")}
-        class="text-neutral-100 uppercase transition-colors hover:text-accent-clay"
+        class="text-neutral-100 uppercase transition-colors hover:underline"
         data-i18n-key="header.nav.contact"
         data-i18n-path="/#contacto"
       >
@@ -47,8 +47,9 @@ const currentYear = new Date().getFullYear();
       </a>
     </div>
 
-    <p class="text-sm uppercase tracking-[0.35em] md:tracking-[0.5em]">
-      © {currentYear} {t("footer.copyright")}
+    <p class="text-sm lg:text-base uppercase">
+      © {currentYear}
+      {t("footer.copyright")}
     </p>
   </div>
 </footer>
