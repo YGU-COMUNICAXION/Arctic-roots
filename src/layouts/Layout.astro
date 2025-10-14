@@ -7,12 +7,14 @@ import "../styles/global.css";
 
 import type { UILang } from "@i18n/ui";
 
+type HeaderVariant = "light" | "dark";
+
 interface Props {
   lang: UILang;
-  headerType?: "default" | "transparent";
+  headerVariant?: HeaderVariant;
 }
 
-const { lang, headerType = "default" }: Props = Astro.props;
+const { lang, headerVariant = "light" }: Props = Astro.props;
 ---
 
 <html lang={lang}>
@@ -26,7 +28,7 @@ const { lang, headerType = "default" }: Props = Astro.props;
     <ClientRouter />
   </head>
   <body class="flex flex-col min-h-screen">
-    <Header lang={lang} type={headerType} />
+    <Header lang={lang} variant={headerVariant} />
     <main class="flex-1 bg-white">
       <slot />
     </main>
