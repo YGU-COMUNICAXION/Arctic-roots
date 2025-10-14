@@ -141,10 +141,41 @@ const cardBackgrounds = {
   </div>
 </section>
 
+<section class="bg-white">
+  <div class="max-w-6xl mx-auto px-4 md:px-8 lg:px-12 py-12">
+    <div class="flex flex-col items-center gap-4 text-center">
+      <p class="text-base md:text-lg font-light text-neutral-900">{content.calendar.prompt}</p>
+      <a
+        href={`#${content.calendar.anchorId}`}
+        class="group inline-flex items-center justify-center"
+        aria-label={content.groupCta?.ariaLabel || content.groupCta?.ctaLabel}
+      >
+        <svg
+          class="h-12 w-12 transition-transform duration-200 group-hover:translate-y-1"
+          width="69"
+          height="69"
+          viewBox="0 0 69 69"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <path
+            d="M51.75 25.875L34.5 43.125L17.25 25.875"
+            stroke="#DEDCD1"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+        <span class="sr-only">{content.groupCta?.ctaLabel || content.calendar.prompt}</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <TravelCalendarSection
   id={content.calendar.anchorId}
   backgroundImage={calendarBackground}
-  prompt={content.calendar.prompt}
   heading={content.calendar.heading}
   dateLabel={content.calendar.date}
   description={content.calendar.description}

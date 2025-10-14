@@ -9,7 +9,6 @@ interface TimelineEntry {
 interface Props {
   id: string;
   backgroundImage: ImageMetadata;
-  prompt: string;
   heading: string;
   dateLabel: string;
   description: string;
@@ -25,7 +24,6 @@ interface Props {
 const {
   id,
   backgroundImage,
-  prompt,
   heading,
   dateLabel,
   description,
@@ -50,25 +48,6 @@ const [headingPrimary, headingSecondary] = heading.includes("|")
 >
   <div class="absolute inset-0 bg-black/45" aria-hidden="true"></div>
   <div class="relative z-10 container px-4 md:px-8 lg:px-12 flex flex-col gap-8 text-white">
-    <div class="flex flex-col items-center gap-3 text-center text-white/85">
-      <p class="text-base md:text-lg font-light">{prompt}</p>
-      <svg
-        class="h-8 w-8 rotate-90"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-      >
-        <path
-          d="M17.25 6L8.75 12L17.25 18"
-          stroke="#DEDCD1"
-          stroke-width="1.8"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-      </svg>
-    </div>
-
     <div class="flex flex-wrap items-center justify-between gap-4 text-white">
       <h3 class="text-2xl md:text-3xl font-semibold tracking-tight">
         <span>{headingPrimary}</span>
@@ -85,7 +64,7 @@ const [headingPrimary, headingSecondary] = heading.includes("|")
           {description}
         </p>
 
-        <div class="grid gap-10 md:grid-cols-[0.55fr_1.6fr_1fr]">
+        <div class="grid gap-10 md:grid-cols-[0.6fr_0.2fr_0.2fr]">
           <div class="space-y-4">
             <h4 class="text-base font-semibold text-white/90">{includesTitle}</h4>
             <ul class="list-disc space-y-2 pl-5 text-sm md:text-base font-light text-white/85 marker:text-primary-mist">
