@@ -28,10 +28,7 @@ const translatePath = useTranslatedPath(lang);
   class:list={[
     "group/header flex items-center justify-center",
     "z-20 fixed w-full left-0 right-0 transition-colors duration-300",
-    {
-      "bg-transparent": !isDarkVariant,
-      "bg-primary-forest": isDarkVariant,
-    },
+    "bg-transparent",
   ]}
 >
   <div
@@ -71,32 +68,25 @@ const translatePath = useTranslatedPath(lang);
             : "text-primary-forest"
         }`}
       >
-        {isDarkVariant ? (
-          <>
+        {
+          variant === "dark" ? (
             <Image
-              class="header-logo block group-[data-scrolled=true]/header:hidden"
+              class="header-logo block"
               src={svgLogoWhite}
               alt={t("header.logoAlt")}
               data-i18n-key="header.logoAlt"
               data-i18n-attr="alt"
             />
+          ) : (
             <Image
-              class="header-logo hidden group-[data-scrolled=true]/header:block"
+              class="header-logo block"
               src={svgLogo}
               alt={t("header.logoAlt")}
               data-i18n-key="header.logoAlt"
               data-i18n-attr="alt"
             />
-          </>
-        ) : (
-          <Image
-            class="header-logo block"
-            src={svgLogo}
-            alt={t("header.logoAlt")}
-            data-i18n-key="header.logoAlt"
-            data-i18n-attr="alt"
-          />
-        )}
+          )
+        }
       </a>
     </div>
 
@@ -107,10 +97,10 @@ const translatePath = useTranslatedPath(lang);
         "flex flex-col items-center justify-center shadow lg:shadow-none p-6 py-8 lg:p-0 lg:py-0",
         "transition-[top] duration-300 ease-in-out lg:transition-none",
         "lg:static lg:flex-1 lg:flex lg:items-center lg:gap-4 lg:pt-1 lg:bg-transparent",
-        {
-          "bg-white": variant === "light",
-          "bg-primary-forest": variant === "dark",
-        },
+        // {
+        //   "bg-white": variant === "light",
+        //   "bg-primary-forest": variant === "dark",
+        // },
       ]}
       aria-label={t("header.ariaLabel")}
       data-i18n-key="header.ariaLabel"
@@ -230,28 +220,31 @@ const translatePath = useTranslatedPath(lang);
     });
 
     const toggleHeaderBackground = () => {
-      if (!(header instanceof HTMLElement)) {
-        return;
-      }
+      if (!(header instanceof HTMLElement)) return;
 
-      const shouldShowSolidBackground = window.scrollY > 16;
+      const scrolled = window.scrollY > 16;
       const isDark = header.dataset.variant === "dark";
 
-      header.classList.toggle("bg-white", shouldShowSolidBackground);
-      header.classList.toggle("shadow-md", shouldShowSolidBackground);
-      header.classList.toggle(
+      // limpia todo
+      header.classList.remove(
         "bg-transparent",
-        !isDark && !shouldShowSolidBackground
-      );
-      header.classList.toggle(
+        "bg-white",
         "bg-primary-forest",
-        isDark && !shouldShowSolidBackground
+        "shadow-md"
       );
 
-      header.setAttribute(
-        "data-scrolled",
-        shouldShowSolidBackground ? "true" : "false"
-      );
+      if (scrolled) {
+        // fondo sólido según variant
+        header.classList.add(
+          isDark ? "bg-primary-forest" : "bg-white",
+          "shadow-md"
+        );
+      } else {
+        // vuelve a transparente
+        header.classList.add("bg-transparent");
+      }
+
+      header.setAttribute("data-scrolled", scrolled ? "true" : "false");
     };
 
     toggleHeaderBackground();
