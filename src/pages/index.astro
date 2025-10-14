@@ -6,10 +6,12 @@ import HappyMemoriesGallery from "@components/home/HappyMemoriesGallery.astro";
 import ContactCTA from "@components/home/ContactCTA.astro";
 import IcelandTravel from "@components/home/IcelandTravel.astro";
 import IslandsNationBanner from "@components/home/IslandsNationBanner.astro";
+import WaterfallBackground from "@assets/img/home/bgCascada.jpg";
 
 import HeroImg from "@assets/img/home/hero.jpg";
 import { getLangFromUrl, useTranslations } from "@i18n/utils";
 import { ui } from "@i18n/ui";
+import TestimonialsSection from "@components/TestimonialsSection.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -18,6 +20,7 @@ const islandsNationContent = ui[lang].home.islandsNation;
 const memoriesContent = ui[lang].home.memories;
 const contactCtaContent = ui[lang].home.contactCta;
 const travelContent = ui[lang].home.travel;
+const aboutContent = ui[lang].about;
 ---
 
 <Layout lang={lang}>
@@ -37,8 +40,18 @@ const travelContent = ui[lang].home.travel;
   </HeroBanner>
 
   <ArcticHighlights content={homeContent} />
+  <IcelandTravel content={travelContent} />
+
   <IslandsNationBanner content={islandsNationContent} />
   <HappyMemoriesGallery content={memoriesContent} />
+
+  <TestimonialsSection
+    title={aboutContent.testimonials.title}
+    subtitle={aboutContent.testimonials.subtitle}
+    testimonials={aboutContent.testimonials.items.slice()}
+    ctaLabel={aboutContent.testimonials.ctaLabel}
+    backgroundImage={WaterfallBackground}
+    backgroundAlt={aboutContent.testimonials.backgroundAlt}
+  />
   <ContactCTA content={contactCtaContent} />
-  <IcelandTravel content={travelContent} />
 </Layout>
