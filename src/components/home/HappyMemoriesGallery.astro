@@ -29,6 +29,15 @@ interface ImageItem {
   alt: string;
 }
 
+type ColumnItem =
+  | { type: "title" }
+  | { type: "image"; image: ImageItem };
+
+interface DesktopColumn {
+  offset: string;
+  items: ColumnItem[];
+}
+
 const { content } = Astro.props as { content: MemoriesContent };
 
 const imageSources: ImageMetadata[] = [
@@ -55,23 +64,6 @@ const images: ImageItem[] = imageSources.map((source, index) => ({
   alt: content.images?.[index]?.alt ?? "",
 }));
 
-const columnImageCounts = [3, 3, 4, 3, 3];
-
-let startIndex = 0;
-const columns: ImageItem[][] = columnImageCounts.map((count) => {
-  const columnImages = images.slice(startIndex, startIndex + count);
-  startIndex += count;
-  return columnImages;
-});
-
-const remainingImages = images.slice(startIndex);
-if (remainingImages.length > 0) {
-  columns[columns.length - 1] = [
-    ...columns[columns.length - 1],
-    ...remainingImages,
-  ];
-}
-
 const columnOffsets = [
   "lg:translate-y-14",
   "lg:-translate-y-10",
@@ -80,11 +72,45 @@ const columnOffsets = [
   "lg:translate-y-10",
 ];
 
+const columnImageCounts = [3, 3, 3, 3, 4];
+
+let imageIndex = 0;
+const desktopColumns: DesktopColumn[] = columnImageCounts.map(
+  (imageCount, columnIndex) => {
+    const items: ColumnItem[] = [];
+
+    if (columnIndex === 0) {
+      items.push({ type: "title" });
+    }
+
+    for (let i = 0; i < imageCount; i += 1) {
+      const image = images[imageIndex];
+      if (image) {
+        items.push({ type: "image", image });
+      }
+      imageIndex += 1;
+    }
+
+    return {
+      offset: columnOffsets[columnIndex % columnOffsets.length] ?? "",
+      items,
+    } satisfies DesktopColumn;
+  },
+);
+
+const remainingImages = images.slice(imageIndex);
+if (remainingImages.length > 0) {
+  const lastColumn = desktopColumns[desktopColumns.length - 1];
+  lastColumn.items.push(
+    ...remainingImages.map((image) => ({ type: "image", image } as ColumnItem)),
+  );
+}
+
 const imageWidths = [320, 480, 640, 768, 960];
 const imageSizes = "(min-width:1280px) 14vw, (min-width:768px) 28vw, 45vw";
 ---
 
-<section class="w-full overflow-hidden py-16 sm:py-20 lg:py-24">
+<section class="w-full py-16 sm:py-20 lg:py-24">
   <div class="mx-auto w-full px-4 sm:px-6 lg:px-10 xl:px-16">
     <div class="flex flex-col gap-4 text-primary-forest lg:hidden">
       <h2 class="text-3xl sm:text-4xl font-bold text-primary-1">
@@ -95,12 +121,11 @@ const imageSizes = "(min-width:1280px) 14vw, (min-width:768px) 28vw, 45vw";
     <div class="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6 lg:hidden">
       {
         images.map((image) => (
-          <div class="relative aspect-[3/4] overflow-hidden rounded-[28px] shadow-lg shadow-black/10 ring-1 ring-primary-forest/10">
+          <div class="overflow-hidden rounded-[28px] shadow-lg shadow-black/10 ring-1 ring-primary-forest/10">
             <Image
               src={image.source}
               alt={image.alt}
-              class="h-full w-full object-cover"
-              style="width: 100%; height: 100%;"
+              class="block h-auto w-full"
               loading="lazy"
               decoding="async"
               widths={imageWidths}
@@ -111,40 +136,45 @@ const imageSizes = "(min-width:1280px) 14vw, (min-width:768px) 28vw, 45vw";
       }
     </div>
 
-    <div class="hidden lg:flex w-full justify-center gap-6 xl:gap-10">
-      <div class="flex w-56 flex-none items-start pt-12 xl:w-64">
-        <h2 class="text-3xl xl:text-4xl font-bold leading-tight text-primary-1">
-          {content.title}
-        </h2>
+    <div class="hidden lg:block">
+      <div class="mx-auto w-full max-w-7xl">
+        <div class="grid grid-cols-5 items-start justify-items-stretch gap-6 xl:gap-8">
+          {
+            desktopColumns.map((column) => (
+              <div
+                class:list={[
+                  "flex w-full max-w-[12.5rem] flex-col items-stretch gap-6 xl:max-w-[14rem] xl:gap-8",
+                  column.offset,
+                ]}
+              >
+                {
+                  column.items.map((item) => (
+                    item.type === "title" ? (
+                      <div class="w-full px-2">
+                        <h2 class="text-left text-4xl font-bold leading-tight text-primary-1 xl:text-[44px]">
+                          {content.title}
+                        </h2>
+                      </div>
+                    ) : (
+                      <div class="w-full overflow-hidden rounded-[28px] shadow-lg shadow-black/15 ring-1 ring-primary-forest/10">
+                        <Image
+                          src={item.image.source}
+                          alt={item.image.alt}
+                          class="block h-auto w-full"
+                          loading="lazy"
+                          decoding="async"
+                          widths={imageWidths}
+                          sizes="(min-width:1600px) 12vw, (min-width:1280px) 14vw, 28vw"
+                        />
+                      </div>
+                    )
+                  ))
+                }
+              </div>
+            ))
+          }
+        </div>
       </div>
-
-      {
-        columns.map((column, index) => (
-          <div
-            class:list={[
-              "flex w-48 flex-col gap-6 xl:w-56 xl:gap-8",
-              columnOffsets[index % columnOffsets.length],
-            ]}
-          >
-            {
-              column.map((image) => (
-                <div class="relative aspect-[3/4] overflow-hidden rounded-[28px] shadow-lg shadow-black/15 ring-1 ring-primary-forest/10">
-                  <Image
-                    src={image.source}
-                    alt={image.alt}
-                    class="h-full w-full object-cover"
-                    style="width: 100%; height: 100%;"
-                    loading="lazy"
-                    decoding="async"
-                    widths={imageWidths}
-                    sizes="(min-width:1600px) 12vw, (min-width:1280px) 14vw, 28vw"
-                  />
-                </div>
-              ))
-            }
-          </div>
-        ))
-      }
     </div>
   </div>
 </section>
