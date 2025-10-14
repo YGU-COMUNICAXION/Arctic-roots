@@ -1,0 +1,355 @@
+From 6b023b140d5a10542f7741e9d42b0ce67538ac42 Mon Sep 17 00:00:00 2001
+From: Codex <codex@openai.com>
+Date: Tue, 14 Oct 2025 07:53:32 +0000
+Subject: [PATCH] Handle all 16 memories in gallery
+
+## Summary
+- include the sixteenth memory asset in the gallery and keep the alternating column layout stable
+- extend the English and Spanish alt text collections to describe the added photo
+
+## Testing
+- npm run build
+---
+ README.md                                     |   4 +
+ .../home/HappyMemoriesGallery.astro           | 147 ++++++++++++++++++
+ src/components/home/IslandsNationBanner.astro |  44 ++++++
+ src/i18n/en.ts                                |  31 ++++
+ src/i18n/es.ts                                |  31 ++++
+ src/pages/index.astro                         |   6 +
+ 6 files changed, 263 insertions(+)
+ create mode 100644 src/components/home/HappyMemoriesGallery.astro
+ create mode 100644 src/components/home/IslandsNationBanner.astro
+
+diff --git a/README.md b/README.md
+index 414a13a..4bb50e4 100644
+--- a/README.md
++++ b/README.md
+@@ -44,3 +44,7 @@ All commands are run from the root of the project, from a terminal:
+ ## 👀 Want to learn more?
+ 
+ Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
++
++## 🌿 Development Branch
++
++All current work, including the latest updates to the home page sections, is being tracked on the `work` branch.
+diff --git a/src/components/home/HappyMemoriesGallery.astro b/src/components/home/HappyMemoriesGallery.astro
+new file mode 100644
+index 0000000..d95d19d
+--- /dev/null
++++ b/src/components/home/HappyMemoriesGallery.astro
+@@ -0,0 +1,147 @@
++---
++import type { ImageMetadata } from "astro";
++import { Image } from "astro:assets";
++
++import Memory1 from "@assets/img/home/recuerdos/1.png";
++import Memory2 from "@assets/img/home/recuerdos/2.png";
++import Memory3 from "@assets/img/home/recuerdos/3.png";
++import Memory4 from "@assets/img/home/recuerdos/4.png";
++import Memory5 from "@assets/img/home/recuerdos/5.png";
++import Memory6 from "@assets/img/home/recuerdos/6.png";
++import Memory7 from "@assets/img/home/recuerdos/7.png";
++import Memory8 from "@assets/img/home/recuerdos/8.png";
++import Memory9 from "@assets/img/home/recuerdos/9.png";
++import Memory10 from "@assets/img/home/recuerdos/10.png";
++import Memory11 from "@assets/img/home/recuerdos/11.png";
++import Memory12 from "@assets/img/home/recuerdos/12.png";
++import Memory13 from "@assets/img/home/recuerdos/13.png";
++import Memory14 from "@assets/img/home/recuerdos/14.png";
++import Memory15 from "@assets/img/home/recuerdos/15.png";
++import Memory16 from "@assets/img/home/recuerdos/16.png";
++
++interface MemoriesContent {
++  title: string;
++  description: string;
++  images: { alt: string }[];
++}
++
++interface ImageItem {
++  source: ImageMetadata;
++  alt: string;
++}
++
++const { content } = Astro.props as { content: MemoriesContent };
++
++const imageSources: ImageMetadata[] = [
++  Memory1,
++  Memory2,
++  Memory3,
++  Memory4,
++  Memory5,
++  Memory6,
++  Memory7,
++  Memory8,
++  Memory9,
++  Memory10,
++  Memory11,
++  Memory12,
++  Memory13,
++  Memory14,
++  Memory15,
++  Memory16,
++];
++
++const images: ImageItem[] = imageSources.map((source, index) => ({
++  source,
++  alt: content.images?.[index]?.alt ?? "",
++}));
++
++const columnImageCounts = [3, 3, 4, 3, 3];
++
++let startIndex = 0;
++const columns: ImageItem[][] = columnImageCounts.map((count) => {
++  const columnImages = images.slice(startIndex, startIndex + count);
++  startIndex += count;
++  return columnImages;
++});
++
++const remainingImages = images.slice(startIndex);
++if (remainingImages.length > 0) {
++  columns[columns.length - 1] = [
++    ...columns[columns.length - 1],
++    ...remainingImages,
++  ];
++}
++
++const columnOffsets = [
++  "lg:translate-y-16",
++  "lg:-translate-y-16",
++  "lg:translate-y-16",
++  "lg:-translate-y-16",
++  "lg:translate-y-16",
++];
++---
++
++<section class="w-full py-16 sm:py-20 lg:py-24">
++  <div class="container mx-auto px-4">
++    <div class="flex flex-col gap-10 lg:gap-14">
++      <div class="flex flex-col gap-4 max-w-3xl text-primary-forest">
++        <h2 class="text-3xl sm:text-4xl font-light">{content.title}</h2>
++        <p class="text-base sm:text-lg lg:text-xl font-light leading-relaxed">
++          {content.description}
++        </p>
++      </div>
++
++      <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 lg:hidden">
++        {
++          images.map((image) => (
++            <div class="aspect-[3/4]">
++              <div class="h-full overflow-hidden rounded-3xl shadow-lg shadow-black/10 ring-1 ring-primary-forest/10">
++                <Image
++                  src={image.source}
++                  alt={image.alt}
++                  class="h-full w-full object-cover"
++                  loading="lazy"
++                  decoding="async"
++                  widths={[320, 480, 640, 768, 960]}
++                  sizes="(min-width:1280px) 14vw, (min-width:768px) 28vw, 45vw"
++                />
++              </div>
++            </div>
++          ))
++        }
++      </div>
++
++      <div class="hidden lg:flex justify-center gap-6 xl:gap-8">
++        {
++          columns.map((column, index) => (
++            <div
++              class:list={[
++                "flex flex-col gap-6 xl:gap-8 w-48 xl:w-56",
++                columnOffsets[index],
++              ]}
++            >
++              {
++                column.map((image) => (
++                  <div class="aspect-[3/4]">
++                    <div class="h-full overflow-hidden rounded-3xl shadow-lg shadow-black/10 ring-1 ring-primary-forest/10">
++                      <Image
++                        src={image.source}
++                        alt={image.alt}
++                        class="h-full w-full object-cover"
++                        loading="lazy"
++                        decoding="async"
++                        widths={[320, 480, 640, 768, 960]}
++                        sizes="(min-width:1280px) 14vw, (min-width:768px) 28vw, 45vw"
++                      />
++                    </div>
++                  </div>
++                ))
++              }
++            </div>
++          ))
++        }
++      </div>
++    </div>
++  </div>
++</section>
+diff --git a/src/components/home/IslandsNationBanner.astro b/src/components/home/IslandsNationBanner.astro
+new file mode 100644
+index 0000000..2e61004
+--- /dev/null
++++ b/src/components/home/IslandsNationBanner.astro
+@@ -0,0 +1,44 @@
++---
++import { Image } from "astro:assets";
++
++import VolcanoBackground from "@assets/img/home/bgVolcano.png";
++
++interface BannerContent {
++  title: string;
++  paragraphs: string[];
++  backgroundAlt: string;
++}
++
++const { content } = Astro.props as { content: BannerContent };
++const paragraphs = content.paragraphs ?? [];
++---
++
++<section class="relative w-full overflow-hidden">
++  <div class="absolute inset-0">
++    <Image
++      src={VolcanoBackground}
++      alt={content.backgroundAlt}
++      class="h-full w-full object-cover"
++      loading="lazy"
++      decoding="async"
++      sizes="100vw"
++      widths={[640, 960, 1280, 1600]}
++    />
++    <div class="absolute inset-0 bg-primary-forest/70 mix-blend-multiply" aria-hidden="true"></div>
++  </div>
++
++  <div class="relative container mx-auto px-4 py-20 sm:py-24 lg:py-32">
++    <div class="max-w-3xl text-white flex flex-col gap-6">
++      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-light leading-tight">
++        {content.title}
++      </h2>
++      <div class="flex flex-col gap-4 text-base sm:text-lg lg:text-xl font-light">
++        {
++          paragraphs.map((paragraph) => (
++            <p>{paragraph}</p>
++          ))
++        }
++      </div>
++    </div>
++  </div>
++</section>
+diff --git a/src/i18n/en.ts b/src/i18n/en.ts
+index ad66175..0bbbdf7 100644
+--- a/src/i18n/en.ts
++++ b/src/i18n/en.ts
+@@ -52,6 +52,37 @@ const en = {
+         ],
+       },
+     },
++    islandsNation: {
++      title: "Island Nations in motion",
++      paragraphs: [
++        "Add a spark of movement and adventure to your journey with activities that connect the best of Iceland and Greenland.",
++        "Our team designs experiences that let you uncover these island nations—from volcanic energy to the silence of the glaciers.",
++      ],
++      backgroundAlt: "Glowing lava flowing across an Icelandic volcanic field",
++    },
++    memories: {
++      title: "Memories from our happy travelers",
++      description:
++        "Moments captured by travelers who trusted Arctic Roots to craft a tailor-made Arctic adventure.",
++      images: [
++        { alt: "Couple hugging in front of a snow-covered Icelandic glacier" },
++        { alt: "Green northern lights glowing above snowy mountains" },
++        { alt: "Two travelers smiling with helmets in front of an icy waterfall" },
++        { alt: "Explorers walking across a blue glacier" },
++        { alt: "Guide driving a dog sled across the snow" },
++        { alt: "Winter trail with mountains and a frozen lake at sunset" },
++        { alt: "Couple taking a selfie on a scenic Icelandic road" },
++        { alt: "Travelers on a bridge beside a waterfall in winter" },
++        { alt: "View of a blue lake surrounded by snow-capped mountains" },
++        { alt: "Frozen waterfall cascading down a cliff" },
++        { alt: "Geothermal lagoon steaming amid black rocks" },
++        { alt: "Group smiling inside an ice cave" },
++        { alt: "Woman admiring a mossy lava field in Iceland" },
++        { alt: "Volcanic crater with a bright river of lava" },
++        { alt: "Icelandic turf-roof house nestled in a snowy valley" },
++        { alt: "Traveler standing on a black-sand beach with crashing waves" },
++      ],
++    },
+     travel: {
+       title: "Choose your kind of trip across Iceland",
+       cards: [
+diff --git a/src/i18n/es.ts b/src/i18n/es.ts
+index 0845331..cfab214 100644
+--- a/src/i18n/es.ts
++++ b/src/i18n/es.ts
+@@ -52,6 +52,37 @@ const es = {
+         ],
+       },
+     },
++    islandsNation: {
++      title: "Islas Nación en acción",
++      paragraphs: [
++        "Agrégale a tu viaje un toque de movimiento y aventura con actividades que conectan lo mejor de Islandia y Groenlandia.",
++        "Nuestro equipo crea experiencias para que descubras estas islas nación desde la energía volcánica hasta el silencio de los glaciares.",
++      ],
++      backgroundAlt: "Lava encendida recorriendo un campo volcánico en Islandia",
++    },
++    memories: {
++      title: "Recuerdos de nuestros viajeros felices",
++      description:
++        "Momentos capturados por quienes confiaron en Arctic Roots para vivir una aventura ártica hecha a su medida.",
++      images: [
++        { alt: "Pareja abrazada frente a un glaciar islandés cubierto de nieve" },
++        { alt: "Aurora boreal verde iluminando montañas nevadas" },
++        { alt: "Dos viajeros sonriendo con cascos frente a una cascada helada" },
++        { alt: "Exploradores caminando sobre un glaciar azul" },
++        { alt: "Guía conduciendo un trineo de perros sobre nieve" },
++        { alt: "Sendero invernal con montañas y lago helado al atardecer" },
++        { alt: "Pareja tomándose una selfie en una carretera escénica de Islandia" },
++        { alt: "Viajeros en un puente con una cascada en invierno" },
++        { alt: "Vista de un lago azul rodeado de montañas nevadas" },
++        { alt: "Cascada congelada descendiendo por un acantilado" },
++        { alt: "Lago geotérmico con vapor rodeado de rocas negras" },
++        { alt: "Grupo sonriendo dentro de un túnel de hielo" },
++        { alt: "Mujer admirando un campo de lava y musgo en Islandia" },
++        { alt: "Cráter volcánico con río de lava brillante" },
++        { alt: "Casa islandesa con techo de césped en un valle nevado" },
++        { alt: "Viajero de pie en una playa de arena negra con olas rompiendo" },
++      ],
++    },
+     travel: {
+       title: "Elige tu tipo de viaje por Islandia",
+       cards: [
+diff --git a/src/pages/index.astro b/src/pages/index.astro
+index a0906ad..3a26a90 100644
+--- a/src/pages/index.astro
++++ b/src/pages/index.astro
+@@ -2,7 +2,9 @@
+ import HeroBanner from "@components/HeroBanner.astro";
+ import Layout from "../layouts/Layout.astro";
+ import ArcticHighlights from "@components/home/ArcticHighlights.astro";
++import HappyMemoriesGallery from "@components/home/HappyMemoriesGallery.astro";
+ import IcelandTravel from "@components/home/IcelandTravel.astro";
++import IslandsNationBanner from "@components/home/IslandsNationBanner.astro";
+ 
+ import HeroImg from "@assets/img/home/hero.jpg";
+ import { getLangFromUrl, useTranslations } from "@i18n/utils";
+@@ -11,6 +13,8 @@ import { ui } from "@i18n/ui";
+ const lang = getLangFromUrl(Astro.url);
+ const t = useTranslations(lang);
+ const homeContent = ui[lang].home.highlights;
++const islandsNationContent = ui[lang].home.islandsNation;
++const memoriesContent = ui[lang].home.memories;
+ const travelContent = ui[lang].home.travel;
+ ---
+ 
+@@ -31,5 +35,7 @@ const travelContent = ui[lang].home.travel;
+   </HeroBanner>
+ 
+   <ArcticHighlights content={homeContent} />
++  <IslandsNationBanner content={islandsNationContent} />
++  <HappyMemoriesGallery content={memoriesContent} />
+   <IcelandTravel content={travelContent} />
+ </Layout>
+-- 
+2.43.0
+

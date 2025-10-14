@@ -52,6 +52,37 @@ const en = {
         ],
       },
     },
+    islandsNation: {
+      title: "Island Nations in motion",
+      paragraphs: [
+        "Add a spark of movement and adventure to your journey with activities that connect the best of Iceland and Greenland.",
+        "Our team designs experiences that let you uncover these island nations—from volcanic energy to the silence of the glaciers.",
+      ],
+      backgroundAlt: "Glowing lava flowing across an Icelandic volcanic field",
+    },
+    memories: {
+      title: "Memories from our happy travelers",
+      description:
+        "Moments captured by travelers who trusted Arctic Roots to craft a tailor-made Arctic adventure.",
+      images: [
+        { alt: "Couple hugging in front of a snow-covered Icelandic glacier" },
+        { alt: "Green northern lights glowing above snowy mountains" },
+        { alt: "Two travelers smiling with helmets in front of an icy waterfall" },
+        { alt: "Explorers walking across a blue glacier" },
+        { alt: "Guide driving a dog sled across the snow" },
+        { alt: "Winter trail with mountains and a frozen lake at sunset" },
+        { alt: "Couple taking a selfie on a scenic Icelandic road" },
+        { alt: "Travelers on a bridge beside a waterfall in winter" },
+        { alt: "View of a blue lake surrounded by snow-capped mountains" },
+        { alt: "Frozen waterfall cascading down a cliff" },
+        { alt: "Geothermal lagoon steaming amid black rocks" },
+        { alt: "Group smiling inside an ice cave" },
+        { alt: "Woman admiring a mossy lava field in Iceland" },
+        { alt: "Volcanic crater with a bright river of lava" },
+        { alt: "Icelandic turf-roof house nestled in a snowy valley" },
+        { alt: "Traveler standing on a black-sand beach with crashing waves" },
+      ],
+    },
     travel: {
       title: "Choose your kind of trip across Iceland",
       cards: [

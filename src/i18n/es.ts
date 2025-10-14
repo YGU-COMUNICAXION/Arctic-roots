@@ -52,6 +52,37 @@ const es = {
         ],
       },
     },
+    islandsNation: {
+      title: "Islas Nación en acción",
+      paragraphs: [
+        "Agrégale a tu viaje un toque de movimiento y aventura con actividades que conectan lo mejor de Islandia y Groenlandia.",
+        "Nuestro equipo crea experiencias para que descubras estas islas nación desde la energía volcánica hasta el silencio de los glaciares.",
+      ],
+      backgroundAlt: "Lava encendida recorriendo un campo volcánico en Islandia",
+    },
+    memories: {
+      title: "Recuerdos de nuestros viajeros felices",
+      description:
+        "Momentos capturados por quienes confiaron en Arctic Roots para vivir una aventura ártica hecha a su medida.",
+      images: [
+        { alt: "Pareja abrazada frente a un glaciar islandés cubierto de nieve" },
+        { alt: "Aurora boreal verde iluminando montañas nevadas" },
+        { alt: "Dos viajeros sonriendo con cascos frente a una cascada helada" },
+        { alt: "Exploradores caminando sobre un glaciar azul" },
+        { alt: "Guía conduciendo un trineo de perros sobre nieve" },
+        { alt: "Sendero invernal con montañas y lago helado al atardecer" },
+        { alt: "Pareja tomándose una selfie en una carretera escénica de Islandia" },
+        { alt: "Viajeros en un puente con una cascada en invierno" },
+        { alt: "Vista de un lago azul rodeado de montañas nevadas" },
+        { alt: "Cascada congelada descendiendo por un acantilado" },
+        { alt: "Lago geotérmico con vapor rodeado de rocas negras" },
+        { alt: "Grupo sonriendo dentro de un túnel de hielo" },
+        { alt: "Mujer admirando un campo de lava y musgo en Islandia" },
+        { alt: "Cráter volcánico con río de lava brillante" },
+        { alt: "Casa islandesa con techo de césped en un valle nevado" },
+        { alt: "Viajero de pie en una playa de arena negra con olas rompiendo" },
+      ],
+    },
     travel: {
       title: "Elige tu tipo de viaje por Islandia",
       cards: [
