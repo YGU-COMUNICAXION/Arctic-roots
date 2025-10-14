@@ -294,6 +294,19 @@ const es = {
     whatsappHref: "https://wa.me/",
     whatsappAriaLabel: "Abrir una conversación de WhatsApp con Arctic Roots",
   },
+  contact: {
+    hero: {
+      title: "Contáctanos y dile \"sí\" a tu experiencia por Islandia",
+      description:
+        "Escríbenos por WhatsApp (+354 779 1759) para cotizar o responde nuestro test para que te ayudemos a definir cuál aventura por el Ártico es perfecta para ti.",
+      whatsappCta: "WhatsApp",
+      whatsappHref: "https://wa.me/3547791759",
+      whatsappAriaLabel: "Abrir una conversación de WhatsApp con Arctic Roots",
+      testCta: "Hacer el test",
+      testHref: "https://arcticroots.com/test",
+      testAriaLabel: "Abrir el test para descubrir tu viaje ideal por el Ártico",
+    },
+  },
 } as const;
 
 export default es;
