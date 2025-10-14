@@ -6,6 +6,7 @@ import Footer from "@components/Footer.astro";
 import "../styles/global.css";
 
 import type { UILang } from "@i18n/ui";
+import BtnWhatsApp from "./BtnWhatsApp.astro";
 
 type HeaderVariant = "light" | "dark";
 
@@ -33,6 +34,7 @@ const { lang, headerVariant = "light" }: Props = Astro.props;
       <slot />
     </main>
     <Footer lang={lang} />
+    <BtnWhatsApp />
   </body>
 </html>
 
