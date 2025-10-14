@@ -203,7 +203,12 @@ const translatePath = useTranslatedPath(lang);
     const navigatorMenu = document.querySelector("#navigator-menu");
     const header = document.querySelector("#header");
 
-    if (navigatorMenu === null || barsIcon === null || closeIcon === null) {
+    if (
+      navigatorMenu === null ||
+      barsIcon === null ||
+      closeIcon === null ||
+      !(header instanceof HTMLElement)
+    ) {
       throw new Error("Element not found");
     }
 
@@ -247,16 +252,33 @@ const translatePath = useTranslatedPath(lang);
       header.setAttribute("data-scrolled", scrolled ? "true" : "false");
     };
 
-    toggleHeaderBackground();
+    let handleScroll: (() => void) | null = null;
 
-    window.addEventListener("scroll", toggleHeaderBackground, {
-      passive: true,
-    });
+    if (headerVariant === "transparent") {
+      const toggleHeaderBackground = () => {
+        const shouldShowSolidBackground = window.scrollY > 16;
+
+        header.classList.toggle("bg-white", shouldShowSolidBackground);
+        header.classList.toggle("shadow-md", shouldShowSolidBackground);
+        header.classList.toggle("bg-transparent", !shouldShowSolidBackground);
+      };
+
+      toggleHeaderBackground();
+      handleScroll = toggleHeaderBackground;
+
+      window.addEventListener("scroll", toggleHeaderBackground, {
+        passive: true,
+      });
+    } else {
+      applySolidHeader();
+    }
 
     document.addEventListener(
       "astro:before-swap",
       () => {
-        window.removeEventListener("scroll", toggleHeaderBackground);
+        if (handleScroll) {
+          window.removeEventListener("scroll", handleScroll);
+        }
       },
       { once: true }
     );
