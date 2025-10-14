@@ -9,9 +9,10 @@ import type { UILang } from "@i18n/ui";
 
 interface Props {
   lang: UILang;
+  headerType?: "default" | "transparent";
 }
 
-const { lang }: Props = Astro.props;
+const { lang, headerType = "default" }: Props = Astro.props;
 ---
 
 <html lang={lang}>
@@ -25,7 +26,7 @@ const { lang }: Props = Astro.props;
     <ClientRouter />
   </head>
   <body class="flex flex-col min-h-screen">
-    <Header lang={lang} />
+    <Header lang={lang} type={headerType} />
     <main class="flex-1 bg-white">
       <slot />
     </main>

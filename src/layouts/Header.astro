@@ -19,8 +19,10 @@ const translatePath = useTranslatedPath(lang);
 
 <header
   id="header"
-  class="flex items-center justify-center
-  z-20 fixed w-full left-0 right-0 bg-transparent transition-colors duration-300"
+  data-variant={type}
+  class={`flex items-center justify-center z-20 fixed w-full left-0 right-0 transition-colors duration-300 ${
+    type === "transparent" ? "bg-transparent" : "bg-white shadow-md"
+  }`}
 >
   <div
     class="container relative flex items-center justify-between gap-4 p-4 lg:p-0 lg:py-6 xl:py-6 md:px-0"
@@ -150,7 +152,12 @@ const translatePath = useTranslatedPath(lang);
     const navigatorMenu = document.querySelector("#navigator-menu");
     const header = document.querySelector("#header");
 
-    if (navigatorMenu === null || barsIcon === null || closeIcon === null) {
+    if (
+      navigatorMenu === null ||
+      barsIcon === null ||
+      closeIcon === null ||
+      !(header instanceof HTMLElement)
+    ) {
       throw new Error("Element not found");
     }
 
@@ -166,28 +173,40 @@ const translatePath = useTranslatedPath(lang);
       navigatorMenu.classList.toggle("top-16");
     });
 
-    const toggleHeaderBackground = () => {
-      if (!(header instanceof HTMLElement)) {
-        return;
-      }
+    const headerVariant = header.dataset.variant ?? "default";
 
-      const shouldShowSolidBackground = window.scrollY > 16;
-
-      header.classList.toggle("bg-white", shouldShowSolidBackground);
-      header.classList.toggle("shadow-md", shouldShowSolidBackground);
-      header.classList.toggle("bg-transparent", !shouldShowSolidBackground);
+    const applySolidHeader = () => {
+      header.classList.add("bg-white", "shadow-md");
+      header.classList.remove("bg-transparent");
     };
 
-    toggleHeaderBackground();
+    let handleScroll: (() => void) | null = null;
 
-    window.addEventListener("scroll", toggleHeaderBackground, {
-      passive: true,
-    });
+    if (headerVariant === "transparent") {
+      const toggleHeaderBackground = () => {
+        const shouldShowSolidBackground = window.scrollY > 16;
+
+        header.classList.toggle("bg-white", shouldShowSolidBackground);
+        header.classList.toggle("shadow-md", shouldShowSolidBackground);
+        header.classList.toggle("bg-transparent", !shouldShowSolidBackground);
+      };
+
+      toggleHeaderBackground();
+      handleScroll = toggleHeaderBackground;
+
+      window.addEventListener("scroll", toggleHeaderBackground, {
+        passive: true,
+      });
+    } else {
+      applySolidHeader();
+    }
 
     document.addEventListener(
       "astro:before-swap",
       () => {
-        window.removeEventListener("scroll", toggleHeaderBackground);
+        if (handleScroll) {
+          window.removeEventListener("scroll", handleScroll);
+        }
       },
       { once: true }
     );
