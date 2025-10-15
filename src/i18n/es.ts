@@ -392,6 +392,57 @@ const es = {
     whatsappHref: "https://wa.me/",
     whatsappAriaLabel: "Abrir una conversación de WhatsApp con Arctic Roots",
   },
+  eclipse: {
+    hero: {
+      title: "Disfruta del próximo eclipse total de sol en Islandia",
+      description:
+        "Prepárate para ser testigo de un fenómeno astronómico que ocurre solo una vez en la vida: el eclipse total de sol en Islandia. El próximo será en 2026, así que este viaje merece un ‘sí’ inmediato.",
+      ctaLabel: "Desplázate para conocer el itinerario",
+      ctaAriaLabel: "Desplazarse al itinerario del viaje grupal del eclipse",
+      disclaimer: "Cupo limitado. No incluye vuelos internacionales ni gastos personales.",
+    },
+    calendar: {
+      anchorId: "itinerario-eclipse",
+      prompt: "Conoce los detalles del viaje",
+      heading: "Eclipse en el Ártico | Viaje grupal",
+      date: "10 - 19 agosto 2026",
+      description:
+        "Prepárate para ser testigo de un fenómeno astronómico único. Este recorrido por Islandia está diseñado para que vivas el eclipse con guías locales, traslados cómodos y actividades inolvidables día tras día.",
+      includesTitle: "Incluye",
+      includes: [
+        "9 días de chofer (camioneta y gasolina incluidas)",
+        "Tour en Reykjavík con guía",
+        "Entrada a Perlan y Lava Show",
+        "3 tours para ver el eclipse",
+        "Avistamiento ballenas",
+        "Hike en glaciar",
+        "Blue Lagoon",
+        "Hoteles: Fosshotel Reikiavik, Arnastapi Hotel, Hvammstangi Cottage, Berjava Akureyri, Berjava Myvatn, Fosshotel Nupar, Hotel Vik, Hilton Reikiavik",
+      ],
+      routeTitle: "Ruta",
+      timeline: [
+        { dates: "10 al 11", place: "Reikiavik" },
+        { dates: "11 al 12", place: "Arnastapi" },
+        { dates: "12 al 13", place: "Hvammstangi" },
+        { dates: "13 al 14", place: "Akureyri" },
+        { dates: "14 al 15", place: "Myvatn" },
+        { dates: "15 al 16", place: "Región de Hofn" },
+        { dates: "16 al 17", place: "Vik" },
+        { dates: "17 al 19", place: "Reikiavik" },
+      ],
+      placesTitle: "Ciudades",
+      priceLabel: "Costo por persona (ocupación doble):",
+      price: "$3900 USD",
+    },
+    cta: {
+      title:
+        "Este 2026, tus vacaciones se podrían convertir en una experiencia histórica e inolvidable en Islandia.",
+      description:
+        "¿Listo para hacer de tu próxima escapada una de las mejores decisiones de tu vida?",
+      buttonLabel: "Contáctanos para reservar",
+      buttonAriaLabel: "Ir a la página de contacto para reservar el viaje grupal del eclipse",
+    },
+  },
   contact: {
     hero: {
       title: "Contáctanos y dile \"sí\" a tu experiencia por Islandia",

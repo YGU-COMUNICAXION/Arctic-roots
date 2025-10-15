@@ -386,6 +386,57 @@ const en = {
     whatsappHref: "https://wa.me/",
     whatsappAriaLabel: "Open a WhatsApp conversation with Arctic Roots",
   },
+  eclipse: {
+    hero: {
+      title: "Experience the next total solar eclipse in Iceland",
+      description:
+        "Get ready to witness a once-in-a-lifetime astronomical event: the total solar eclipse in Iceland. The next one happens in 2026, so this journey deserves an instant yes.",
+      ctaLabel: "Scroll to explore the itinerary",
+      ctaAriaLabel: "Jump to the eclipse group itinerary",
+      disclaimer: "Limited availability. International flights and personal expenses are not included.",
+    },
+    calendar: {
+      anchorId: "eclipse-itinerary",
+      prompt: "Discover the trip details",
+      heading: "Arctic Eclipse | Group journey",
+      date: "10 - 19 August 2026",
+      description:
+        "Get ready to witness an astronomical wonder. This journey across Iceland is crafted so you can enjoy the eclipse with local guides, comfortable transfers, and unforgettable activities every single day.",
+      includesTitle: "Includes",
+      includes: [
+        "9 days with a driver (van and fuel included)",
+        "Guided tour in Reykjavík",
+        "Admission to Perlan and Lava Show",
+        "3 eclipse viewing tours",
+        "Whale watching",
+        "Glacier hike",
+        "Blue Lagoon",
+        "Hotels: Fosshotel Reykjavik, Arnastapi Hotel, Hvammstangi Cottage, Berjava Akureyri, Berjava Myvatn, Fosshotel Nupar, Hotel Vik, Hilton Reykjavik",
+      ],
+      routeTitle: "Route",
+      timeline: [
+        { dates: "10 to 11", place: "Reykjavík" },
+        { dates: "11 to 12", place: "Arnastapi" },
+        { dates: "12 to 13", place: "Hvammstangi" },
+        { dates: "13 to 14", place: "Akureyri" },
+        { dates: "14 to 15", place: "Mývatn" },
+        { dates: "15 to 16", place: "Höfn region" },
+        { dates: "16 to 17", place: "Vík" },
+        { dates: "17 to 19", place: "Reykjavík" },
+      ],
+      placesTitle: "Destinations",
+      priceLabel: "Price per person (double occupancy):",
+      price: "$3900 USD",
+    },
+    cta: {
+      title:
+        "In 2026, your vacation could turn into a historic and unforgettable experience in Iceland.",
+      description:
+        "Ready to turn your next getaway into one of the best decisions of your life?",
+      buttonLabel: "Contact us to book",
+      buttonAriaLabel: "Go to the contact page to reserve the eclipse group trip",
+    },
+  },
   contact: {
     hero: {
       title: "Reach out and say \"yes\" to your Iceland experience",
