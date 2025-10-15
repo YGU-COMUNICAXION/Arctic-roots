@@ -178,6 +178,104 @@ const es = {
       },
     },
   },
+  travelTypes: {
+    hero: {
+      title:
+        "Islandia y Groenlandia no se visitan, se viven de la forma en que lo has estado soñando",
+      description:
+        "Nuestras experiencias te permiten disfrutar desde un viaje exclusivo y diseñado a la medida de tus deseos, hasta una experiencia autoguiada basada en tus preferencias.",
+      ctaLabel: "Elige la idea ideal para ti",
+      ctaAriaLabel: "Desplazarse al calendario de salidas grupales",
+      disclaimer:
+        "No incluye alimentos, vuelos (pueden cotizarse según la ciudad de origen) y actividades no mencionadas.",
+    },
+    cardsSection: {
+      cards: [
+        {
+          type: "group",
+          title: "Viaje grupal general",
+          subtitle: "Cupo: 10 personas, solo fechas disponibles.",
+          note: "Nota. Este tour no se puede personalizar dado que el itinerario de grupo está preestablecido.",
+          detailsHtml: `
+            <p class="text-sm md:text-base font-light text-white/85">Incluye:</p>
+            <ul class="mt-3 list-disc space-y-2 pl-5 marker:text-primary-mist">
+              <li>Traslados aeropuerto – hotel | hotel – aeropuerto</li>
+              <li>Hoteles (algunos con desayuno incluido, aplican restricciones)</li>
+              <li>Tours contratados (aplican restricciones, sujeto a disponibilidad y clima)</li>
+            </ul>
+          `,
+        },
+        {
+          type: "private",
+          title: "Viaje privado",
+          subtitle:
+            "Diseñado exclusivamente para ti, adaptándonos a tu presupuesto, ruta y fechas.",
+          badge: "Personalizado",
+          detailsHtml: `
+            <p class="text-sm md:text-base font-light text-white/85">Incluye:</p>
+            <ul class="mt-3 list-disc space-y-2 pl-5 marker:text-primary-mist">
+              <li>Traslados aeropuerto – hotel | hotel – aeropuerto</li>
+              <li>Hoteles (algunos con desayuno incluido, aplican restricciones)</li>
+              <li>Tours contratados (aplican restricciones, sujeto a disponibilidad y clima)</li>
+            </ul>
+          `,
+        },
+        {
+          type: "selfGuided",
+          title: "Autoguiado",
+          subtitle:
+            "Diseñamos un itinerario de acuerdo con tus necesidades, tiempo y presupuesto.",
+          badge: "Personalizado",
+          detailsHtml: `
+            <p class="leading-relaxed">Te brindamos todas las herramientas para que recorras Islandia por tu cuenta con todas las facilidades que requieras.</p>
+          `,
+        },
+      ],
+      contactCta: {
+        ctaTitle: "¿Listo para diseñar tu experiencia ártica a la medida?",
+        label: "CONTÁCTANOS",
+        href: "/contacto",
+      },
+    },
+    groupCta: {
+      title: "¿Listo para unirte al próximo viaje grupal?",
+      ctaLabel: "Ir al calendario",
+      ariaLabel: "Ir al calendario de viajes grupales",
+    },
+    calendar: {
+      anchorId: "calendario-viajes",
+      prompt: "Únete al próximo viaje grupal",
+      heading: "Otoño en Islandia | Viaje grupal",
+      date: "10-19 y 20-26 octubre 2026",
+      description:
+        "Prepárate para recorrer el país de fuego y hielo en los paisajes más espectaculares de Islandia. Glaciares, volcanes, lagunas termales, auroras boreales, ballenas y pueblos encantadores.",
+      includesTitle: "Incluye",
+      includes: [
+        "9 días de chofer (camioneta y gasolina incluidas)",
+        "City tour guiado en Reikiavik",
+        "Entrada a Perlan y Lava Show",
+        "3 excursiones para cazar auroras boreales",
+        "Avistamiento de ballenas",
+        "Caminata en glaciar",
+        "Entrada a Blue Lagoon",
+        "9 noches en hoteles seleccionados (o similares): Fosshotel Reikiavik, Arnarstapi Hotel, Hvammstangi Cottage, Berjaya Akureyri, Berjaya Mývatn, Fosshotel Núpar, Hotel Vík, Hilton Reikiavik",
+      ],
+      routeTitle: "Ruta",
+      timeline: [
+        { dates: "10 al 12 y 20 al 22", place: "Reikiavik" },
+        { dates: "12 al 13 y 22 al 24", place: "Akureyri" },
+        { dates: "13 al 14 y 22 al 14", place: "Húsavík" },
+        { dates: "14 al 15 y 24 al 25", place: "Mývatn" },
+        { dates: "15 al 16 y 25 al 26", place: "Egilsstaðir" },
+        { dates: "16 al 17 y 26 al 27", place: "Höfn" },
+        { dates: "17 al 18 y 27 al 28", place: "Vík" },
+        { dates: "18 al 19 y 28 al 29", place: "Reikiavik" },
+      ],
+      placesTitle: "Lugar",
+      priceLabel: "Costo por persona (ocupación doble):",
+      price: "$3,600 USD",
+    },
+  },
   about: {
     hero: {
       title: "Tu puerta hacia una experiencia de lujo en el Ártico",
