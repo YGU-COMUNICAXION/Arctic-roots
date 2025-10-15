@@ -1,0 +1,39 @@
+---
+import brandIconUrl from "@assets/svg/home/paralaxIcon.svg";
+import BtnWhats from "@components/BtnWhats.astro";
+import ConsultingGlyph from "@components/icons/ConsultingGlyph.astro";
+import { Image } from "astro:assets";
+
+interface ContactCTAContent {
+  title: string;
+  description?: string;
+  buttonLabel: string;
+  buttonHref: string;
+  buttonAriaLabel: string;
+}
+
+const { content } = Astro.props as { content: ContactCTAContent };
+---
+
+<section class="relative w-full overflow-hidden bg-white py-20 sm:py-24">
+  <div
+    class="pointer-events-none absolute left-20 -bottom-20 hidden lg:block rotate-60"
+  >
+    <ConsultingGlyph
+      class="w-[320px] h-[360px] text-primary-mist/25"
+      title={"bob"}
+    />
+  </div>
+
+  <div
+    class="relative mx-auto flex w-full max-w-4xl flex-col items-center gap-6 px-4 text-center sm:gap-8"
+  >
+    <h2
+      class="text-[26px] font-black leading-snug text-primary-forest sm:text-[30px] lg:text-[32px]"
+    >
+      {content.title}
+    </h2>
+
+    <BtnWhats />
+  </div>
+</section>

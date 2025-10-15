@@ -55,6 +55,64 @@ const en = {
         ],
       },
     },
+    islandsNation: {
+      title: "Iceland in motion",
+      description:
+        "Add a dose of adventure to your Iceland trip with curated activities designed to keep the excitement going.",
+      columns: [
+        [
+          "Whale watching tour",
+          "Blue Lagoon",
+          "Sky Lagoon",
+          "Helicopter to an active volcano",
+          "Snorkeling in the Silfra fissure",
+          "Snowmobile ride",
+        ],
+        [
+          "Snow skiing",
+          "Glacier hike",
+          "Ice cave visit",
+          "Kayak on Jökulsárlón lagoon",
+          "Northern lights watching",
+        ],
+        [
+          "Reykjavík city tour",
+          "Perlan",
+          "Lava Show",
+          "National Museum",
+          "Viking Museum",
+          "4x4 adventure",
+        ],
+      ],
+      backgroundAlt: "Glowing lava flowing across an Icelandic volcanic field",
+    },
+    memories: {
+      title: "Memories from our happy travelers",
+      images: [
+        { alt: "Couple hugging in front of a snow-covered Icelandic glacier" },
+        { alt: "Green northern lights glowing above snowy mountains" },
+        { alt: "Two travelers smiling with helmets in front of an icy waterfall" },
+        { alt: "Explorers walking across a blue glacier" },
+        { alt: "Guide driving a dog sled across the snow" },
+        { alt: "Winter trail with mountains and a frozen lake at sunset" },
+        { alt: "Couple taking a selfie on a scenic Icelandic road" },
+        { alt: "Travelers on a bridge beside a waterfall in winter" },
+        { alt: "View of a blue lake surrounded by snow-capped mountains" },
+        { alt: "Frozen waterfall cascading down a cliff" },
+        { alt: "Geothermal lagoon steaming amid black rocks" },
+        { alt: "Group smiling inside an ice cave" },
+        { alt: "Woman admiring a mossy lava field in Iceland" },
+        { alt: "Volcanic crater with a bright river of lava" },
+        { alt: "Icelandic turf-roof house nestled in a snowy valley" },
+        { alt: "Traveler standing on a black-sand beach with crashing waves" },
+      ],
+    },
+    contactCta: {
+      title: "Contact us to design your next Arctic journey",
+      buttonLabel: "WhatsApp",
+      buttonHref: "https://wa.me/",
+      buttonAriaLabel: "Open a WhatsApp conversation with Arctic Roots",
+    },
     travel: {
       title: "Choose your kind of trip across Iceland",
       cards: [
@@ -298,6 +356,47 @@ const en = {
             "A 10 out of 10 experience. The planning was incredible and each activity surprised us with the hosts' dedication.",
         },
       ],
+    },
+  },
+  agents: {
+    backgroundAlt: "Icelandic waterfall surrounded by basalt cliffs",
+    hero: {
+      titleLineOne: "Do your clients dream of Iceland or Greenland?",
+      titleLineTwo: "Together, we make it happen.",
+      descriptionHtml: `
+        <p>
+          If your clients are asking for Iceland, they are probably imagining auroras dancing over glaciers,
+          geothermal baths, and landscapes that feel otherworldly.
+        </p>
+        <p>
+          If you do not have local expertise, at Arctic Roots we become your eyes, your feet, and your on-the-ground
+          connection in Iceland.
+        </p>
+        <p>
+          <strong>We become your local operator</strong>, handling complex logistics and securing exclusive agreements so
+          you can deliver a flawless experience. Plus, as a travel agency, you can earn commissions through IATA.
+        </p>
+        <p>
+          <strong>You sell. We handle the rest.</strong>
+        </p>
+      `,
+    },
+    whatsappHeadline: "Message us on WhatsApp to chat!",
+    whatsappCta: "WhatsApp",
+    whatsappHref: "https://wa.me/",
+    whatsappAriaLabel: "Open a WhatsApp conversation with Arctic Roots",
+  },
+  contact: {
+    hero: {
+      title: "Reach out and say \"yes\" to your Iceland experience",
+      description:
+        "Send us a WhatsApp message (+354 779 1759) for a quote or take our test so we can help you choose the Arctic adventure that fits you best.",
+      whatsappCta: "WhatsApp",
+      whatsappHref: "https://wa.me/3547791759",
+      whatsappAriaLabel: "Start a WhatsApp conversation with Arctic Roots",
+      testCta: "Take the test",
+      testHref: "https://arcticroots.com/test",
+      testAriaLabel: "Open the test to discover your ideal Arctic journey",
     },
   },
 } as const;

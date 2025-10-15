@@ -55,6 +55,64 @@ const es = {
         ],
       },
     },
+    islandsNation: {
+      title: "Islandia en acción",
+      description:
+        "Agrégale a tu viaje a Islandia un toque de movimiento y aventura con la selección de actividades que tenemos disponibles.",
+      columns: [
+        [
+          "Tour avistamiento ballenas",
+          "Blue Lagoon",
+          "Sky Lagoon",
+          "Helicóptero a volcán activo",
+          "Buceo o esnórquel en Silfra",
+          "Motonieve",
+        ],
+        [
+          "Esquí en nieve",
+          "Hike en glaciar",
+          "Visita a cueva de hielo",
+          "Balsa o kayak en la laguna de Jökulsárlón",
+          "Avistamiento de auroras",
+        ],
+        [
+          "Tour a Reykjavik",
+          "Perlan",
+          "Lava Show",
+          "Museo Nacional",
+          "Museo Vikingo",
+          "Aventura 4x4",
+        ],
+      ],
+      backgroundAlt: "Lava encendida recorriendo un campo volcánico en Islandia",
+    },
+    memories: {
+      title: "Recuerdos de nuestros viajeros felices",
+      images: [
+        { alt: "Pareja abrazada frente a un glaciar islandés cubierto de nieve" },
+        { alt: "Aurora boreal verde iluminando montañas nevadas" },
+        { alt: "Dos viajeros sonriendo con cascos frente a una cascada helada" },
+        { alt: "Exploradores caminando sobre un glaciar azul" },
+        { alt: "Guía conduciendo un trineo de perros sobre nieve" },
+        { alt: "Sendero invernal con montañas y lago helado al atardecer" },
+        { alt: "Pareja tomándose una selfie en una carretera escénica de Islandia" },
+        { alt: "Viajeros en un puente con una cascada en invierno" },
+        { alt: "Vista de un lago azul rodeado de montañas nevadas" },
+        { alt: "Cascada congelada descendiendo por un acantilado" },
+        { alt: "Lago geotérmico con vapor rodeado de rocas negras" },
+        { alt: "Grupo sonriendo dentro de un túnel de hielo" },
+        { alt: "Mujer admirando un campo de lava y musgo en Islandia" },
+        { alt: "Cráter volcánico con río de lava brillante" },
+        { alt: "Casa islandesa con techo de césped en un valle nevado" },
+        { alt: "Viajero de pie en una playa de arena negra con olas rompiendo" },
+      ],
+    },
+    contactCta: {
+      title: "Contáctanos para diseñar tu próximo viaje al Ártico",
+      buttonLabel: "WhatsApp",
+      buttonHref: "https://wa.me/",
+      buttonAriaLabel: "Abrir una conversación de WhatsApp con Arctic Roots",
+    },
     travel: {
       title: "Elige tu tipo de viaje por Islandia",
       cards: [
@@ -304,6 +362,47 @@ const es = {
             "Experiencia de 10. Lograron organizarnos un itinerario con todas las actividades top de Islandia sin ninguna preocupación. Muy recomendables. ",
         },
       ],
+    },
+  },
+  agents: {
+    backgroundAlt: "Cascada islandesa en un paisaje rocoso",
+    hero: {
+      titleLineOne: "¿Tus clientes sueñan con Islandia o Groenlandia?",
+      titleLineTwo: "Juntos, lo hacemos realidad.",
+      descriptionHtml: `
+        <p>
+          Si tus clientes te piden Islandia, seguramente buscan auroras bailando sobre glaciares,
+          aguas termales y paisajes que parecen sacados de Marte.
+        </p>
+        <p>
+          Si no cuentas con el expertise local,¡En <strong>Arctic Roots</strong>, somos tus ojos, tus pies y tu conexión en Islandia!
+        </p>
+        <p>
+          <strong>Nos convertimos en tu operador local</strong>, manejamos la logística complicada y te brindamos acuerdos
+          exclusivos para que les ofrezcas una experiencia impecable. Además, por ser agencia de viajes, todo lo puedes
+          comisionar mediante IATA.
+        </p>
+        <p>
+          <strong>Tú vendes, nosotros hacemos el resto.</strong>
+        </p>
+      `,
+    },
+    whatsappHeadline: "¡Envíanos un WhatsApp para charlar!",
+    whatsappCta: "WhatsApp",
+    whatsappHref: "https://wa.me/",
+    whatsappAriaLabel: "Abrir una conversación de WhatsApp con Arctic Roots",
+  },
+  contact: {
+    hero: {
+      title: "Contáctanos y dile \"sí\" a tu experiencia por Islandia",
+      description:
+        "Escríbenos por WhatsApp (+354 779 1759) para cotizar o responde nuestro test para que te ayudemos a definir cuál aventura por el Ártico es perfecta para ti.",
+      whatsappCta: "WhatsApp",
+      whatsappHref: "https://wa.me/3547791759",
+      whatsappAriaLabel: "Abrir una conversación de WhatsApp con Arctic Roots",
+      testCta: "Hacer el test",
+      testHref: "https://arcticroots.com/test",
+      testAriaLabel: "Abrir el test para descubrir tu viaje ideal por el Ártico",
     },
   },
 } as const;

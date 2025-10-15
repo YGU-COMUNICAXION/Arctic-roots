@@ -1,0 +1,184 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
+import Memory1 from "@assets/img/home/recuerdos/1.jpg";
+import Memory2 from "@assets/img/home/recuerdos/2.jpg";
+import Memory3 from "@assets/img/home/recuerdos/3.jpg";
+import Memory4 from "@assets/img/home/recuerdos/4.jpg";
+import Memory5 from "@assets/img/home/recuerdos/5.png";
+import Memory6 from "@assets/img/home/recuerdos/6.jpg";
+import Memory7 from "@assets/img/home/recuerdos/7.png";
+import Memory8 from "@assets/img/home/recuerdos/8.jpg";
+import Memory9 from "@assets/img/home/recuerdos/9.png";
+import Memory10 from "@assets/img/home/recuerdos/10.png";
+import Memory11 from "@assets/img/home/recuerdos/11.png";
+import Memory12 from "@assets/img/home/recuerdos/12.jpg";
+import Memory13 from "@assets/img/home/recuerdos/13.jpg";
+import Memory14 from "@assets/img/home/recuerdos/14.jpg";
+import Memory15 from "@assets/img/home/recuerdos/15.jpg";
+import Memory16 from "@assets/img/home/recuerdos/16.jpg";
+import Memory17 from "@assets/img/home/recuerdos/17.jpg";
+
+interface MemoriesContent {
+  title: string;
+  images: { alt: string }[];
+}
+
+interface ImageItem {
+  source: ImageMetadata;
+  alt: string;
+  orientation: "portrait" | "landscape";
+}
+
+interface ColumnConfig {
+  count: number;
+  offset: string;
+  includeTitle?: boolean;
+}
+
+interface ColumnData extends ColumnConfig {
+  images: ImageItem[];
+}
+
+const { content } = Astro.props as { content: MemoriesContent };
+
+const imageSources: ImageMetadata[] = [
+  Memory1,
+  Memory2,
+  Memory3,
+  Memory4,
+  Memory5,
+  Memory6,
+  Memory7,
+  Memory8,
+  Memory9,
+  Memory10,
+  Memory11,
+  Memory12,
+  Memory13,
+  Memory14,
+  Memory15,
+  Memory16,
+  Memory17,
+];
+
+const images: ImageItem[] = imageSources.map((source, index) => ({
+  source,
+  alt: content.images?.[index]?.alt ?? "",
+  orientation: source.width >= source.height ? "landscape" : "portrait",
+}));
+
+// Desktop: 6 columnas. La última (col 6) debe tener exactamente 2 imágenes.
+// Para 17 imágenes: 3 + 3 + 3 + 3 + 3 + 2 = 17
+const columnConfigs: ColumnConfig[] = [
+  { count: 3, offset: "lg:translate-y-16" },
+  { count: 3, offset: "lg:-translate-y-12", includeTitle: true },
+  { count: 3, offset: "lg:translate-y-20" },
+  { count: 3, offset: "lg:-translate-y-10" },
+  { count: 3, offset: "lg:translate-y-12" },
+  { count: 2, offset: "lg:-translate-y-6" }, // NUEVA columna final (solo 2)
+];
+
+let startIndex = 0;
+const columns: ColumnData[] = columnConfigs.map((config) => {
+  const slice = images.slice(startIndex, startIndex + config.count);
+  startIndex += config.count;
+  return { ...config, images: slice };
+});
+
+// No agregamos sobrantes a la última, porque ya está distribuido exacto (3,3,3,3,3,2)
+
+// Tamaños/anchos
+const imageWidths = [640, 768, 960, 1280, 1536];
+const imageSizes =
+  "(min-width:1600px) 22vw, (min-width:1280px) 20vw, (min-width:1024px) 21vw, (min-width:768px) 30vw, 50vw";
+---
+
+<section class="w-full overflow-hidden py-16 sm:py-20 lg:py-24">
+  <div class="mx-auto w-full max-w-none px-4 sm:px-6 lg:px-12 xl:px-16">
+    <!-- Título en mobile -->
+    <div class="flex flex-col gap-4 text-primary-forest lg:hidden">
+      <h2 class="text-[28px] font-black text-primary-1 sm:text-[32px]">
+        {content.title}
+      </h2>
+    </div>
+
+    <!-- Grid mobile / tablet -->
+<!-- Masonry mobile / tablet -->
+<div
+  class="lg:hidden mt-6 columns-2 gap-3 sm:columns-3 sm:gap-4"
+  data-masonry
+>
+  {
+    images.map((image) => (
+      <div
+        class="mb-3 sm:mb-4 break-inside-avoid overflow-hidden
+               rounded-[24px] bg-neutral-200 isolate will-change-transform
+               shadow-lg shadow-black/10 ring-1 ring-inset ring-black/5"
+      >
+        <Image
+          src={image.source}
+          alt={image.alt}
+          class="block w-full h-auto rounded-[inherit] object-cover"
+          loading="lazy"
+          decoding="async"
+          widths={[480, 640, 768, 960, 1280]}
+          sizes="(min-width:640px) 33vw, 50vw"
+        />
+      </div>
+    ))
+  }
+</div>
+
+
+    <!-- Desktop full-bleed con corte en bordes -->
+    <div
+      class="hidden lg:block relative mx-[calc(50%-50vw)] overflow mt-10"
+    >
+      <!-- Más ancho que el viewport para mantener el recorte con una columna extra -->
+      <div class="relative w-[132vw] -translate-x-[16vw]">
+        <div class="flex flex-nowrap justify-center gap-7 xl:gap-9">
+          {
+            columns.map((column) => (
+              <div
+                class:list={[
+                  // ↓ Imágenes ligeramente más pequeñas (antes ~17.5/19rem)
+                  "flex w-[16rem] flex-none flex-col gap-6 xl:w-[17.5rem] xl:gap-8",
+                  column.offset,
+                ]}
+              >
+                {column.includeTitle && (
+                  <h2 class="text-[28px] font-black leading-tight text-primary-1 xl:text-[32px] text-primary-forest">
+                    {content.title}
+                  </h2>
+                )}
+
+                {column.images.map((image) => (
+                  <div
+                    class:list={[
+                      "relative overflow-hidden rounded-[28px] bg-neutral-200 isolate will-change-transform shadow-lg shadow-black/15 ring-1 ring-inset ring-black/5",
+                      image.orientation === "portrait"
+                        ? "aspect-[3/4]"
+                        : "aspect-[4/3]",
+                    ]}
+                  >
+                    <Image
+                      src={image.source}
+                      alt={image.alt}
+                      class="absolute inset-[-1px] h-[calc(100%+2px)] w-[calc(100%+2px)] rounded-[inherit] object-cover"
+                      loading="lazy"
+                      decoding="async"
+                      widths={imageWidths}
+                      sizes="(min-width:1600px) 22vw, (min-width:1280px) 20vw, (min-width:1024px) 21vw"
+                    />
+                  </div>
+                ))}
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
