@@ -84,18 +84,25 @@ const es = {
           "Aventura 4x4",
         ],
       ],
-      backgroundAlt: "Lava encendida recorriendo un campo volcánico en Islandia",
+      backgroundAlt:
+        "Lava encendida recorriendo un campo volcánico en Islandia",
     },
     memories: {
       title: "Recuerdos de nuestros viajeros felices",
       images: [
-        { alt: "Pareja abrazada frente a un glaciar islandés cubierto de nieve" },
+        {
+          alt: "Pareja abrazada frente a un glaciar islandés cubierto de nieve",
+        },
         { alt: "Aurora boreal verde iluminando montañas nevadas" },
-        { alt: "Dos viajeros sonriendo con cascos frente a una cascada helada" },
+        {
+          alt: "Dos viajeros sonriendo con cascos frente a una cascada helada",
+        },
         { alt: "Exploradores caminando sobre un glaciar azul" },
         { alt: "Guía conduciendo un trineo de perros sobre nieve" },
         { alt: "Sendero invernal con montañas y lago helado al atardecer" },
-        { alt: "Pareja tomándose una selfie en una carretera escénica de Islandia" },
+        {
+          alt: "Pareja tomándose una selfie en una carretera escénica de Islandia",
+        },
         { alt: "Viajeros en un puente con una cascada en invierno" },
         { alt: "Vista de un lago azul rodeado de montañas nevadas" },
         { alt: "Cascada congelada descendiendo por un acantilado" },
@@ -104,13 +111,15 @@ const es = {
         { alt: "Mujer admirando un campo de lava y musgo en Islandia" },
         { alt: "Cráter volcánico con río de lava brillante" },
         { alt: "Casa islandesa con techo de césped en un valle nevado" },
-        { alt: "Viajero de pie en una playa de arena negra con olas rompiendo" },
+        {
+          alt: "Viajero de pie en una playa de arena negra con olas rompiendo",
+        },
       ],
     },
     contactCta: {
       title: "Contáctanos para diseñar tu próximo viaje al Ártico",
       buttonLabel: "WhatsApp",
-      buttonHref: "https://wa.me/",
+      buttonHref: "https://wa.me/3547791759",
       buttonAriaLabel: "Abrir una conversación de WhatsApp con Arctic Roots",
     },
     travel: {
@@ -170,7 +179,7 @@ const es = {
           },
         ],
         whatsappCta: "Agenda por WhatsApp",
-        whatsappHref: "https://wa.me/",
+        whatsappHref: "https://wa.me/3547791759",
         whatsappAriaLabel:
           "Abrir una conversación de WhatsApp con Arctic Roots",
         highlightIconLabel: "Icono decorativo del servicio de consultoría",
@@ -389,7 +398,7 @@ const es = {
     },
     whatsappHeadline: "¡Envíanos un WhatsApp para charlar!",
     whatsappCta: "WhatsApp",
-    whatsappHref: "https://wa.me/",
+    whatsappHref: "https://wa.me/3547791759",
     whatsappAriaLabel: "Abrir una conversación de WhatsApp con Arctic Roots",
   },
   eclipse: {
@@ -399,7 +408,8 @@ const es = {
         "Prepárate para ser testigo de un fenómeno astronómico que ocurre solo una vez en la vida: el eclipse total de sol en Islandia. El próximo será en 2026, así que este viaje merece un ‘sí’ inmediato.",
       ctaLabel: "Desplázate para conocer el itinerario",
       ctaAriaLabel: "Desplazarse al itinerario del viaje grupal del eclipse",
-      disclaimer: "Cupo limitado. No incluye vuelos internacionales ni gastos personales.",
+      disclaimer:
+        "Cupo limitado. No incluye vuelos internacionales ni gastos personales.",
     },
     calendar: {
       anchorId: "itinerario-eclipse",
@@ -407,7 +417,7 @@ const es = {
       heading: "Eclipse en el Ártico | Viaje grupal",
       date: "10 - 19 agosto 2026",
       description:
-        "Prepárate para ser testigo de un fenómeno astronómico único. Este recorrido por Islandia está diseñado para que vivas el eclipse con guías locales, traslados cómodos y actividades inolvidables día tras día.",
+        "Prepárate para ser testigo de un fenómeno astronómico que ocurre solo una vez en la vida: el eclipse total de sol en Islandia.",
       includesTitle: "Incluye",
       includes: [
         "9 días de chofer (camioneta y gasolina incluidas)",
@@ -433,6 +443,8 @@ const es = {
       placesTitle: "Ciudades",
       priceLabel: "Costo por persona (ocupación doble):",
       price: "$3900 USD",
+      priceDescription:
+        "No incluye: vuelos, alimentos, tours no mencionados, transporte aéreo. Vuelos no incluidos se pueden cotizar con base en el origen del cliente.",
     },
     cta: {
       title:
@@ -440,20 +452,22 @@ const es = {
       description:
         "¿Listo para hacer de tu próxima escapada una de las mejores decisiones de tu vida?",
       buttonLabel: "Contáctanos para reservar",
-      buttonAriaLabel: "Ir a la página de contacto para reservar el viaje grupal del eclipse",
+      buttonAriaLabel:
+        "Ir a la página de contacto para reservar el viaje grupal del eclipse",
     },
   },
   contact: {
     hero: {
-      title: "Contáctanos y dile \"sí\" a tu experiencia por Islandia",
+      title: 'Contáctanos y dile "sí" a tu experiencia por Islandia',
       description:
         "Escríbenos por WhatsApp (+354 779 1759) para cotizar o responde nuestro test para que te ayudemos a definir cuál aventura por el Ártico es perfecta para ti.",
       whatsappCta: "WhatsApp",
-      whatsappHref: "https://wa.me/3547791759",
+      whatsappHref: "https://wa.me/35477917593547791759",
       whatsappAriaLabel: "Abrir una conversación de WhatsApp con Arctic Roots",
       testCta: "Hacer el test",
       testHref: "https://arcticroots.com/test",
-      testAriaLabel: "Abrir el test para descubrir tu viaje ideal por el Ártico",
+      testAriaLabel:
+        "Abrir el test para descubrir tu viaje ideal por el Ártico",
     },
   },
 } as const;

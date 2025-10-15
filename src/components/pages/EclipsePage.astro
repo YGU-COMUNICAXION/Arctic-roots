@@ -2,94 +2,96 @@
 import HeroBanner from "@components/HeroBanner.astro";
 import TravelCalendarSection from "@components/travel-types/TravelCalendarSection.astro";
 import { ui } from "@i18n/ui";
-import type { UILang } from "@i18n/ui";
-import { useTranslatedPath } from "@i18n/utils";
+import { useTranslatedPath, getLangFromUrl } from "@i18n/utils";
 
 import HeroBackground from "@assets/img/eclipse/hero.png";
 import CalendarBackground from "@assets/img/eclipse/bgEclipseGrupal.jpg";
+import Layout from "@layouts/Layout.astro";
 
-interface Props {
-  lang: UILang;
-}
-
-const { lang } = Astro.props as Props;
+const lang = getLangFromUrl(Astro.url);
 const content = ui[lang].eclipse;
 const translatePath = useTranslatedPath(lang);
 ---
 
-<HeroBanner backgroundImage={HeroBackground} activeBgOverlay>
-  <div
-    class="flex flex-col items-center gap-6 text-white text-center max-w-4xl mx-auto"
-  >
-    <h1 class="text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight">
-      {content.hero.title}
-    </h1>
-    <p class="text-sm md:text-base lg:text-lg font-light text-white/90">
-      {content.hero.description}
-    </p>
-
-    <div class="flex flex-col items-center gap-2">
-      <a
-        href={`#${content.calendar.anchorId}`}
-        class="group flex flex-col items-center gap-3 text-base md:text-lg font-medium text-white transition-colors hover:text-primary-mist focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black/40"
-        aria-label={content.hero.ctaAriaLabel}
+<Layout lang={lang} headerVariant="dark">
+  <HeroBanner backgroundImage={HeroBackground} activeBgOverlay>
+    <div
+      class="flex flex-col items-center gap-6 text-white text-center max-w-4xl mx-auto pt-12 lg:pt-32"
+    >
+      <h1 class="text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight">
+        {content.hero.title}
+      </h1>
+      <p
+        class="text-sm md:text-base lg:text-lg xl:text-2xl font-light text-white/90"
       >
-        <svg
-          class="w-10 transition-transform duration-200 group-hover:translate-y-1"
-          width="69"
-          height="69"
-          viewBox="0 0 69 69"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true"
+        {content.hero.description}
+      </p>
+
+      <div class="flex flex-col items-center gap-2">
+        <a
+          href={`#${content.calendar.anchorId}`}
+          class="group flex flex-col items-center gap-3 text-base md:text-lg font-medium text-white transition-colors hover:text-primary-mist focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black/40"
+          aria-label={content.hero.ctaAriaLabel}
         >
-          <path
-            d="M51.75 25.875L34.5 43.125L17.25 25.875"
-            stroke="#DEDCD1"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          ></path>
-        </svg>
-      </a>
+          <svg
+            class="w-10 transition-transform duration-200 group-hover:translate-y-1"
+            width="69"
+            height="69"
+            viewBox="0 0 69 69"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              d="M51.75 25.875L34.5 43.125L17.25 25.875"
+              stroke="#DEDCD1"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+        </a>
+      </div>
     </div>
-  </div>
-</HeroBanner>
+  </HeroBanner>
 
-<TravelCalendarSection
-  id={content.calendar.anchorId}
-  backgroundImage={CalendarBackground}
-  prompt={content.calendar.prompt}
-  heading={content.calendar.heading}
-  dateLabel={content.calendar.date}
-  description={content.calendar.description}
-  includesTitle={content.calendar.includesTitle}
-  includes={[...content.calendar.includes]}
-  routeTitle={content.calendar.routeTitle}
-  timeline={[...content.calendar.timeline]}
-  placesTitle={content.calendar.placesTitle}
-  priceLabel={content.calendar.priceLabel}
-  price={content.calendar.price}
-/>
+  <TravelCalendarSection
+    id={content.calendar.anchorId}
+    backgroundImage={CalendarBackground}
+    prompt={content.calendar.prompt}
+    heading={content.calendar.heading}
+    dateLabel={content.calendar.date}
+    description={content.calendar.description}
+    includesTitle={content.calendar.includesTitle}
+    includes={[...content.calendar.includes]}
+    routeTitle={content.calendar.routeTitle}
+    timeline={[...content.calendar.timeline]}
+    placesTitle={content.calendar.placesTitle}
+    priceLabel={content.calendar.priceLabel}
+    price={content.calendar.price}
+    priceDescription={content.calendar.priceDescription}
+  />
 
-<section class="bg-white py-16 md:py-24 lg:py-32">
-  <div
-    class="container mx-auto max-w-4xl px-6 md:px-8 lg:px-12 text-center text-primary-forest"
-  >
-    <h2 class="text-xl md:text-2xl lg:text-3xl font-semibold leading-tight">
-      {content.cta.title}
-    </h2>
-    <p class="mt-4 text-sm md:text-base lg:text-lg font-light">
-      {content.cta.description}
-    </p>
-    <div class="mt-8 flex justify-center">
-      <a
-        href={translatePath("/contact")}
-        class="inline-flex items-center justify-center rounded-full bg-primary-mist px-8 py-3 text-sm md:text-base font-medium uppercase tracking-wide text-primary-forest shadow-lg shadow-black/10 transition-transform hover:-translate-y-0.5 focus-visible:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-mist/70"
-        aria-label={content.cta.buttonAriaLabel}
+  <section class="bg-white py-16 md:py-24 lg:py-32">
+    <div
+      class="container mx-auto max-w-5xl px-6 md:px-8 lg:px-12 text-center text-primary-forest"
+    >
+      <h2
+        class="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold leading-tight"
       >
-        {content.cta.buttonLabel}
-      </a>
+        {content.cta.title}
+      </h2>
+      <p class="mt-4 text-sm md:text-base lg:text-lg xl:text-xl font-light">
+        {content.cta.description}
+      </p>
+      <div class="mt-8 flex justify-center">
+        <a
+          href={translatePath("/contact")}
+          class="inline-flex items-center justify-center rounded-full bg-primary-mist px-8 py-3 text-sm md:text-base font-medium uppercase tracking-wide text-primary-forest shadow-lg shadow-black/10 transition-transform hover:-translate-y-0.5 focus-visible:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-mist/70"
+          aria-label={content.cta.buttonAriaLabel}
+        >
+          {content.cta.buttonLabel}
+        </a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+</Layout>

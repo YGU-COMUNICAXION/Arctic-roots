@@ -4823,7 +4823,7 @@ index 1b72cbd..44a38d7 100644
 +    contactCta: {
 +      title: "Contact us to design your next Arctic journey",
 +      buttonLabel: "WhatsApp",
-+      buttonHref: "https://wa.me/",
++      buttonHref: "https://wa.me/3547791759",
 +      buttonAriaLabel: "Open a WhatsApp conversation with Arctic Roots",
 +    },
      travel: {
@@ -4840,7 +4840,7 @@ index ba6a4a5..5135a08 100644
 +    contactCta: {
 +      title: "Contáctanos para diseñar tu próximo viaje al Ártico",
 +      buttonLabel: "WhatsApp",
-+      buttonHref: "https://wa.me/",
++      buttonHref: "https://wa.me/3547791759",
 +      buttonAriaLabel: "Abrir una conversación de WhatsApp con Arctic Roots",
 +    },
      travel: {

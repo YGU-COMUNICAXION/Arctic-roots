@@ -20,6 +20,7 @@ interface Props {
   placesTitle: string;
   priceLabel: string;
   price: string;
+  priceDescription?: string;
 }
 
 const {
@@ -36,6 +37,7 @@ const {
   placesTitle,
   priceLabel,
   price,
+  priceDescription,
 } = Astro.props as Props;
 
 const [headingPrimary, headingSecondary] = heading.includes("|")
@@ -55,10 +57,10 @@ const [headingPrimary, headingSecondary] = heading.includes("|")
   >
     <div class="flex flex-wrap items-center justify-between gap-4 text-white">
       <h3 class="text-2xl md:text-3xl font-semibold tracking-tight">
-        <span>{headingPrimary}</span>
+        <span>{headingPrimary}</span> |
         {
           headingSecondary && (
-            <span class="font-light"> | {headingSecondary}</span>
+            <span class="font-light"> {headingSecondary}</span>
           )
         }
       </h3>
@@ -71,11 +73,13 @@ const [headingPrimary, headingSecondary] = heading.includes("|")
     </div>
 
     <div
-      class="overflow-hidden rounded-[30px] border border-white/15 bg-white/1 backdrop-blur-xs text-white shadow-xl"
+      class="overflow-hidden rounded-[30px] border border-white/15 bg-white/1 backdrop-blur-xs text-white shadow-xl
+      mb-12
+      "
     >
       <div class="flex flex-col gap-10 p-8 md:p-12">
         <p
-          class="text-sm md:text-base lg:text-xl text-center lg:px-12
+          class="text-sm md:text-base lg:text-xl text-center lg:px-12 max-w-3xl mx-auto
            font-light leading-relaxed text-white/90"
         >
           {description}
@@ -95,7 +99,9 @@ const [headingPrimary, headingSecondary] = heading.includes("|")
           </div>
 
           <div class="space-y-4 md:col-span-2">
-            <h4 class="text-base lg:text-lg font-semibold text-white/90">{routeTitle}</h4>
+            <h4 class="text-base lg:text-lg font-semibold text-white/90">
+              {routeTitle}
+            </h4>
             <ul
               class="route-list space-y-5 text-sm md:text-base lg:text-lg font-light text-white/90"
             >
@@ -121,12 +127,20 @@ const [headingPrimary, headingSecondary] = heading.includes("|")
       </div>
     </div>
 
-    <div class="text-center text-sm md:text-xl lg:text-2xl xl:text-3xl font-light text-white">
+    <div
+      class="text-center text-sm md:text-xl lg:text-2xl xl:text-3xl font-light text-white"
+    >
       <span>{priceLabel}</span>
-      <span class="ml-2 font-semibold text-white"
-        >{price}</span
-      >
+      <span class="ml-2 font-semibold text-white">{price}</span>
     </div>
+
+    {
+      priceDescription && (
+        <p class="text-center text-xs md:text-sm lg:text-base font-light text-white/70  mx-auto">
+          {priceDescription}
+        </p>
+      )
+    }
   </div>
 </section>
 

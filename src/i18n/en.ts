@@ -91,7 +91,9 @@ const en = {
       images: [
         { alt: "Couple hugging in front of a snow-covered Icelandic glacier" },
         { alt: "Green northern lights glowing above snowy mountains" },
-        { alt: "Two travelers smiling with helmets in front of an icy waterfall" },
+        {
+          alt: "Two travelers smiling with helmets in front of an icy waterfall",
+        },
         { alt: "Explorers walking across a blue glacier" },
         { alt: "Guide driving a dog sled across the snow" },
         { alt: "Winter trail with mountains and a frozen lake at sunset" },
@@ -110,7 +112,7 @@ const en = {
     contactCta: {
       title: "Contact us to design your next Arctic journey",
       buttonLabel: "WhatsApp",
-      buttonHref: "https://wa.me/",
+      buttonHref: "https://wa.me/3547791759",
       buttonAriaLabel: "Open a WhatsApp conversation with Arctic Roots",
     },
     travel: {
@@ -169,7 +171,7 @@ const en = {
           },
         ],
         whatsappCta: "Book via WhatsApp",
-        whatsappHref: "https://wa.me/",
+        whatsappHref: "https://wa.me/3547791759",
         whatsappAriaLabel: "Open a WhatsApp conversation with Arctic Roots",
         highlightIconLabel: "Decorative consulting icon",
         overlayIconLabel: "Decorative consulting illustration",
@@ -383,7 +385,7 @@ const en = {
     },
     whatsappHeadline: "Message us on WhatsApp to chat!",
     whatsappCta: "WhatsApp",
-    whatsappHref: "https://wa.me/",
+    whatsappHref: "https://wa.me/3547791759",
     whatsappAriaLabel: "Open a WhatsApp conversation with Arctic Roots",
   },
   eclipse: {
@@ -393,7 +395,8 @@ const en = {
         "Get ready to witness a once-in-a-lifetime astronomical event: the total solar eclipse in Iceland. The next one happens in 2026, so this journey deserves an instant yes.",
       ctaLabel: "Scroll to explore the itinerary",
       ctaAriaLabel: "Jump to the eclipse group itinerary",
-      disclaimer: "Limited availability. International flights and personal expenses are not included.",
+      disclaimer:
+        "Limited availability. International flights and personal expenses are not included.",
     },
     calendar: {
       anchorId: "eclipse-itinerary",
@@ -427,6 +430,8 @@ const en = {
       placesTitle: "Destinations",
       priceLabel: "Price per person (double occupancy):",
       price: "$3900 USD",
+      priceDescription:
+        "Not included: flights, meals, tours not mentioned, air transportation. Non-included flights can be quoted based on the client's origin.",
     },
     cta: {
       title:
@@ -434,16 +439,17 @@ const en = {
       description:
         "Ready to turn your next getaway into one of the best decisions of your life?",
       buttonLabel: "Contact us to book",
-      buttonAriaLabel: "Go to the contact page to reserve the eclipse group trip",
+      buttonAriaLabel:
+        "Go to the contact page to reserve the eclipse group trip",
     },
   },
   contact: {
     hero: {
-      title: "Reach out and say \"yes\" to your Iceland experience",
+      title: 'Reach out and say "yes" to your Iceland experience',
       description:
         "Send us a WhatsApp message (+354 779 1759) for a quote or take our test so we can help you choose the Arctic adventure that fits you best.",
       whatsappCta: "WhatsApp",
-      whatsappHref: "https://wa.me/3547791759",
+      whatsappHref: "https://wa.me/35477917593547791759",
       whatsappAriaLabel: "Start a WhatsApp conversation with Arctic Roots",
       testCta: "Take the test",
       testHref: "https://arcticroots.com/test",

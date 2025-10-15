@@ -1,12 +1,5 @@
 ---
-import Layout from "@layouts/Layout.astro";
 import EclipsePage from "@components/pages/EclipsePage.astro";
-
-import { getLangFromUrl } from "@i18n/utils";
-
-const lang = getLangFromUrl(Astro.url);
 ---
 
-<Layout lang={lang}>
-  <EclipsePage lang={lang} />
-</Layout>
+<EclipsePage />
