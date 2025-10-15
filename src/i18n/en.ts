@@ -149,7 +149,8 @@ const en = {
         {
           type: "private",
           title: "Private journey",
-          subtitle: "Designed exclusively for you, tailored to your budget, route, and dates.",
+          subtitle:
+            "Designed exclusively for you, tailored to your budget, route, and dates.",
           badge: "Personalised",
           detailsHtml: `
             <p class="text-sm md:text-base font-light text-white/85">Includes:</p>
@@ -163,7 +164,8 @@ const en = {
         {
           type: "selfGuided",
           title: "Self-guided",
-          subtitle: "We design an itinerary according to your needs, time, and budget.",
+          subtitle:
+            "We design an itinerary according to your needs, time, and budget.",
           badge: "Personalised",
           detailsHtml: `
             <p class="leading-relaxed">We provide every tool you need to discover Iceland on your own with all the conveniences you require.</p>
@@ -171,8 +173,9 @@ const en = {
         },
       ],
       contactCta: {
+        ctaTitle: "Ready to design your tailor-made Arctic experience?",
         label: "CONTACT US",
-        href: "/en/#contact",
+        href: "/en/contact",
       },
     },
     groupCta: {
@@ -220,7 +223,8 @@ const en = {
         "At Arctic Roots we design journeys that reflect your vision for a memorable and transformative trip.",
     },
     features: {
-      title: "At Arctic Roots we don't just do it differently, we make it unrivaled",
+      title:
+        "At Arctic Roots we don't just do it differently, we make it unrivaled",
       subtitle:
         "We know travel is an investment in culture, history, and memories. We craft it with excellence, care, and dedication as if we were planning it for our dearest person.",
       items: [

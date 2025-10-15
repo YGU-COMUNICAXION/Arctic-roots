@@ -4,7 +4,6 @@ import { getImage } from "astro:assets";
 interface Props {
   backgroundImage: ImageMetadata;
   align?: "center" | "left";
-  contentWidth?: "full" | "half";
   showOverlay?: boolean;
   overlayClass?: string;
 }
@@ -12,16 +11,12 @@ interface Props {
 const {
   backgroundImage,
   align = "center",
-  contentWidth = align === "left" ? "half" : "full",
   showOverlay = true,
   overlayClass = "bg-neutral-950/55",
 } = Astro.props as Props;
 
 const sectionAlignmentClasses =
   align === "left" ? "items-start text-left" : "items-center text-center";
-
-const contentWidthClasses =
-  contentWidth === "half" ? "max-w-2xl" : "max-w-4xl";
 
 const optimzedImage = await getImage({
   src: backgroundImage,
@@ -38,7 +33,7 @@ const optimzedImage = await getImage({
   {showOverlay && (
     <div class={`absolute inset-0 ${overlayClass}`} aria-hidden="true"></div>
   )}
-  <main class={`relative z-10 flex flex-col gap-6 ${contentWidthClasses}`}>
+  <main class={`relative z-10 flex flex-col gap-6`}>
     <slot />
   </main>
 </section>

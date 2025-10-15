@@ -150,7 +150,8 @@ const es = {
         {
           type: "private",
           title: "Viaje privado",
-          subtitle: "Diseñado exclusivamente para ti, adaptándonos a tu presupuesto, ruta y fechas.",
+          subtitle:
+            "Diseñado exclusivamente para ti, adaptándonos a tu presupuesto, ruta y fechas.",
           badge: "Personalizado",
           detailsHtml: `
             <p class="text-sm md:text-base font-light text-white/85">Incluye:</p>
@@ -164,7 +165,8 @@ const es = {
         {
           type: "selfGuided",
           title: "Autoguiado",
-          subtitle: "Diseñamos un itinerario de acuerdo con tus necesidades, tiempo y presupuesto.",
+          subtitle:
+            "Diseñamos un itinerario de acuerdo con tus necesidades, tiempo y presupuesto.",
           badge: "Personalizado",
           detailsHtml: `
             <p class="leading-relaxed">Te brindamos todas las herramientas para que recorras Islandia por tu cuenta con todas las facilidades que requieras.</p>
@@ -172,8 +174,9 @@ const es = {
         },
       ],
       contactCta: {
+        ctaTitle: "¿Listo para diseñar tu experiencia ártica a la medida?",
         label: "CONTÁCTANOS",
-        href: "/#contacto",
+        href: "/contacto",
       },
     },
     groupCta: {
@@ -197,17 +200,18 @@ const es = {
         "Avistamiento de ballenas",
         "Caminata en glaciar",
         "Entrada a Blue Lagoon",
+        "9 noches en hoteles seleccionados (o similares): Fosshotel Reikiavik, Arnarstapi Hotel, Hvammstangi Cottage, Berjaya Akureyri, Berjaya Mývatn, Fosshotel Núpar, Hotel Vík, Hilton Reikiavik",
       ],
       routeTitle: "Ruta",
       timeline: [
-        { dates: "12 al 13 y 20 al 22", place: "Reikiavik" },
-        { dates: "13 al 15 y 22 al 24", place: "Akureyri" },
-        { dates: "15 al 18 y 24 al 27", place: "Húsavík" },
-        { dates: "18 al 21 y 27 al 29", place: "Mývatn" },
-        { dates: "21 al 23 y 29 al 31", place: "Egilsstaðir" },
-        { dates: "23 al 25 y 31 al 2", place: "Höfn" },
-        { dates: "25 al 27 y 2 al 4", place: "Vík" },
-        { dates: "27 al 29 y 4 al 6", place: "Reikiavik" },
+        { dates: "10 al 12 y 20 al 22", place: "Reikiavik" },
+        { dates: "12 al 13 y 22 al 24", place: "Akureyri" },
+        { dates: "13 al 14 y 22 al 14", place: "Húsavík" },
+        { dates: "14 al 15 y 24 al 25", place: "Mývatn" },
+        { dates: "15 al 16 y 25 al 26", place: "Egilsstaðir" },
+        { dates: "16 al 17 y 26 al 27", place: "Höfn" },
+        { dates: "17 al 18 y 27 al 28", place: "Vík" },
+        { dates: "18 al 19 y 28 al 29", place: "Reikiavik" },
       ],
       placesTitle: "Lugar",
       priceLabel: "Costo por persona (ocupación doble):",
