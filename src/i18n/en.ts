@@ -6,8 +6,8 @@ const en = {
       home: "Home",
       eclipse: "Experience the eclipse",
       about: "About us",
-      travelTypes: "Trip types",
-      agents: "I'm an agent",
+      travelTypes: "Travel styles",
+      agents: "I'm a Travel Agent",
       contact: "Contact",
     },
   },
@@ -22,17 +22,18 @@ const en = {
   home: {
     highlights: {
       hero: {
-        title: "Iceland and Greenland: the land of ice and fire",
+        title: "Iceland: The land of ice and fire",
         paragraphs: [
-          "Imagine discovering a country that offers the fury of lava fields and, at the same time, surreal walls of ice and waterfalls.",
-          "Iceland is a destination for enthusiastic spirits eager to admire nature and embrace wonder; regardless of the expectations you bring, this land never says goodbye the same way you arrived.",
+          "Picture yourself discovering a country that offers you the raw power of lava fields alongside towering walls of ice and surreal waterfalls.",
+          "Iceland is a destination for those with a passionate spirit, for travelers eager to admire nature's wonders and still possess a sense of awe. It ensures no one leaves with the same expectations they arrived with.",
         ],
         backgroundAlt: "Lava erupting across an Icelandic volcanic landscape",
       },
       discovery: {
         title:
-          "It's a place where children and adults alike feel inside a living museum and it becomes even more fascinating if you are:",
-        description: "",
+          "It's a place where both children and adults will feel like they are in a natural museum. ",
+        description:
+          "Picture yourself discovering a country that offers you the raw power of lava fields alongside towering walls of ice and surreal waterfalls. Iceland is a destination for those with a passionate spirit, for travelers eager to admire nature's wonders and still possess a sense of awe. It's a place where both children and adults will feel like they are in a natural museum.",
         items: [
           { label: "Photographers", icon: "photographers" },
           { label: "Nature lovers", icon: "natureLovers" },
@@ -56,38 +57,38 @@ const en = {
       },
     },
     islandsNation: {
-      title: "Iceland in motion",
+      title: "Iceland in action",
       description:
-        "Add a dose of adventure to your Iceland trip with curated activities designed to keep the excitement going.",
+        "Add an extra touch of movement and adventure for your trip to Iceland with our selection of available activities.",
       columns: [
         [
           "Whale watching tour",
           "Blue Lagoon",
           "Sky Lagoon",
-          "Helicopter to an active volcano",
-          "Snorkeling in the Silfra fissure",
-          "Snowmobile ride",
+          "Helicopter to an active volcano and/or glacier",
+          "Driving or snorkeling in Sifra",
+          "Snowmobiling",
         ],
         [
           "Snow skiing",
-          "Glacier hike",
-          "Ice cave visit",
-          "Kayak on Jökulsárlón lagoon",
-          "Northern lights watching",
+          "Glacier hiking",
+          "Ice cave tour",
+          "Rafting or Kayaking in the Glacial Lagoon",
+          "Northern lights hunt",
         ],
         [
           "Reykjavík city tour",
-          "Perlan",
+          "Perlan Museum",
           "Lava Show",
-          "National Museum",
-          "Viking Museum",
-          "4x4 adventure",
+          "National Museum of Iceland",
+          "The Viking Museum",
+          "Super Jeep Tour",
         ],
       ],
       backgroundAlt: "Glowing lava flowing across an Icelandic volcanic field",
     },
     memories: {
-      title: "Memories from our happy travelers",
+      title: "Memories from our travelers",
       images: [
         { alt: "Couple hugging in front of a snow-covered Icelandic glacier" },
         { alt: "Green northern lights glowing above snowy mountains" },
@@ -110,7 +111,7 @@ const en = {
       ],
     },
     contactCta: {
-      title: "Contact us to design your next Arctic journey",
+      title: "Reach out to start designing your dream Arctic journey",
       buttonLabel: "WhatsApp",
       buttonHref: "https://wa.me/3547791759",
       buttonAriaLabel: "Open a WhatsApp conversation with Arctic Roots",
@@ -119,36 +120,37 @@ const en = {
       title: "Choose your kind of trip across Iceland",
       cards: [
         {
-          title: "Arctic eclipse",
-          subtitle: "Group journey",
+          title: "Eclipse in the Arctic",
+          subtitle: "Group trip",
           href: "/eclipse",
           imageAlt: "Travelers watching an eclipse in a snowy landscape",
         },
         {
-          title: "Golden Circle",
-          subtitle: "Signature excursion",
-          href: "/trips/golden-circle",
+          title: "Autumn in Iceland",
+          subtitle: "Group trip",
+          href: "/travel-types",
           imageAlt: "Icelandic waterfall on a clear day",
         },
         {
-          title: "Self-guided",
-          subtitle: "Roadtrip at your pace",
-          href: "/trips/self-guided",
+          title: "Self guided",
+          subtitle: "",
+          href: "",
           imageAlt: "Road crossing Icelandic mountains",
         },
         {
           title: "Private journey",
-          subtitle: "Tailor-made experience",
-          href: "/trips/private",
+          subtitle: "",
+          href: "",
           imageAlt: "Couple admiring an Icelandic waterfall",
         },
       ],
       parallax: {
         title:
-          "Planning to visit Iceland and Greenland<br/> with expert guidance?",
+          "Planning a self-drive tour in Iceland? Do it right with our expert advice",
         description: [
-          "We're ready to help you design the journey you've always imagined, from the <b>very first idea</b> to the <b>final detail</b>.",
-          "Tell us the experience you want to live and our team will turn it into a <b>realistic, memorable itinerary</b>.",
+          "Talk to people who know Iceland inside and out.",
+          "Planning a trip to Iceland is exciting… but how do you know if you're making the right choice? Where can you see the northern lights away from the crowds? How can you avoid expensive mistakes?.",
+          "At Arctic Roots, we answer your questions over a video call. No middlemen, just honest information you need to make the best decisions.",
         ],
         highlights: [
           {
@@ -170,7 +172,7 @@ const en = {
             },
           },
         ],
-        whatsappCta: "Book via WhatsApp",
+        whatsappCta: "Chat to book",
         whatsappHref: "https://wa.me/3547791759",
         whatsappAriaLabel: "Open a WhatsApp conversation with Arctic Roots",
         highlightIconLabel: "Decorative consulting icon",
@@ -182,10 +184,10 @@ const en = {
   travelTypes: {
     hero: {
       title:
-        "Iceland and Greenland aren’t destinations—you live them the way you’ve been dreaming",
+        "Iceland and Greenland aren't just places you visit, they are places you experience exactly as you've dreamt of",
       description:
-        "Our experiences let you enjoy anything from an exclusive journey tailored to your wishes to a self-guided adventure shaped around your preferences.",
-      ctaLabel: "Choose the idea that fits you",
+        "Our offerings enable you to enjoy everything from a tailor-made journey to a self-guided adventure, based on your budget.",
+      ctaLabel: "Select the option that is more suitable for you.",
       ctaAriaLabel: "Scroll to the group departures calendar",
       disclaimer:
         "Doesn’t include meals, flights (they can be quoted from your departure city), or activities not mentioned.",
@@ -194,9 +196,9 @@ const en = {
       cards: [
         {
           type: "group",
-          title: "Group journey",
-          subtitle: "Capacity: 10 travellers, scheduled departures only.",
-          note: "Note. This tour can’t be personalised because the group itinerary is pre-set.",
+          title: "Standard Group Tour",
+          subtitle: "Availability: 10 spots, on fixed dates only.",
+          note: "Please note: This tour cannot be customized as the group itinerary is pre-established.",
           detailsHtml: `
             <p class="text-sm md:text-base font-light text-white/85">Includes:</p>
             <ul class="mt-3 list-disc space-y-2 pl-5 marker:text-primary-mist">
@@ -210,14 +212,14 @@ const en = {
           type: "private",
           title: "Private journey",
           subtitle:
-            "Designed exclusively for you, tailored to your budget, route, and dates.",
+            "Designed exclusively for you, tailored to your budget, preferred route, and travel dates.",
           badge: "Personalised",
           detailsHtml: `
             <p class="text-sm md:text-base font-light text-white/85">Includes:</p>
             <ul class="mt-3 list-disc space-y-2 pl-5 marker:text-primary-mist">
               <li>Airport – hotel | hotel – airport transfers</li>
-              <li>Hotels (some with breakfast included, restrictions apply)</li>
-              <li>Booked tours (restrictions apply, subject to availability and weather)</li>
+              <li>Hotel accommodations (some include breakfast; restrictions may apply)</li>
+              <li>Pre-booked tours (restrictions may apply; subject to availability and weather conditions)</li>
             </ul>
           `,
         },
@@ -225,10 +227,10 @@ const en = {
           type: "selfGuided",
           title: "Self-guided",
           subtitle:
-            "We design an itinerary according to your needs, time, and budget.",
+            "We design an itinerary tailored to your needs, schedule, and budget.",
           badge: "Personalised",
           detailsHtml: `
-            <p class="leading-relaxed">We provide every tool you need to discover Iceland on your own with all the conveniences you require.</p>
+            <p class="leading-relaxed">We provide you with all the tools you need to explore Iceland on your own, with all the necessary arrangements made for you.</p>
           `,
         },
       ],
@@ -239,78 +241,81 @@ const en = {
       },
     },
     groupCta: {
-      title: "Ready to join the next group journey?",
+      title: "Ready to design your tailor-made Arctic experience?",
       ctaLabel: "Go to the calendar",
       ariaLabel: "Jump to the group travel calendar",
     },
     calendar: {
       anchorId: "travel-calendar",
-      prompt: "Join the next group departure",
-      heading: "Autumn in Iceland | Group journey",
+      prompt: "Join the next group trip!",
+      heading: "Autumn in Iceland | Group trip",
       date: "10–19 & 20–26 October 2026",
       description:
-        "Get ready to cross the land of fire and ice through Iceland’s most spectacular landscapes. Glaciers, volcanoes, hot springs, northern lights, whales, and charming towns await.",
+        "Get ready to journey through the land of fire and ice and witness Iceland's most spectacular landscapes: glaciers, volcanoes, geothermal lagoons, the northern lights, whales, and charming villages.",
       includesTitle: "Includes",
       includes: [
         "9 days with driver (van & fuel included)",
-        "Guided city tour in Reykjavík",
-        "Admission to Perlan and Lava Show",
-        "3 northern lights hunting excursions",
-        "Whale watching experience",
+        "Guided Reykjavík city tour",
+        "Admission to Perlan Museum and the Lava Show",
+        "3 tours to view the eclipse from optimal locations",
+        "Whale-watching tour",
         "Glacier hike",
-        "Blue Lagoon admission",
+        "Blue Lagoon",
+        "Hotels: Fosshotel Reikiavik, Arnastapi Hotel, Hvammstangi Cottage, Berjava Akureyri, Berjava Myvatn, Fosshotel Nupar, Hotel Vik, Hilton Reikiavik.",
       ],
       routeTitle: "Route",
       timeline: [
-        { dates: "Oct 12–13 & 20–22", place: "Reykjavík" },
-        { dates: "Oct 13–15 & 22–24", place: "Akureyri" },
-        { dates: "Oct 15–18 & 24–27", place: "Húsavík" },
-        { dates: "Oct 18–21 & 27–29", place: "Mývatn" },
-        { dates: "Oct 21–23 & 29–31", place: "Egilsstaðir" },
-        { dates: "Oct 23–25 & 31–Nov 2", place: "Höfn" },
-        { dates: "Oct 25–27 & Nov 2–4", place: "Vík" },
-        { dates: "Oct 27–29 & Nov 4–6", place: "Reykjavík" },
+        { dates: "10–12 & 20–22", place: "Reykjavík" },
+        { dates: "12–13 & 22–23", place: "Arnastapi" },
+        { dates: "13–14 & 23–24", place: "Hvammstangi" },
+        { dates: "14–15 & 24–25", place: "Akureyri" },
+        { dates: "15–16 & 25–26", place: "Myvatn" },
+        { dates: "16–17 & 26–27", place: "Höfn Region" },
+        { dates: "17–18 & 27–28", place: "Vík" },
+        { dates: "18–19 & 28–29", place: "Reikiavik" },
       ],
       placesTitle: "Location",
       priceLabel: "Price per person (double occupancy):",
       price: "$3,600 USD",
     },
   },
+
   about: {
     hero: {
       title: "Your gateway to a luxury Arctic experience",
-      subtitle:
-        "At Arctic Roots we design journeys that reflect your vision for a memorable and transformative trip.",
+      subtitle: `At Arctic Roots, we design journeys that reflect your vision of a memorable and life-changing trip. <br />
+        We meticulously craft every detail to ensure your experience is profound, sophisticated, and beyond words.  <br />
+        Our mission is to ensure that when you bid farewell to Iceland, you will have not just enjoyed luxury, but also embraced the essential: the melody of a glacier, the roar of a volcano, or the dance of the northern lights.
+   `,
     },
     features: {
-      title:
-        "At Arctic Roots we don't just do it differently, we make it unrivaled",
+      title: "At Arctic Roots, we don't just do different; we do unparalleled",
       subtitle:
-        "We know travel is an investment in culture, history, and memories. We craft it with excellence, care, and dedication as if we were planning it for our dearest person.",
+        "We understand that travel is an investment in culture, history, and memories. With every tailor-made journey we design, we plan everything with the same enthusiasm and meticulous care as if we were creating it for our most cherished loved ones.",
       items: [
         {
-          title: "Tailor-made luxury journeys",
+          title: "Luxury Iceland experiences without the markup",
           description:
             "Exclusive itineraries that mirror your interests and travel pace so you can savor Iceland unhurriedly.",
           icon: "bespokePlanning",
           iconLabel: "Tailor-made planning",
         },
         {
-          title: "Hotel upgrades & boutique stays",
+          title: "Hotel upgrades",
           description:
             "Preferred access to curated accommodations and premium amenities that elevate every moment.",
           icon: "hotelUpgrades",
           iconLabel: "Luxury hotel icon",
         },
         {
-          title: "24/7 concierge team",
+          title: "24/7 concierge service",
           description:
             "Continuous support before, during, and after your journey with a team ready to care for every detail.",
           icon: "conciergeSupport",
           iconLabel: "Dedicated concierge",
         },
         {
-          title: "Services in multiple languages",
+          title: "Multiple languages support",
           description:
             "Bilingual guides and hosts so you can communicate with ease throughout every experience.",
           icon: "multilingualServices",
@@ -324,7 +329,7 @@ const en = {
           iconLabel: "Exclusive discounts",
         },
         {
-          title: "Alliances with local experts",
+          title: "Partnerships with top local businesses",
           description:
             "We collaborate with top Icelandic operators to guarantee quality and safety on every journey.",
           icon: "strategicAlliances",
@@ -333,7 +338,7 @@ const en = {
       ],
     },
     testimonials: {
-      title: "Happy traveler reviews",
+      title: "Reviews of our travelers",
       subtitle:
         "Add a spark of movement and adventure to your trip to Iceland with the curated selection of activities we offer.",
       ctaLabel: "Testimonial",
@@ -343,19 +348,19 @@ const en = {
           name: "Andrea M.",
           location: "Mexico City",
           quote:
-            "Wonderful local partners and outstanding hotels. The culinary network was flawless and every segment of the itinerary flowed perfectly.",
+            "Excellent local recommendations and great hotels. The car rental was also perfect, and we didn't have any issues during our entire stay. They also recommended the Lava Show, which was incredible!",
         },
         {
           name: "Samuel C.",
           location: "Santiago, Chile",
           quote:
-            "The agency arranged every transfer for us, even a helicopter ride over glaciers and lagoons. Everything was impeccably organized.",
+            "The agency got us into every single activity on our list: the helicopter ride, the ice cave tour, and the Sky Lagoon. Everything was so well organized. I’d highly recommend their service!",
         },
         {
           name: "Elisabeth R.",
           location: "Buenos Aires",
           quote:
-            "A 10 out of 10 experience. The planning was incredible and each activity surprised us with the hosts' dedication.",
+            "10/10 experience. They put together an itinerary packed with all of Iceland's must-dos, completely hassle-free. Couldn't recommend them more!",
         },
       ],
     },
@@ -367,32 +372,29 @@ const en = {
       titleLineTwo: "Together, we make it happen.",
       descriptionHtml: `
         <p>
-          If your clients are asking for Iceland, they are probably imagining auroras dancing over glaciers,
-          geothermal baths, and landscapes that feel otherworldly.
+          If your clients are looking to travel to Iceland, they’re likely looking for auroras dancing over glaciers, geothermal springs, and landscapes that seem to resemble Mars.
         </p>
         <p>
-          If you do not have local expertise, at Arctic Roots we become your eyes, your feet, and your on-the-ground
-          connection in Iceland.
+        If you lack local expertise, don’t worry! At Arctic Roots, we are your eyes, your feet, and your connection in Iceland!
         </p>
         <p>
-          <strong>We become your local operator</strong>, handling complex logistics and securing exclusive agreements so
-          you can deliver a flawless experience. Plus, as a travel agency, you can earn commissions through IATA.
+         We become your local operator: we handle the complex logistics and offer you exclusive deals so you can provide your clients with a flawless experience. Plus, as a travel agency, you can commission everything through IATA.
         </p>
         <p>
           <strong>You sell. We handle the rest.</strong>
         </p>
       `,
     },
-    whatsappHeadline: "Message us on WhatsApp to chat!",
+    whatsappHeadline: "Click here to start a conversation",
     whatsappCta: "WhatsApp",
     whatsappHref: "https://wa.me/3547791759",
     whatsappAriaLabel: "Open a WhatsApp conversation with Arctic Roots",
   },
   eclipse: {
     hero: {
-      title: "Experience the next total solar eclipse in Iceland",
+      title: "Witness the next total solar eclipse in Iceland",
       description:
-        "Get ready to witness a once-in-a-lifetime astronomical event: the total solar eclipse in Iceland. The next one happens in 2026, so this journey deserves an instant yes.",
+        "Prepare to witness a once-in-a-lifetime astronomical event: a total solar eclipse in Iceland. The next one won't occur until the year 2245, so this trip deserves an immediate yes!",
       ctaLabel: "Scroll to explore the itinerary",
       ctaAriaLabel: "Jump to the eclipse group itinerary",
       disclaimer:
@@ -401,17 +403,17 @@ const en = {
     calendar: {
       anchorId: "eclipse-itinerary",
       prompt: "Discover the trip details",
-      heading: "Arctic Eclipse | Group journey",
+      heading: "Arctic Eclipse | Group trip",
       date: "10 - 19 August 2026",
       description:
         "Get ready to witness an astronomical wonder. This journey across Iceland is crafted so you can enjoy the eclipse with local guides, comfortable transfers, and unforgettable activities every single day.",
       includesTitle: "Includes",
       includes: [
-        "9 days with a driver (van and fuel included)",
-        "Guided tour in Reykjavík",
-        "Admission to Perlan and Lava Show",
-        "3 eclipse viewing tours",
-        "Whale watching",
+        "9 days with a dedicated driver (van and gasoline included)",
+        "Guided Reykjavík city tour",
+        "Admission to Perlan Museum and the Lava Show",
+        "3 tours to view the eclipse from optimal locations",
+        "Whale-watching tour",
         "Glacier hike",
         "Blue Lagoon",
         "Hotels: Fosshotel Reykjavik, Arnastapi Hotel, Hvammstangi Cottage, Berjava Akureyri, Berjava Myvatn, Fosshotel Nupar, Hotel Vik, Hilton Reykjavik",
@@ -431,27 +433,26 @@ const en = {
       priceLabel: "Price per person (double occupancy):",
       price: "$3900 USD",
       priceDescription:
-        "Not included: flights, meals, tours not mentioned, air transportation. Non-included flights can be quoted based on the client's origin.",
+        "Not included: Flights, meals, tours not mentioned, and domestic air transport. Flights are not included; they can be quoted based on the client's point of origin.",
     },
     cta: {
       title:
-        "In 2026, your vacation could turn into a historic and unforgettable experience in Iceland.",
+        "In 2026, your vacation could become a historic and unforgettable experience in Iceland.",
       description:
-        "Ready to turn your next getaway into one of the best decisions of your life?",
-      buttonLabel: "Contact us to book",
-      buttonAriaLabel:
-        "Go to the contact page to reserve the eclipse group trip",
+        "Ready to make your next getaway one of the best decisions of your life?",
+      buttonLabel: "Get in touch",
+      buttonAriaLabel: "Get in touch",
     },
   },
   contact: {
     hero: {
-      title: 'Reach out and say "yes" to your Iceland experience',
+      title: 'Contact us and say "yes" to your Arctic experience',
       description:
-        "Send us a WhatsApp message (+354 779 1759) for a quote or take our test so we can help you choose the Arctic adventure that fits you best.",
-      whatsappCta: "WhatsApp",
+        "Message us on WhatsApp for a quote, or take our quiz to find out the Arctic adventure perfect for you.",
+      whatsappCta: "Chat with us",
       whatsappHref: "https://wa.me/35477917593547791759",
       whatsappAriaLabel: "Start a WhatsApp conversation with Arctic Roots",
-      testCta: "Take the test",
+      testCta: "Take the quiz",
       testHref: "https://arcticroots.com/test",
       testAriaLabel: "Open the test to discover your ideal Arctic journey",
     },

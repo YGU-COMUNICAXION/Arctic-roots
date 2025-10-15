@@ -132,20 +132,20 @@ const es = {
           imageAlt: "Personas contemplando un eclipse en un paisaje nevado",
         },
         {
-          title: "Círculo Dorado",
-          subtitle: "Excursión icónica",
-          href: "/viajes/circulo-dorado",
+          title: "Otoño en Islandia",
+          subtitle: "Viaje grupal",
+          href: "/travel-types",
           imageAlt: "Cascada islandesa en un día despejado",
         },
         {
           title: "Autoguiado",
-          subtitle: "Ruta a tu ritmo",
+          subtitle: "",
           href: "/viajes/autoguiado",
           imageAlt: "Carretera islandesa rodeada de montañas",
         },
         {
           title: "Viaje privado",
-          subtitle: "Experiencia exclusiva",
+          subtitle: "",
           href: "/viajes/privado",
           imageAlt: "Pareja admirando una cascada en Islandia",
         },
@@ -192,7 +192,7 @@ const es = {
       title:
         "Islandia y Groenlandia no se visitan, se viven de la forma en que lo has estado soñando",
       description:
-        "Nuestras experiencias te permiten disfrutar desde un viaje exclusivo y diseñado a la medida de tus deseos, hasta una experiencia autoguiada basada en tus preferencias.",
+        "Nuestras experiencias te permiten disfrutar desde un viaje exclusivo y diseñado a la medida de tus deseos, hasta una experiencia autoguiada basada en tu presupuesto. ",
       ctaLabel: "Elige la idea ideal para ti",
       ctaAriaLabel: "Desplazarse al calendario de salidas grupales",
       disclaimer:
@@ -272,12 +272,12 @@ const es = {
       routeTitle: "Ruta",
       timeline: [
         { dates: "10 al 12 y 20 al 22", place: "Reikiavik" },
-        { dates: "12 al 13 y 22 al 24", place: "Akureyri" },
-        { dates: "13 al 14 y 22 al 14", place: "Húsavík" },
-        { dates: "14 al 15 y 24 al 25", place: "Mývatn" },
-        { dates: "15 al 16 y 25 al 26", place: "Egilsstaðir" },
+        { dates: "12 al 13 y 22 al 24", place: "Arnastapi" },
+        { dates: "13 al 14 y 22 al 14", place: "Hvammstangi" },
+        { dates: "14 al 15 y 24 al 25", place: "Akureyri" },
+        { dates: "15 al 16 y 25 al 26", place: "Myvatn" },
         { dates: "16 al 17 y 26 al 27", place: "Höfn" },
-        { dates: "17 al 18 y 27 al 28", place: "Vík" },
+        { dates: "17 al 18 y 27 al 28", place: "Región de Hofn" },
         { dates: "18 al 19 y 28 al 29", place: "Reikiavik" },
       ],
       placesTitle: "Lugar",
@@ -302,14 +302,14 @@ const es = {
         "Sabemos que los viajes son una inversión en cultura, historia y recuerdos. Así que, en cada viaje diseñado a la medida, no solo queremos hacerlo excelente y diferente; planeamos todo con el entusiasmo y cuidado como si lo hiciéramos para nuestra persona más especial.",
       items: [
         {
-          title: "Experiencias de lujo diseñadas a medida",
+          title: "Experiencia de lujo en Islandia sin el sobrecosto habitual",
           description:
             "Itinerarios exclusivos que reflejan tus intereses y ritmo de viaje para que vivas Islandia sin prisas.",
           icon: "bespokePlanning",
           iconLabel: "Planificación personalizada",
         },
         {
-          title: "Upgrades con hoteles boutique",
+          title: "Upgrades con hoteles",
           description:
             "Acceso preferente a estancias selectas y servicios premium que realzan cada momento.",
           icon: "hotelUpgrades",
@@ -337,7 +337,7 @@ const es = {
           iconLabel: "Descuentos especiales",
         },
         {
-          title: "Alianzas con expertos locales",
+          title: "Alianzas con las principales empresas locales",
           description:
             "Colaboramos con los mejores operadores islandeses para garantizar calidad y seguridad en cada travesía.",
           icon: "strategicAlliances",
@@ -405,7 +405,7 @@ const es = {
     hero: {
       title: "Disfruta del próximo eclipse total de sol en Islandia",
       description:
-        "Prepárate para ser testigo de un fenómeno astronómico que ocurre solo una vez en la vida: el eclipse total de sol en Islandia. El próximo será en 2026, así que este viaje merece un ‘sí’ inmediato.",
+        "Prepárate para ser testigo de un fenómeno astronómico que ocurre solo una vez en la vida: el eclipse total de sol en Islandia. El próximo será en el año 2245, así que este viaje merece un “sí” inmediato.",
       ctaLabel: "Desplázate para conocer el itinerario",
       ctaAriaLabel: "Desplazarse al itinerario del viaje grupal del eclipse",
       disclaimer:
