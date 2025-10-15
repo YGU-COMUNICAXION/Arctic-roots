@@ -4,6 +4,7 @@ import { Image } from "astro:assets";
 import whiteLogo from "@assets/svg/logo_alt_white.svg";
 import { useTranslations, useTranslatedPath } from "@i18n/utils";
 import type { UILang } from "@i18n/ui";
+import LanguageSwitcher from "./LanguageSwitcher.astro";
 
 interface Props {
   lang: UILang;
@@ -46,6 +47,8 @@ const currentYear = new Date().getFullYear();
         {t("header.nav.contact")}
       </a>
     </div>
+
+    <LanguageSwitcher lang={lang} />
 
     <p class="text-sm lg:text-base uppercase">
       © {currentYear}
