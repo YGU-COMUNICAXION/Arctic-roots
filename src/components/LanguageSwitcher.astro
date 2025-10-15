@@ -1,0 +1,61 @@
+---
+import { useTranslatedPath } from "@i18n/utils";
+import { defaultLang, type UILang } from "@i18n/ui";
+
+interface Props {
+  lang: UILang;
+}
+
+const { lang }: Props = Astro.props;
+const translatePath = useTranslatedPath(lang);
+
+const basePath = (() => {
+  const currentPath = Astro.url.pathname;
+  const normalized =
+    lang === defaultLang
+      ? currentPath
+      : currentPath.replace(new RegExp(`^/${lang}(?=/|$)`), "");
+
+  if (!normalized || normalized === "") {
+    return "/";
+  }
+
+  return normalized.startsWith("/") ? normalized : `/${normalized}`;
+})();
+
+const esHref = translatePath(basePath, "es");
+const enHref = basePath === "/" ? translatePath("", "en") : translatePath(basePath, "en");
+const isSpanish = lang === "es";
+const isEnglish = lang === "en";
+---
+
+<nav
+  class="flex items-center gap-3 text-sm font-medium uppercase text-neutral-100 md:text-base"
+  aria-label="Language selector"
+>
+  <a
+    href={esHref}
+    class:list={[
+      "transition-opacity",
+      isSpanish
+        ? "opacity-100"
+        : "opacity-70 hover:opacity-100 focus-visible:opacity-100",
+    ]}
+    aria-current={isSpanish ? "page" : undefined}
+  >
+    ES
+  </a>
+  <span class="h-4 w-px bg-neutral-100/60" aria-hidden="true"></span>
+  <a
+    href={enHref}
+    class:list={[
+      "transition-opacity",
+      isEnglish
+        ? "opacity-100"
+        : "opacity-70 hover:opacity-100 focus-visible:opacity-100",
+    ]}
+    aria-current={isEnglish ? "page" : undefined}
+  >
+    EN
+  </a>
+</nav>
