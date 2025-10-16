@@ -197,7 +197,7 @@ const translatePath = useTranslatedPath(lang);
     const barsIcon = document.querySelector("#menu-icon");
     const closeIcon = document.querySelector("#close-icon");
     const navigatorMenu = document.querySelector("#navigator-menu");
-    const header = document.querySelector("#header");
+    const header = document.querySelector<HTMLElement>("#header");
 
     if (!navigatorMenu || !barsIcon || !closeIcon || !header) {
       throw new Error("Element not found");
@@ -232,7 +232,7 @@ const translatePath = useTranslatedPath(lang);
       header.setAttribute("data-scrolled", scrolled ? "true" : "false");
     };
 
-    const setMenuOpen = (open) => {
+    const setMenuOpen = (open: boolean | undefined) => {
       // Toggle iconos
       barsIcon.classList.toggle("hidden", open);
       closeIcon.classList.toggle("hidden", !open);
