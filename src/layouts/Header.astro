@@ -97,6 +97,9 @@ const translatePath = useTranslatedPath(lang);
         "flex flex-col items-center justify-center shadow lg:shadow-none p-6 py-8 lg:p-0 lg:py-0",
         "transition-[top] duration-300 ease-in-out lg:transition-none",
         "lg:static lg:flex-1 lg:flex lg:items-center lg:gap-4 lg:pt-1 lg:bg-transparent",
+        isDarkVariant
+          ? "bg-primary-forest lg:bg-transparent"
+          : "bg-white lg:bg-transparent",
       ]}
       aria-label={t("header.ariaLabel")}
       data-i18n-key="header.ariaLabel"
@@ -110,7 +113,8 @@ const translatePath = useTranslatedPath(lang);
         [&>li>a]:relative [&>li>a]:uppercase [&>li]:inline-block
         [&>li>a]:hover:underline [&>li>a]:transition-colors [&>li>a]:duration-300
         [&>li>a]:ease-in-out
-        font-normal text-base lg:text-lg xl:text-xl transition-colors duration-300 ${
+        font-normal text-base lg:text-lg xl:text-xl transition-colors duration-300
+        ${
           isDarkVariant
             ? "text-white [&>li>a]:text-white group-[data-scrolled=true]/header:text-primary-forest group-[data-scrolled=true]/header:[&>li>a]:text-primary-forest"
             : "text-primary-forest [&>li>a]:text-primary-forest"
