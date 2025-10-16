@@ -193,39 +193,25 @@ const translatePath = useTranslatedPath(lang);
 </style>
 
 <script>
-  // Verificar que el DOM este completamente cargado antes de ejecutar el script con la validacion de viewtransiottions de astro
-  // con astro-load-page
-
   document.addEventListener("astro:page-load", () => {
-    // Toggle navigation menu
     const barsIcon = document.querySelector("#menu-icon");
     const closeIcon = document.querySelector("#close-icon");
     const navigatorMenu = document.querySelector("#navigator-menu");
     const header = document.querySelector("#header");
 
-    if (navigatorMenu === null || barsIcon === null || closeIcon === null) {
+    if (!navigatorMenu || !barsIcon || !closeIcon || !header) {
       throw new Error("Element not found");
     }
 
-    barsIcon.addEventListener("click", () => {
-      barsIcon.classList.toggle("hidden");
-      closeIcon.classList.toggle("hidden");
-      navigatorMenu.classList.toggle("top-16");
-    });
+    const isMobile = () => window.matchMedia("(max-width: 1023px)").matches;
 
-    closeIcon.addEventListener("click", () => {
-      closeIcon.classList.toggle("hidden");
-      barsIcon.classList.toggle("hidden");
-      navigatorMenu.classList.toggle("top-16");
-    });
-
-    const toggleHeaderBackground = () => {
+    const applyHeaderBg = () => {
       if (!(header instanceof HTMLElement)) return;
 
       const scrolled = window.scrollY > 16;
+      const menuOpen = header.dataset.menuOpen === "true";
       const isDark = header.dataset.variant === "dark";
 
-      // limpia todo
       header.classList.remove(
         "bg-transparent",
         "bg-white",
@@ -233,30 +219,59 @@ const translatePath = useTranslatedPath(lang);
         "shadow-md"
       );
 
-      if (scrolled) {
-        // fondo sólido según variant
+      // Fondo sólido si hay scroll o si el menú móvil está abierto
+      if (scrolled || (menuOpen && isMobile())) {
         header.classList.add(
           isDark ? "bg-primary-forest" : "bg-white",
           "shadow-md"
         );
       } else {
-        // vuelve a transparente
         header.classList.add("bg-transparent");
       }
 
       header.setAttribute("data-scrolled", scrolled ? "true" : "false");
     };
 
-    toggleHeaderBackground();
+    const setMenuOpen = (open) => {
+      // Toggle iconos
+      barsIcon.classList.toggle("hidden", open);
+      closeIcon.classList.toggle("hidden", !open);
 
-    window.addEventListener("scroll", toggleHeaderBackground, {
-      passive: true,
-    });
+      // Mover el nav (tu clase para desplegar)
+      navigatorMenu.classList.toggle("top-16", open);
+
+      // Marcar estado en header
+      header.setAttribute("data-menu-open", open ? "true" : "false");
+
+      // Recalcular fondo del header
+      applyHeaderBg();
+    };
+
+    barsIcon.addEventListener("click", () => setMenuOpen(true));
+    closeIcon.addEventListener("click", () => setMenuOpen(false));
+
+    // Ajuste si se cambia el tamaño (cerrar menú si deja de ser mobile)
+    window.addEventListener(
+      "resize",
+      () => {
+        if (!isMobile() && header.dataset.menuOpen === "true") {
+          setMenuOpen(false);
+        } else {
+          applyHeaderBg();
+        }
+      },
+      { passive: true }
+    );
+
+    // Scroll
+    applyHeaderBg();
+    window.addEventListener("scroll", applyHeaderBg, { passive: true });
 
     document.addEventListener(
       "astro:before-swap",
       () => {
-        window.removeEventListener("scroll", toggleHeaderBackground);
+        window.removeEventListener("scroll", applyHeaderBg);
+        window.removeEventListener("resize", applyHeaderBg);
       },
       { once: true }
     );
