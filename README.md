@@ -1,81 +1,34 @@
-# Astro Starter Kit: Basics
+# Arctic Roots
 
-```sh
-npm create astro@latest -- --template basics
-```
+## Link del proyecto publicado
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+https://arcticroots.is/
 
-## 🚀 Project Structure
+## Descripcion
 
-Inside of your Astro project, you'll see the following folders and files:
+Sitio web bilingue para Arctic Roots. Presenta informacion institucional, servicios, agentes, contacto y navegacion localizada en espanol e ingles.
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+## Tecnologias usadas
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+- Astro
+- React
+- Tailwind CSS
+- TypeScript
+- i18n de Astro
+- Heroicons
 
-## 🧞 Commands
+## Requisitos
 
-All commands are run from the root of the project, from a terminal:
+- Node.js 18+
+- npm
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Retos tecnicos
 
-## 👀 Want to learn more?
+- Implementar rutas bilingues con contenido localizado en espanol e ingles.
+- Mantener un sistema de traducciones reutilizable para layouts, header, footer y paginas.
+- Configurar redirecciones y rutas sin prefijo para el idioma principal.
+- Integrar contacto por WhatsApp con textos adaptados al idioma activo.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Creditos
 
-## 🌿 Development Branch
-
-All current work, including the latest updates to the home page sections, is being tracked on the `work` branch.
-
-### Obtener la rama `work`
-
-Si clonas el repositorio y no ves la rama `work` publicada en un remoto, puedes recrearla localmente aplicando el parche que se incluye en `patches/work.patch`:
-
-1. Asegúrate de estar en la rama base del proyecto (por ejemplo `main` o `master`):
-
-   ```bash
-   git checkout main # o git checkout master
-   ```
-
-2. Crea una rama nueva llamada `work` y cámbiate a ella:
-
-   ```bash
-   git switch -c work
-   ```
-
-3. Aplica el parche con todos los cambios más recientes:
-
-   ```bash
-   git apply --whitespace=nowarn patches/work.patch
-   ```
-
-4. Instala dependencias y ejecuta el proyecto:
-
-   ```bash
-   npm install
-   npm run dev -- --host 0.0.0.0 --port 4173
-   ```
-
-Con estos pasos tendrás una copia local idéntica al contenido de la rama `work` lista para revisión.
+Desarrollado por Jonathan Alexis Bello Lopez.
